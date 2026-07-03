@@ -1,4 +1,4 @@
-# Click check on the ones that has been completed and log your progress and the things you changed in the changes.md (Yes, I'm talking to you Jules)
+# Checkmark the ones that has been completed and log your progress and the things you changed in the changes.md (Yes, I'm talking to you, Jules)
 
 ### Phase 1: The Inescapable Interruption Engine
 - [ ] - Day 1: Initialize MV3 `manifest.json` with alarms, tabs, and scripting permissions.
