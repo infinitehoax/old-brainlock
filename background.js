@@ -61,7 +61,7 @@ chrome.runtime.onInstalled.addListener(async () => {
     lastUnlockTime: null
   });
 
-  setupAlarm();
+  setupAlarms();
 });
 
 // Re-lock on browser startup
@@ -75,15 +75,19 @@ chrome.runtime.onStartup.addListener(async () => {
       currentQuestion: getNextQuestion(questions, answered)
     });
   });
-  setupAlarm();
+  setupAlarms();
 });
 
-function setupAlarm() {
+function setupAlarms() {
   chrome.alarms.create('lockBrowser', { periodInMinutes: 20 });
+  chrome.alarms.create('periodicFetch', { periodInMinutes: 60 });
 }
 
-// Listener for the 20-minute alarm
+// Listener for alarms
 chrome.alarms.onAlarm.addListener((alarm) => {
+  if (alarm.name === 'periodicFetch') {
+    fetchQuestionsFromGithub();
+  }
   if (alarm.name === 'lockBrowser') {
     chrome.storage.local.get(['questions', 'answeredQuestions'], async (result) => {
       let questions = result.questions;
