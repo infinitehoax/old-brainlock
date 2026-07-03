@@ -13,16 +13,16 @@
 - [x] - Day 10: Perform end-to-end testing of the timer triggering the pause/mute function.
 
 ### Phase 2: Shadow DOM & Cosmic Toybox UI
-- [ ] - Day 11: Set up Shadow DOM in your content script to ensure total CSS isolation.
-- [ ] - Day 12: Build the full-screen backdrop UI overlay.
-- [ ] - Day 13: Add the blurred, radial-gradient aesthetic to the backdrop.
-- [ ] - Day 14: Build the central modal container (`lock.css`) with rounded corners and glowing borders.
-- [ ] - Day 15: Create floating, CSS-animated background particles inside the overlay.
-- [ ] - Day 16: Build the modal header (Logo, Brain emoji, and metadata placeholders).
-- [ ] - Day 17: Implement pop-in and fade-out CSS animations for the modal.
-- [ ] - Day 18: Ensure the overlay is fully responsive for different screen sizes.
-- [ ] - Day 19: Build the UI teardown function (removing the Shadow DOM smoothly).
-- [ ] - Day 20: Test overlay rendering over complex sites (YouTube, heavy web apps) to ensure it stays on top.
+- [x] - Day 11: Set up Shadow DOM in your content script to ensure total CSS isolation.
+- [x] - Day 12: Build the full-screen backdrop UI overlay.
+- [x] - Day 13: Add the blurred, radial-gradient aesthetic to the backdrop.
+- [x] - Day 14: Build the central modal container (`lock.css`) with rounded corners and glowing borders.
+- [x] - Day 15: Create floating, CSS-animated background particles inside the overlay.
+- [x] - Day 16: Build the modal header (Logo, Brain emoji, and metadata placeholders).
+- [x] - Day 17: Implement pop-in and fade-out CSS animations for the modal.
+- [x] - Day 18: Ensure the overlay is fully responsive for different screen sizes.
+- [x] - Day 19: Build the UI teardown function (removing the Shadow DOM smoothly).
+- [x] - Day 20: Test overlay rendering over complex sites (YouTube, heavy web apps) to ensure it stays on top.
 
 ### Phase 3: The Spinning Wheel & Category Engine
 - [ ] - Day 21: Set up an HTML5 Canvas element inside the overlay for the Spinning Wheel.
