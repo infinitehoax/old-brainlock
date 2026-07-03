@@ -116,6 +116,31 @@
 .answer-option input[type="radio"] { width: 20px; height: 20px; margin-right: 12px; cursor: pointer; accent-color: #667eea; }
 .answer-option label { flex: 1; cursor: pointer; font-size: 17px; color: #fff; margin: 0; }
 
+/* Short Answer & Text Inputs */
+.text-input {
+  width: 100%;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  color: #fff;
+  font-size: 18px;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.text-input:focus {
+  outline: none;
+  border-color: #667eea;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 15px rgba(102, 126, 234, 0.3);
+}
+
+.text-input:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
 /* Styles for showing correct/incorrect choices */
 .answer-option.incorrect-choice { border-color: #ff4d4d; background: rgba(255, 77, 77, 0.2); color: #fff; transform: none !important; cursor: not-allowed;}
 .answer-option.correct-choice { border-color: #00ff88; background: rgba(0, 255, 136, 0.2); color: #fff; transform: none !important; cursor: not-allowed;}
@@ -265,6 +290,56 @@
   color: rgba(255, 255, 255, 0.7);
   margin: 0;
   line-height: 1.4;
+}
+
+/* Letter Tiles */
+.letter-pool, .scramble-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.letter-tile {
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.letter-tile:hover {
+  background: rgba(102, 126, 234, 0.2);
+  border-color: #667eea;
+  transform: translateY(-2px);
+}
+
+.letter-tile.selected-tile {
+  background: #667eea;
+  border-color: #a5b4fc;
+}
+
+.spelled-word-container {
+  min-height: 60px;
+  border-bottom: 2px dashed rgba(255, 255, 255, 0.3);
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-size: 32px;
+  font-weight: bold;
+  letter-spacing: 5px;
+  color: #a5b4fc;
 }
 
 .spin-button {

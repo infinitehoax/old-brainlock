@@ -29,9 +29,355 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 });
 
 let shadowRoot;
+let currentRenderer;
+
+const QuestionRendererFactory = {
+  createRenderer(question) {
+    switch (question.type) {
+      case 'multiple-choice':
+        return new MultipleChoiceRenderer(question);
+      case 'true-false':
+        return new TrueFalseRenderer(question);
+      case 'short-answer':
+        return new ShortAnswerRenderer(question);
+      case 'fill-in-the-blank':
+        return new FillInTheBlankRenderer(question);
+      case 'odd-one-out':
+        return new OddOneOutRenderer(question);
+      case 'spell-it-out':
+        return new SpellItOutRenderer(question);
+      case 'word-scramble':
+        return new WordScrambleRenderer(question);
+      default:
+        return new MultipleChoiceRenderer(question);
+    }
+  }
+};
+
+class BaseRenderer {
+  constructor(question) {
+    this.question = question;
+  }
+
+  getIcon() { return "🚀"; }
+
+  render(container) {
+    container.innerHTML = `
+      <div class="brain-lock-header">
+        <div class="modal-logo">${this.getIcon()}</div>
+        <h1>Brain Lock</h1>
+        <div class="header-metadata">
+          <span class="category-tag">${this.question.category || 'Standard'}</span>
+          <span class="difficulty-tag">Normal</span>
+        </div>
+        <p>Answer this question correctly to unlock your browser</p>
+      </div>
+      <div class="brain-lock-content">
+        <div class="question-text">${this.question.question}</div>
+        <div class="interactive-area"></div>
+        <div id="feedback-message" class="feedback-message"></div>
+        <button id="brain-lock-submit" class="submit-button">Submit Answer</button>
+      </div>
+      <div class="brain-lock-footer"><p>Get it wrong? You'll get another question until you answer correctly!</p></div>
+    `;
+
+    const area = container.querySelector('.interactive-area');
+    this.renderInteractiveArea(area);
+    this.setupEventListeners(container);
+  }
+
+  renderInteractiveArea(area) {
+    area.innerHTML = `<p style="color: #ff4d4d;">Question type "${this.question.type}" not yet implemented.</p>`;
+  }
+
+  setupEventListeners(container) {
+    const submitBtn = container.querySelector('#brain-lock-submit');
+    submitBtn.addEventListener('click', () => {
+      const answer = this.getAnswer();
+      if (answer === null || answer === "" || (Array.isArray(answer) && answer.some(a => a === ""))) {
+        showFeedback("Please provide an answer!", true);
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Checking...";
+      this.disableInput();
+
+      chrome.runtime.sendMessage({ action: "checkAnswer", answer: answer }, (response) => {
+        this.handleResponse(response, container);
+      });
+    });
+  }
+
+  getAnswer() { return null; }
+  disableInput() {}
+
+  handleResponse(response, container) {
+    const feedbackEl = container.querySelector('#feedback-message');
+    const submitBtn = container.querySelector('#brain-lock-submit');
+    const newBtn = submitBtn.cloneNode(true);
+    submitBtn.parentNode.replaceChild(newBtn, submitBtn);
+
+    if (response.correct) {
+      showFeedback(response.feedback, false);
+      feedbackEl.innerHTML += `<div class="general-feedback">${response.generalFeedback || ""}</div>`;
+      newBtn.textContent = 'Continue';
+      newBtn.className = 'submit-button continue-btn';
+      newBtn.disabled = false;
+      newBtn.addEventListener('click', () => {
+        removeLockScreen();
+      });
+    } else {
+      showFeedback(response.feedback, true);
+      this.showCorrectAnswer(response, container);
+
+      if (response.generalFeedback) {
+        feedbackEl.innerHTML += `<div class="general-feedback">${response.generalFeedback}</div>`;
+      }
+      newBtn.textContent = 'Try Another Question';
+      newBtn.className = 'submit-button try-again-btn';
+      newBtn.disabled = false;
+      newBtn.addEventListener('click', () => {
+        showLockScreen(response.newQuestion);
+      });
+    }
+  }
+
+  showCorrectAnswer(response, container) {
+    const feedbackEl = container.querySelector('#feedback-message');
+    feedbackEl.innerHTML += `<div class="correct-answer-text">The correct answer was: <strong>${response.correctAnswerText}</strong></div>`;
+    if (response.correctAnswerFeedback) {
+      const cleanedFeedback = response.correctAnswerFeedback.replace(/^Correct\.\s*/, '');
+      feedbackEl.innerHTML += `<div class="correct-answer-feedback">${cleanedFeedback}</div>`;
+    }
+  }
+}
+
+class MultipleChoiceRenderer extends BaseRenderer {
+  renderInteractiveArea(area) {
+    const shuffledAnswers = [...this.question.answers].sort(() => Math.random() - 0.5);
+    area.className = 'answers-container';
+    area.innerHTML = shuffledAnswers.map((answer, index) => `
+      <div class="answer-option" data-answer="${answer.text}">
+        <input type="radio" name="answer" id="answer${index}" value="${answer.text}">
+        <label for="answer${index}">${answer.text}</label>
+      </div>
+    `).join('');
+  }
+
+  setupEventListeners(container) {
+    super.setupEventListeners(container);
+    const options = container.querySelectorAll('.answer-option');
+    options.forEach(option => {
+      option.addEventListener('click', () => {
+        if (container.querySelector('#brain-lock-submit').disabled) return;
+        const radio = option.querySelector('input[type="radio"]');
+        radio.checked = true;
+        options.forEach(o => o.classList.remove('selected'));
+        option.classList.add('selected');
+      });
+    });
+  }
+
+  getAnswer() {
+    const selected = shadowRoot.querySelector('input[name="answer"]:checked');
+    return selected ? selected.value : null;
+  }
+
+  disableInput() {
+    shadowRoot.querySelectorAll('.answer-option input').forEach(input => input.disabled = true);
+  }
+
+  showCorrectAnswer(response, container) {
+    const selectedAnswer = this.getAnswer();
+    const correctAnswer = response.correctAnswerText;
+
+    container.querySelectorAll('.answer-option').forEach(option => {
+      const answerText = option.dataset.answer;
+      if (answerText === correctAnswer) {
+        option.classList.add('correct-choice');
+      } else if (answerText === selectedAnswer) {
+        option.classList.add('incorrect-choice');
+      }
+    });
+    super.showCorrectAnswer(response, container);
+  }
+}
+
+class TrueFalseRenderer extends MultipleChoiceRenderer {
+  getIcon() { return "⚖️"; }
+  renderInteractiveArea(area) {
+    this.question.answers = [
+      { text: "True", feedback: this.question.answers.find(a => a.text === "True")?.feedback || "Correct!" },
+      { text: "False", feedback: this.question.answers.find(a => a.text === "False")?.feedback || "Incorrect." }
+    ];
+    super.renderInteractiveArea(area);
+  }
+}
+
+class ShortAnswerRenderer extends BaseRenderer {
+  getIcon() { return "✏️"; }
+  renderInteractiveArea(area) {
+    area.innerHTML = `
+      <div class="short-answer-container">
+        <input type="text" id="short-answer-input" class="text-input" placeholder="Type your answer here..." autocomplete="off">
+      </div>
+    `;
+  }
+  getAnswer() {
+    return shadowRoot.getElementById('short-answer-input').value;
+  }
+  disableInput() {
+    shadowRoot.getElementById('short-answer-input').disabled = true;
+  }
+}
+
+class FillInTheBlankRenderer extends BaseRenderer {
+  getIcon() { return "🧩"; }
+  renderInteractiveArea(area) {
+    const parts = this.question.question.split('___');
+    let html = '<div class="fitb-container">';
+    parts.forEach((part, index) => {
+      html += `<span>${part}</span>`;
+      if (index < parts.length - 1) {
+        html += `<input type="text" class="text-input fitb-input" data-index="${index}" style="display: inline-block; width: auto; min-width: 100px; padding: 4px 8px; margin: 0 5px;" autocomplete="off">`;
+      }
+    });
+    html += '</div>';
+    area.innerHTML = html;
+
+    // Update the question text area to be empty since we are rendering the question in the interactive area
+    shadowRoot.querySelector('.question-text').style.display = 'none';
+  }
+
+  getAnswer() {
+    const inputs = shadowRoot.querySelectorAll('.fitb-input');
+    if (inputs.length === 1) return inputs[0].value;
+    return Array.from(inputs).map(input => input.value);
+  }
+
+  disableInput() {
+    shadowRoot.querySelectorAll('.fitb-input').forEach(input => input.disabled = true);
+  }
+}
+
+class OddOneOutRenderer extends MultipleChoiceRenderer {
+  getIcon() { return "🔍"; }
+}
+
+class SpellItOutRenderer extends BaseRenderer {
+  constructor(question) {
+    super(question);
+    this.currentSpelling = "";
+    this.letterPool = this.generateLetterPool();
+  }
+
+  getIcon() { return "🔠"; }
+
+  generateLetterPool() {
+    const correct = this.question.correctAnswer.toUpperCase().split('');
+    const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const decoys = [];
+    for (let i = 0; i < 5; i++) {
+      decoys.push(alphabet[Math.floor(Math.random() * alphabet.length)]);
+    }
+    return [...correct, ...decoys].sort(() => Math.random() - 0.5);
+  }
+
+  renderInteractiveArea(area) {
+    area.innerHTML = `
+      <div class="spelled-word-container" id="spelled-word"></div>
+      <div class="letter-pool" id="letter-pool">
+        ${this.letterPool.map(l => `<div class="letter-tile">${l}</div>`).join('')}
+      </div>
+      <button id="clear-spelling" class="submit-button try-again-btn" style="margin-top: 15px; padding: 10px;">Clear</button>
+    `;
+  }
+
+  setupEventListeners(container) {
+    super.setupEventListeners(container);
+    const tiles = container.querySelectorAll('.letter-tile');
+    const display = container.querySelector('#spelled-word');
+    const clearBtn = container.querySelector('#clear-spelling');
+
+    tiles.forEach(tile => {
+      tile.addEventListener('click', () => {
+        if (container.querySelector('#brain-lock-submit').disabled) return;
+        this.currentSpelling += tile.textContent;
+        display.textContent = this.currentSpelling;
+      });
+    });
+
+    clearBtn.addEventListener('click', () => {
+      if (container.querySelector('#brain-lock-submit').disabled) return;
+      this.currentSpelling = "";
+      display.textContent = "";
+    });
+  }
+
+  getAnswer() {
+    return this.currentSpelling;
+  }
+
+  disableInput() {
+    shadowRoot.querySelectorAll('.letter-tile').forEach(t => t.style.pointerEvents = 'none');
+    shadowRoot.getElementById('clear-spelling').disabled = true;
+  }
+}
+
+class WordScrambleRenderer extends BaseRenderer {
+  constructor(question) {
+    super(question);
+    this.scrambledLetters = this.question.correctAnswer.toUpperCase().split('').sort(() => Math.random() - 0.5);
+    this.currentGuess = [];
+  }
+
+  getIcon() { return "🔀"; }
+
+  renderInteractiveArea(area) {
+    area.innerHTML = `
+      <div class="spelled-word-container" id="scramble-guess"></div>
+      <div class="scramble-container" id="scramble-pool">
+        ${this.scrambledLetters.map((l, i) => `<div class="letter-tile" data-index="${i}">${l}</div>`).join('')}
+      </div>
+      <button id="clear-scramble" class="submit-button try-again-btn" style="margin-top: 15px; padding: 10px;">Clear</button>
+    `;
+  }
+
+  setupEventListeners(container) {
+    super.setupEventListeners(container);
+    const tiles = container.querySelectorAll('.letter-tile');
+    const display = container.querySelector('#scramble-guess');
+    const clearBtn = container.querySelector('#clear-scramble');
+
+    tiles.forEach(tile => {
+      tile.addEventListener('click', () => {
+        if (container.querySelector('#brain-lock-submit').disabled || tile.classList.contains('selected-tile')) return;
+        this.currentGuess.push(tile.textContent);
+        tile.classList.add('selected-tile');
+        display.textContent = this.currentGuess.join('');
+      });
+    });
+
+    clearBtn.addEventListener('click', () => {
+      if (container.querySelector('#brain-lock-submit').disabled) return;
+      this.currentGuess = [];
+      display.textContent = "";
+      tiles.forEach(tile => tile.classList.remove('selected-tile'));
+    });
+  }
+
+  getAnswer() {
+    return this.currentGuess.join('');
+  }
+
+  disableInput() {
+    shadowRoot.querySelectorAll('.letter-tile').forEach(t => t.style.pointerEvents = 'none');
+    shadowRoot.getElementById('clear-scramble').disabled = true;
+  }
+}
 
 function showLockScreen(question, stage = 'question') {
-  // Clean up any existing overlay first
   const existingHost = document.getElementById('brain-lock-host');
   if (existingHost) existingHost.remove();
 
@@ -41,7 +387,6 @@ function showLockScreen(question, stage = 'question') {
 
   shadowRoot = host.attachShadow({ mode: 'open' });
 
-  // Inject CSS
   const link = document.createElement('link');
   link.rel = 'stylesheet';
   link.href = chrome.runtime.getURL('lock.css');
@@ -53,7 +398,6 @@ function showLockScreen(question, stage = 'question') {
 
   renderStage(overlay, stage, question);
 
-  // Create particles
   for (let i = 0; i < 20; i++) {
     const particle = document.createElement('div');
     particle.className = 'particle';
@@ -94,8 +438,8 @@ function renderStage(overlay, stage, data) {
     container.innerHTML = `
       <div class="brain-lock-header">
         <div class="modal-logo">🎯</div>
-        <h1>Choose Your Subject</h1>
-        <p>${data === 'System Picks' ? "The wheel decided! Randomizing..." : "The choice is yours! Pick a subject for today."}</p>
+        <h1>Choose Your Category</h1>
+        <p>${data === 'System Picks' ? "The wheel decided! Randomizing..." : "The choice is yours! Pick a category for today."}</p>
       </div>
       <div class="brain-lock-content">
         <div class="category-selection-container">
@@ -120,15 +464,15 @@ function renderStage(overlay, stage, data) {
     overlay.appendChild(container);
 
     if (data === 'System Picks') {
-      // Logic for random selection with animation
       setTimeout(() => {
         const categories = ['Academic', 'YouTube', 'IPA'];
         const randomCategory = categories[Math.floor(Math.random() * categories.length)];
         const card = shadowRoot.querySelector(`.category-card[data-category="${randomCategory}"]`);
-        card.style.transform = "scale(1.1) translateY(-20px)";
-        card.style.borderColor = "#fff";
-        card.style.boxShadow = "0 0 30px rgba(255,255,255,0.5)";
-
+        if (card) {
+          card.style.transform = "scale(1.1) translateY(-20px)";
+          card.style.borderColor = "#fff";
+          card.style.boxShadow = "0 0 30px rgba(255,255,255,0.5)";
+        }
         setTimeout(() => selectCategory(randomCategory), 1500);
       }, 1000);
     } else {
@@ -137,61 +481,9 @@ function renderStage(overlay, stage, data) {
       });
     }
   } else {
-    const question = data;
-    const shuffledAnswers = [...question.answers].sort(() => Math.random() - 0.5);
-    const answersHTML = shuffledAnswers.map((answer, index) => `
-      <div class="answer-option" data-answer="${answer.text}">
-        <input type="radio" name="answer" id="answer${index}" value="${answer.text}">
-        <label for="answer${index}">${answer.text}</label>
-      </div>
-    `).join('');
-
-    container.innerHTML = `
-      <div class="brain-lock-header">
-        <div class="modal-logo">🚀</div>
-        <h1>Brain Lock</h1>
-        <div class="header-metadata">
-          <span class="category-tag">${question.subject || 'Standard'}</span>
-          <span class="difficulty-tag">Normal</span>
-        </div>
-        <p>Answer this question correctly to unlock your browser</p>
-      </div>
-      <div class="brain-lock-content">
-        <div class="question-text">${question.question}</div>
-        <div class="answers-container">${answersHTML}</div>
-        <div id="feedback-message" class="feedback-message"></div>
-        <button id="brain-lock-submit" class="submit-button">Submit Answer</button>
-      </div>
-      <div class="brain-lock-footer"><p>Get it wrong? You'll get another question until you answer correctly!</p></div>
-    `;
     overlay.appendChild(container);
-
-    const submitBtn = shadowRoot.getElementById('brain-lock-submit');
-    const answerOptions = shadowRoot.querySelectorAll('.answer-option');
-
-    answerOptions.forEach(option => {
-      option.addEventListener('click', () => {
-        if (submitBtn.disabled) return;
-        const radio = option.querySelector('input[type="radio"]');
-        radio.checked = true;
-        answerOptions.forEach(o => o.classList.remove('selected'));
-        option.classList.add('selected');
-      });
-    });
-
-    submitBtn.addEventListener('click', () => {
-      const selectedRadio = shadowRoot.querySelector('input[name="answer"]:checked');
-      if (!selectedRadio) {
-        showFeedback("Please select an answer!", true);
-        return;
-      }
-
-      submitBtn.disabled = true;
-      submitBtn.textContent = "Checking...";
-      shadowRoot.querySelectorAll('.answer-option input').forEach(input => input.disabled = true);
-
-      chrome.runtime.sendMessage({ action: "checkAnswer", answer: selectedRadio.value }, handleResponse);
-    });
+    currentRenderer = QuestionRendererFactory.createRenderer(data);
+    currentRenderer.render(container);
   }
 }
 
@@ -232,8 +524,6 @@ function initWheel() {
 
     segments.forEach((segment, i) => {
       const angle = currentAngle + i * sliceAngle;
-
-      // Draw segment
       ctx.beginPath();
       ctx.moveTo(centerX, centerY);
       ctx.arc(centerX, centerY, radius - 10, angle, angle + sliceAngle);
@@ -244,7 +534,6 @@ function initWheel() {
       ctx.lineWidth = 2;
       ctx.stroke();
 
-      // Draw text
       ctx.save();
       ctx.translate(centerX, centerY);
       ctx.rotate(angle + sliceAngle / 2);
@@ -257,7 +546,6 @@ function initWheel() {
       ctx.restore();
     });
 
-    // Draw center hub
     ctx.beginPath();
     ctx.arc(centerX, centerY, 40, 0, 2 * Math.PI);
     ctx.fillStyle = "#1a1a2e";
@@ -266,7 +554,6 @@ function initWheel() {
     ctx.lineWidth = 4;
     ctx.stroke();
     
-    //Hub logo
     ctx.fillStyle = "#fff";
     ctx.font = "24px Arial";
     ctx.textAlign = "center";
@@ -275,10 +562,8 @@ function initWheel() {
 
   function rotate() {
     if (!isSpinning) return;
-
     currentAngle += velocity;
     velocity *= friction;
-
     if (velocity < 0.001) {
       isSpinning = false;
       calculateResult();
@@ -290,8 +575,6 @@ function initWheel() {
 
   function calculateResult() {
     const sliceAngle = (2 * Math.PI) / segments.length;
-    // Pointer is at the top (-PI/2)
-    // Normalize currentAngle to 0..2PI
     const normalizedAngle = (currentAngle + Math.PI/2) % (2 * Math.PI);
     const invertedAngle = (2 * Math.PI - normalizedAngle) % (2 * Math.PI);
     const segmentIndex = Math.floor(invertedAngle / sliceAngle) % segments.length;
@@ -310,7 +593,7 @@ function initWheel() {
 
   spinBtn.addEventListener('click', () => {
     if (isSpinning) return;
-    velocity = Math.random() * 0.4 + 0.3; // High initial velocity
+    velocity = Math.random() * 0.4 + 0.3;
     isSpinning = true;
     spinBtn.disabled = true;
     spinBtn.style.animation = "none";
@@ -330,7 +613,6 @@ function removeLockScreen() {
       overlay.addEventListener('animationend', () => {
         host.remove();
       }, { once: true });
-      // Fallback if animation fails
       setTimeout(() => {
         if (document.getElementById('brain-lock-host')) host.remove();
       }, 500);
@@ -340,55 +622,11 @@ function removeLockScreen() {
   }
 }
 
-function handleResponse(response) {
-  const feedbackEl = shadowRoot.getElementById('feedback-message');
-  const submitBtn = shadowRoot.getElementById('brain-lock-submit');
-  const newBtn = submitBtn.cloneNode(true); // Clone button to remove old listeners
-  submitBtn.parentNode.replaceChild(newBtn, submitBtn);
-
-  if (response.correct) {
-    showFeedback(response.feedback, false);
-    feedbackEl.innerHTML += `<div class="general-feedback">${response.generalFeedback}</div>`;
-    newBtn.textContent = 'Continue';
-    newBtn.className = 'submit-button continue-btn';
-    newBtn.disabled = false;
-    newBtn.addEventListener('click', () => {
-      removeLockScreen();
-    });
-  } else {
-    showFeedback(response.feedback, true);
-    const correctAnswer = response.correctAnswerText;
-    const selectedAnswer = shadowRoot.querySelector('input[name="answer"]:checked').value;
-    
-    shadowRoot.querySelectorAll('.answer-option').forEach(option => {
-      const answerText = option.dataset.answer;
-      if (answerText === correctAnswer) {
-        option.classList.add('correct-choice');
-      } else if (answerText === selectedAnswer) {
-        option.classList.add('incorrect-choice');
-      }
-    });
-
-    feedbackEl.innerHTML += `<div class="correct-answer-text">The correct answer was: <strong>${correctAnswer}</strong></div>`;
-    if (response.correctAnswerFeedback) {
-      const cleanedFeedback = response.correctAnswerFeedback.replace(/^Correct\.\s*/, '');
-      feedbackEl.innerHTML += `<div class="correct-answer-feedback">${cleanedFeedback}</div>`;
-    }
-    if (response.generalFeedback) {
-      feedbackEl.innerHTML += `<div class="general-feedback">${response.generalFeedback}</div>`;
-    }
-    newBtn.textContent = 'Try Another Question';
-    newBtn.className = 'submit-button try-again-btn';
-    newBtn.disabled = false;
-    newBtn.addEventListener('click', () => {
-      showLockScreen(response.newQuestion);
-    });
-  }
-}
-
 function showFeedback(message, isIncorrect) {
   const feedbackEl = shadowRoot.getElementById('feedback-message');
-  feedbackEl.textContent = message;
-  feedbackEl.className = isIncorrect ? 'feedback-message incorrect' : 'feedback-message correct';
-  feedbackEl.style.display = 'block';
+  if (feedbackEl) {
+    feedbackEl.textContent = message;
+    feedbackEl.className = isIncorrect ? 'feedback-message incorrect' : 'feedback-message correct';
+    feedbackEl.style.display = 'block';
+  }
 }
