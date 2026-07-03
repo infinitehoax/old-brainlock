@@ -20,5 +20,11 @@
   "action": {
     "default_popup": "popup.html"
   },
-  "options_page": "options.html"
+  "options_page": "options.html",
+  "web_accessible_resources": [
+    {
+      "resources": ["questions.json"],
+      "matches": ["<all_urls>"]
+    }
+  ]
 }
