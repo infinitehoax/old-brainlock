@@ -37,7 +37,7 @@
 - [ ] - Day 30: Save the selected category to local storage so it locks in for the rest of the day.
 
 ### Phase 4: Core Question Engine & Text Interactions
-- [ ] - Day 31: Build the internal JSON parser to read your local question bank.
+- [ ] - Day 31: Build the internal JSON parser to read your local question bank (the one gotten from periodicly pinging this GitHub repo to fetch the latest).
 - [ ] - Day 32: Create a central Question Renderer Factory to display different component types.
 - [ ] - Day 33: Build the Multiple Choice UI component.
 - [ ] - Day 34: Add visual states (selected, correct, wrong) to Multiple Choice buttons.
