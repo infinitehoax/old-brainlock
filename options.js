@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const questionsTextarea = document.getElementById('questionsJson');
     const saveBtn = document.getElementById('saveBtn');
+    const fetchBtn = document.getElementById('fetchBtn');
     const resetBtn = document.getElementById('resetBtn');
     const statusEl = document.getElementById('status');
 
@@ -42,12 +43,28 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
+    // Fetch Latest button event listener
+    fetchBtn.addEventListener('click', () => {
+        fetchBtn.disabled = true;
+        fetchBtn.textContent = 'Fetching...';
+        chrome.runtime.sendMessage({ action: 'forceFetchQuestions' }, (resp) => {
+            fetchBtn.disabled = false;
+            fetchBtn.textContent = 'Fetch Latest from GitHub';
+            if (resp && resp.success) {
+                questionsTextarea.value = JSON.stringify(resp.questions, null, 2);
+                showStatus('Latest questions fetched and updated!');
+            } else {
+                showStatus('Failed to fetch questions from GitHub.', true);
+            }
+        });
+    });
+
     // Reset button event listener
     resetBtn.addEventListener('click', () => {
-      if (confirm('Are you sure you want to reset to the default questions? All your changes will be lost.')) {
+      if (confirm('Are you sure you want to reset to the bundled default questions? All your changes will be lost.')) {
         chrome.storage.local.set({ questions: defaultQuestions }, () => {
           questionsTextarea.value = JSON.stringify(defaultQuestions, null, 2);
-          showStatus('Questions have been reset to default.');
+          showStatus('Questions have been reset to bundled defaults.');
         });
       }
     });
