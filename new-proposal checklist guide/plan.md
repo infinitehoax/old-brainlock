@@ -25,16 +25,16 @@
 - [x] - Day 20: Test overlay rendering over complex sites (YouTube, heavy web apps) to ensure it stays on top.
 
 ### Phase 3: The Spinning Wheel & Category Engine
-- [ ] - Day 21: Set up an HTML5 Canvas element inside the overlay for the Spinning Wheel.
-- [ ] - Day 22: Draw the wheel segments mathematically (You Pick vs. System Picks).
-- [ ] - Day 23: Apply vibrant colors, text styling, and shadow glows to the canvas wheel.
-- [ ] - Day 24: Code the wheel physics (random initial velocity, friction, and deceleration).
-- [ ] - Day 25: Code the logic to calculate the final resting angle and declare the winner.
-- [ ] - Day 26: Implement local storage logic to check if this is the "first break of the day".
-- [ ] - Day 27: Design the 3 Category Selection Cards (Academic, YouTube, IPA).
-- [ ] - Day 28: Add hover-lift animations and glowing borders to the category cards.
-- [ ] - Day 29: Write the logic for the "System Picks" outcome (randomly assigning a category).
-- [ ] - Day 30: Save the selected category to local storage so it locks in for the rest of the day.
+- [x] - Day 21: Set up an HTML5 Canvas element inside the overlay for the Spinning Wheel.
+- [x] - Day 22: Draw the wheel segments mathematically (You Pick vs. System Picks).
+- [x] - Day 23: Apply vibrant colors, text styling, and shadow glows to the canvas wheel.
+- [x] - Day 24: Code the wheel physics (random initial velocity, friction, and deceleration).
+- [x] - Day 25: Code the logic to calculate the final resting angle and declare the winner.
+- [x] - Day 26: Implement local storage logic to check if this is the "first break of the day".
+- [x] - Day 27: Design the 3 Category Selection Cards (Academic, YouTube, IPA).
+- [x] - Day 28: Add hover-lift animations and glowing borders to the category cards.
+- [x] - Day 29: Write the logic for the "System Picks" outcome (randomly assigning a category).
+- [x] - Day 30: Save the selected category to local storage so it locks in for the rest of the day.
 
 ### Phase 4: Core Question Engine & Text Interactions
 - [ ] - Day 31: Build the internal JSON parser to read your local question bank (the one gotten from periodicly pinging this GitHub repo to fetch the latest).
