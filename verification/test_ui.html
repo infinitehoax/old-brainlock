@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="../lock.css">
+    <style>
+        body { margin: 0; padding: 0; background: #333; }
+        #host { width: 100vw; height: 100vh; }
+    </style>
+</head>
+<body>
+    <div id="host"></div>
+    <script>
+        const host = document.getElementById('host');
+        const shadow = host.attachShadow({mode: 'open'});
+
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = '../lock.css';
+        shadow.appendChild(link);
+
+        const overlay = document.createElement('div');
+        overlay.id = 'brain-lock-overlay';
+        shadow.appendChild(overlay);
+
+        // Simulate Wheel Stage
+        function showWheel() {
+            const container = document.createElement('div');
+            container.className = 'brain-lock-container';
+            container.innerHTML = `
+              <div class="brain-lock-header">
+                <div class="modal-logo">🎡</div>
+                <h1>Daily Kickoff!</h1>
+                <p>Spin the wheel to start your first break of the day</p>
+              </div>
+              <div class="brain-lock-content">
+                <div class="wheel-container">
+                  <div class="wheel-pointer"></div>
+                  <canvas id="wheel-canvas" width="400" height="400"></canvas>
+                  <button id="spin-btn" class="submit-button spin-button">SPIN!</button>
+                </div>
+              </div>
+            `;
+            overlay.appendChild(container);
+            drawWheel(shadow.getElementById('wheel-canvas'));
+        }
+
+        function drawWheel(canvas) {
+            const ctx = canvas.getContext('2d');
+            const segments = ["You Pick", "System Picks", "You Pick", "System Picks", "You Pick", "System Picks"];
+            const colors = ["#4facfe", "#f093fb", "#4facfe", "#f093fb", "#4facfe", "#f093fb"];
+            const radius = canvas.width / 2;
+            const centerX = canvas.width / 2;
+            const centerY = canvas.height / 2;
+            const sliceAngle = (2 * Math.PI) / segments.length;
+
+            segments.forEach((segment, i) => {
+              const angle = i * sliceAngle;
+              ctx.beginPath();
+              ctx.moveTo(centerX, centerY);
+              ctx.arc(centerX, centerY, radius - 10, angle, angle + sliceAngle);
+              ctx.closePath();
+              ctx.fillStyle = colors[i];
+              ctx.fill();
+              ctx.strokeStyle = "rgba(255,255,255,0.2)";
+              ctx.lineWidth = 2;
+              ctx.stroke();
+            });
+
+            ctx.beginPath();
+            ctx.arc(centerX, centerY, 40, 0, 2 * Math.PI);
+            ctx.fillStyle = "#1a1a2e";
+            ctx.fill();
+        }
+
+        showWheel();
+    </script>
+</body>
+</html>

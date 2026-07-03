@@ -20,3 +20,21 @@
 - Ensured full responsiveness for the UI using media queries.
 - Implemented a smooth UI teardown function (`removeLockScreen`) that handles the fade-out animation before removing the Shadow DOM host from the document.
 - Performed a z-index audit and added `!important` flags to critical overlay styles to ensure it stays on top of all websites.
+
+### Phase 3: The Spinning Wheel & Category Engine
+- Implemented a multi-stage UI engine in `content.js` that transitions between:
+    - **Spinning Wheel:** First break of the day trigger.
+    - **Category Selection:** Manual choice or system-assigned category.
+    - **Question Screen:** The educational challenge.
+- Built a physics-based Spinning Wheel using HTML5 Canvas:
+    - Mathematical arc drawing for segments.
+    - Random initial velocity with friction-based deceleration.
+    - Collision/winner detection based on resting angle.
+- Designed 3 Category Selection Cards (Academic, YouTube, IPA) with:
+    - Glassmorphism effects and vibrant gradients.
+    - Hover-lift animations and glowing borders in `lock.css`.
+- Updated `background.js` to manage daily state:
+    - Added `lastSpinDate` tracking to detect the first break of the day.
+    - Implemented `dailyCategory` persistence to lock in the subject for the entire day.
+    - Enhanced `getNextQuestion` to filter questions based on the locked-in category.
+- Added message passing for `setDailyCategory` to sync frontend selections with background storage.

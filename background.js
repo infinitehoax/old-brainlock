@@ -58,7 +58,9 @@ chrome.runtime.onInstalled.addListener(async () => {
     isLocked: true,
     currentQuestion: getNextQuestion(questions, []),
     answeredQuestions: [],
-    lastUnlockTime: null
+    lastUnlockTime: null,
+    dailyCategory: null,
+    lastSpinDate: null
   });
 
   setupAlarms();
@@ -68,11 +70,19 @@ chrome.runtime.onInstalled.addListener(async () => {
 chrome.runtime.onStartup.addListener(async () => {
   const questions = await fetchQuestionsFromGithub();
 
-  chrome.storage.local.get(['answeredQuestions'], (result) => {
+  chrome.storage.local.get(['answeredQuestions', 'dailyCategory', 'lastSpinDate'], (result) => {
     const answered = result.answeredQuestions || [];
+    const today = new Date().toDateString();
+
+    let dailyCategory = result.dailyCategory;
+    if (result.lastSpinDate !== today) {
+      dailyCategory = null;
+    }
+
     chrome.storage.local.set({
       isLocked: true,
-      currentQuestion: getNextQuestion(questions, answered)
+      currentQuestion: getNextQuestion(questions, answered, dailyCategory),
+      dailyCategory: dailyCategory
     });
   });
   setupAlarms();
@@ -134,12 +144,28 @@ function muteAndPauseMedia() {
   });
 }
 
-function getNextQuestion(questions, answeredIds) {
+function getNextQuestion(questions, answeredIds, category = null) {
   if (!questions || questions.length === 0) return fallbackQuestions[0];
-  const unanswered = questions.filter(q => !answeredIds.includes(q.id));
+
+  let pool = questions;
+  if (category) {
+    if (category === 'Academic') {
+      // For now, assume everything that isn't YouTube or IPA is Academic
+      pool = questions.filter(q => q.category !== 'YouTube' && q.category !== 'IPA');
+    } else {
+      pool = questions.filter(q => q.category === category);
+    }
+  }
+
+  // If filtered pool is empty, fallback to all questions
+  if (pool.length === 0) pool = questions;
+
+  const unanswered = pool.filter(q => !answeredIds.includes(q.id));
   if (unanswered.length === 0) {
-    chrome.storage.local.set({ answeredQuestions: [] });
-    return questions[Math.floor(Math.random() * questions.length)];
+    // If all in pool are answered, reset answered list (of that pool? no, let's keep it simple)
+    // Actually, maybe we should only reset if ALL questions are answered.
+    // For now, let's just pick a random one from the pool.
+    return pool[Math.floor(Math.random() * pool.length)];
   }
   return unanswered[Math.floor(Math.random() * unanswered.length)];
 }
@@ -198,13 +224,35 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   }
 
   if (request.action === "getQuestion") {
-    chrome.storage.local.get(['isLocked', 'currentQuestion'], (result) => {
+    chrome.storage.local.get(['isLocked', 'currentQuestion', 'lastSpinDate'], (result) => {
+      const today = new Date().toDateString();
+      const needsSpin = result.lastSpinDate !== today;
+
       sendResponse({
         isLocked: result.isLocked,
-        question: result.currentQuestion
+        question: result.currentQuestion,
+        needsSpin: needsSpin
       });
     });
     return true; // Indicates async response
+  }
+
+  if (request.action === "setDailyCategory") {
+    const today = new Date().toDateString();
+    chrome.storage.local.get(['questions', 'answeredQuestions'], (result) => {
+      const questions = result.questions || fallbackQuestions;
+      const answered = result.answeredQuestions || [];
+      const newQuestion = getNextQuestion(questions, answered, request.category);
+
+      chrome.storage.local.set({
+        dailyCategory: request.category,
+        lastSpinDate: today,
+        currentQuestion: newQuestion
+      }, () => {
+        sendResponse({ success: true, question: newQuestion });
+      });
+    });
+    return true;
   }
 
   if (request.action === "getDefaultQuestions") {
