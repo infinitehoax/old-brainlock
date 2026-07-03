@@ -48,6 +48,14 @@ const QuestionRendererFactory = {
         return new SpellItOutRenderer(question);
       case 'word-scramble':
         return new WordScrambleRenderer(question);
+      case 'organize-tags':
+        return new OrganizeTagsRenderer(question);
+      case 'categorize-items':
+        return new CategorizeItemsRenderer(question);
+      case 'sequence-order':
+        return new SequenceOrderRenderer(question);
+      case 'connect-terms':
+        return new ConnectTermsRenderer(question);
       default:
         return new MultipleChoiceRenderer(question);
     }
@@ -57,11 +65,13 @@ const QuestionRendererFactory = {
 class BaseRenderer {
   constructor(question) {
     this.question = question;
+    this.container = null;
   }
 
   getIcon() { return "🚀"; }
 
   render(container) {
+    this.container = container;
     container.innerHTML = `
       <div class="brain-lock-header">
         <div class="modal-logo">${this.getIcon()}</div>
@@ -120,6 +130,7 @@ class BaseRenderer {
 
     if (response.correct) {
       showFeedback(response.feedback, false);
+      container.classList.add('correct-match');
       feedbackEl.innerHTML += `<div class="general-feedback">${response.generalFeedback || ""}</div>`;
       newBtn.textContent = 'Continue';
       newBtn.className = 'submit-button continue-btn';
@@ -129,6 +140,10 @@ class BaseRenderer {
       });
     } else {
       showFeedback(response.feedback, true);
+      container.classList.add('shake');
+      container.addEventListener('animationend', () => {
+        container.classList.remove('shake');
+      }, { once: true });
       this.showCorrectAnswer(response, container);
 
       if (response.generalFeedback) {
@@ -180,12 +195,12 @@ class MultipleChoiceRenderer extends BaseRenderer {
   }
 
   getAnswer() {
-    const selected = shadowRoot.querySelector('input[name="answer"]:checked');
+    const selected = this.container.querySelector('input[name="answer"]:checked');
     return selected ? selected.value : null;
   }
 
   disableInput() {
-    shadowRoot.querySelectorAll('.answer-option input').forEach(input => input.disabled = true);
+    this.container.querySelectorAll('.answer-option input').forEach(input => input.disabled = true);
   }
 
   showCorrectAnswer(response, container) {
@@ -225,10 +240,10 @@ class ShortAnswerRenderer extends BaseRenderer {
     `;
   }
   getAnswer() {
-    return shadowRoot.getElementById('short-answer-input').value;
+    return this.container.querySelector('#short-answer-input').value;
   }
   disableInput() {
-    shadowRoot.getElementById('short-answer-input').disabled = true;
+    this.container.querySelector('#short-answer-input').disabled = true;
   }
 }
 
@@ -247,17 +262,17 @@ class FillInTheBlankRenderer extends BaseRenderer {
     area.innerHTML = html;
 
     // Update the question text area to be empty since we are rendering the question in the interactive area
-    shadowRoot.querySelector('.question-text').style.display = 'none';
+    this.container.querySelector('.question-text').style.display = 'none';
   }
 
   getAnswer() {
-    const inputs = shadowRoot.querySelectorAll('.fitb-input');
+    const inputs = this.container.querySelectorAll('.fitb-input');
     if (inputs.length === 1) return inputs[0].value;
     return Array.from(inputs).map(input => input.value);
   }
 
   disableInput() {
-    shadowRoot.querySelectorAll('.fitb-input').forEach(input => input.disabled = true);
+    this.container.querySelectorAll('.fitb-input').forEach(input => input.disabled = true);
   }
 }
 
@@ -320,8 +335,8 @@ class SpellItOutRenderer extends BaseRenderer {
   }
 
   disableInput() {
-    shadowRoot.querySelectorAll('.letter-tile').forEach(t => t.style.pointerEvents = 'none');
-    shadowRoot.getElementById('clear-spelling').disabled = true;
+    this.container.querySelectorAll('.letter-tile').forEach(t => t.style.pointerEvents = 'none');
+    this.container.querySelector('#clear-spelling').disabled = true;
   }
 }
 
@@ -372,8 +387,305 @@ class WordScrambleRenderer extends BaseRenderer {
   }
 
   disableInput() {
-    shadowRoot.querySelectorAll('.letter-tile').forEach(t => t.style.pointerEvents = 'none');
-    shadowRoot.getElementById('clear-scramble').disabled = true;
+    this.container.querySelectorAll('.letter-tile').forEach(t => t.style.pointerEvents = 'none');
+    this.container.querySelector('#clear-scramble').disabled = true;
+  }
+}
+
+class OrganizeTagsRenderer extends BaseRenderer {
+  constructor(question) {
+    super(question);
+    this.userAssignments = {}; // { tagText: bucketName }
+  }
+
+  getIcon() { return "🏷️"; }
+
+  renderInteractiveArea(area) {
+    area.className = 'interactive-area organize-tags-container';
+
+    let bucketsHtml = this.question.buckets.map(bucket => `
+      <div class="tag-bucket" data-bucket="${bucket}">
+        <div class="bucket-name">${bucket}</div>
+        <div class="bucket-items"></div>
+      </div>
+    `).join('');
+
+    let poolHtml = `
+      <div class="tag-pool">
+        ${this.question.items.map((item, i) => `
+          <div class="draggable-tag" draggable="true" id="tag-${i}" data-text="${item.text}">
+            ${item.text}
+          </div>
+        `).join('')}
+      </div>
+    `;
+
+    area.innerHTML = `
+      ${poolHtml}
+      <div class="buckets-container">
+        ${bucketsHtml}
+      </div>
+    `;
+  }
+
+  setupEventListeners(container) {
+    super.setupEventListeners(container);
+    const tags = container.querySelectorAll('.draggable-tag');
+    const buckets = container.querySelectorAll('.tag-bucket');
+    const pool = container.querySelector('.tag-pool');
+
+    tags.forEach(tag => {
+      tag.addEventListener('dragstart', (e) => {
+        if (container.querySelector('#brain-lock-submit').disabled) {
+          e.preventDefault();
+          return;
+        }
+        e.dataTransfer.setData('text/plain', tag.id);
+        tag.classList.add('dragging');
+      });
+
+      tag.addEventListener('dragend', () => {
+        tag.classList.remove('dragging');
+      });
+    });
+
+    buckets.forEach(bucket => {
+      bucket.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        bucket.classList.add('drag-over');
+      });
+
+      bucket.addEventListener('dragleave', () => {
+        bucket.classList.remove('drag-over');
+      });
+
+      bucket.addEventListener('drop', (e) => {
+        e.preventDefault();
+        bucket.classList.remove('drag-over');
+        const tagId = e.dataTransfer.getData('text/plain');
+        const tag = container.querySelector(`#${tagId}`);
+        if (tag) {
+          const itemsContainer = bucket.querySelector('.bucket-items');
+          itemsContainer.appendChild(tag);
+          this.userAssignments[tag.dataset.text] = bucket.dataset.bucket;
+        }
+      });
+    });
+
+    pool.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      pool.classList.add('drag-over');
+    });
+
+    pool.addEventListener('dragleave', () => {
+      pool.classList.remove('drag-over');
+    });
+
+    pool.addEventListener('drop', (e) => {
+      e.preventDefault();
+      pool.classList.remove('drag-over');
+      const tagId = e.dataTransfer.getData('text/plain');
+      const tag = container.querySelector(`#${tagId}`);
+      if (tag) {
+        pool.appendChild(tag);
+        delete this.userAssignments[tag.dataset.text];
+      }
+    });
+  }
+
+  getAnswer() {
+    if (Object.keys(this.userAssignments).length < this.question.items.length) {
+      return null;
+    }
+    return this.userAssignments;
+  }
+
+  disableInput() {
+    this.container.querySelectorAll('.draggable-tag').forEach(tag => {
+      tag.setAttribute('draggable', 'false');
+      tag.style.cursor = 'default';
+    });
+  }
+}
+
+class ConnectTermsRenderer extends BaseRenderer {
+  constructor(question) {
+    super(question);
+    this.leftColumn = [...this.question.leftColumn].sort(() => Math.random() - 0.5);
+    this.rightColumn = [...this.question.rightColumn].sort(() => Math.random() - 0.5);
+    this.selectedLeft = null;
+    this.matches = {}; // { leftTerm: rightTerm }
+  }
+
+  getIcon() { return "🔗"; }
+
+  renderInteractiveArea(area) {
+    area.className = 'interactive-area connect-terms-container';
+
+    let leftHtml = this.leftColumn.map(term => `
+      <div class="term-item left-term" data-term="${term}">${term}</div>
+    `).join('');
+
+    let rightHtml = this.rightColumn.map(term => `
+      <div class="term-item right-term" data-term="${term}">${term}</div>
+    `).join('');
+
+    area.innerHTML = `
+      <div class="connect-columns">
+        <div class="connect-column left-column">${leftHtml}</div>
+        <div class="connect-column right-column">${rightHtml}</div>
+      </div>
+      <div id="matches-display" class="matches-display"></div>
+    `;
+  }
+
+  setupEventListeners(container) {
+    super.setupEventListeners(container);
+    const leftTerms = container.querySelectorAll('.left-term');
+    const rightTerms = container.querySelectorAll('.right-term');
+
+    leftTerms.forEach(term => {
+      term.addEventListener('click', () => {
+        if (container.querySelector('#brain-lock-submit').disabled) return;
+        leftTerms.forEach(t => t.classList.remove('selected'));
+        term.classList.add('selected');
+        this.selectedLeft = term.dataset.term;
+      });
+    });
+
+    rightTerms.forEach(term => {
+      term.addEventListener('click', () => {
+        if (container.querySelector('#brain-lock-submit').disabled || !this.selectedLeft) return;
+
+        // Remove previous match if this right term was already matched
+        for (let left in this.matches) {
+          if (this.matches[left] === term.dataset.term) {
+            delete this.matches[left];
+            container.querySelector(`.left-term[data-term="${left}"]`).classList.remove('matched');
+          }
+        }
+
+        this.matches[this.selectedLeft] = term.dataset.term;
+
+        // Visual feedback
+        container.querySelector(`.left-term[data-term="${this.selectedLeft}"]`).classList.add('matched');
+        container.querySelector(`.left-term[data-term="${this.selectedLeft}"]`).classList.remove('selected');
+        term.classList.add('matched');
+
+        this.selectedLeft = null;
+        this.updateMatchesDisplay(container);
+      });
+    });
+  }
+
+  updateMatchesDisplay(container) {
+    const display = container.querySelector('#matches-display');
+    display.innerHTML = Object.entries(this.matches).map(([l, r]) => `
+      <div class="match-pair"><span>${l}</span> ➔ <span>${r}</span></div>
+    `).join('');
+  }
+
+  getAnswer() {
+    if (Object.keys(this.matches).length < this.leftColumn.length) return null;
+    return this.matches;
+  }
+
+  disableInput() {
+    this.container.querySelectorAll('.term-item').forEach(t => t.style.pointerEvents = 'none');
+  }
+}
+
+class CategorizeItemsRenderer extends OrganizeTagsRenderer {
+  getIcon() { return "🗂️"; }
+}
+
+class SequenceOrderRenderer extends BaseRenderer {
+  constructor(question) {
+    super(question);
+    this.currentOrder = [...this.question.items].sort(() => Math.random() - 0.5);
+  }
+
+  getIcon() { return "🔢"; }
+
+  renderInteractiveArea(area) {
+    area.className = 'interactive-area sequence-order-container';
+    area.innerHTML = `
+      <div class="draggable-list" id="sequence-list">
+        ${this.currentOrder.map((item, i) => `
+          <div class="sequence-row" draggable="true" id="seq-item-${i}" data-text="${item}">
+            <span class="order-handle">⠿</span>
+            <span class="row-text">${item}</span>
+          </div>
+        `).join('')}
+      </div>
+    `;
+  }
+
+  setupEventListeners(container) {
+    super.setupEventListeners(container);
+    const list = container.querySelector('#sequence-list');
+    const rows = container.querySelectorAll('.sequence-row');
+
+    rows.forEach(row => {
+      row.addEventListener('dragstart', (e) => {
+        if (container.querySelector('#brain-lock-submit').disabled) {
+          e.preventDefault();
+          return;
+        }
+        row.classList.add('dragging');
+        e.dataTransfer.setData('text/plain', row.id);
+      });
+
+      row.addEventListener('dragend', () => {
+        row.classList.remove('dragging');
+      });
+    });
+
+    list.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      const draggingRow = container.querySelector('.dragging');
+      const afterElement = this.getDragAfterElement(list, e.clientY);
+      if (afterElement == null) {
+        list.appendChild(draggingRow);
+      } else {
+        list.insertBefore(draggingRow, afterElement);
+      }
+    });
+
+    list.addEventListener('drop', (e) => {
+      e.preventDefault();
+      this.updateInternalOrder();
+    });
+  }
+
+  getDragAfterElement(container, y) {
+    const draggableElements = [...container.querySelectorAll('.sequence-row:not(.dragging)')];
+
+    return draggableElements.reduce((closest, child) => {
+      const box = child.getBoundingClientRect();
+      const offset = y - box.top - box.height / 2;
+      if (offset < 0 && offset > closest.offset) {
+        return { offset: offset, element: child };
+      } else {
+        return closest;
+      }
+    }, { offset: Number.NEGATIVE_INFINITY }).element;
+  }
+
+  updateInternalOrder() {
+    const rows = this.container.querySelectorAll('.sequence-row');
+    this.currentOrder = Array.from(rows).map(row => row.dataset.text);
+  }
+
+  getAnswer() {
+    return this.currentOrder;
+  }
+
+  disableInput() {
+    this.container.querySelectorAll('.sequence-row').forEach(row => {
+      row.setAttribute('draggable', 'false');
+      row.style.cursor = 'default';
+    });
   }
 }
 

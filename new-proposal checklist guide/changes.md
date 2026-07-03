@@ -53,3 +53,22 @@
 - **Validation Engine:** Enhanced `background.js` to handle multi-blank arrays and fuzzy text matching (case-insensitive, whitespace trimming).
 - **Documentation:** Updated `README.md` with the new JSON schema documentation for all 7 types.
 - **Testing:** Created `verification/test_phase4.html` for visual auditing of all interaction types using live `questions.json` data.
+
+### Phase 5: Advanced Drag & Drop Interactions
+- **Architecture & Infrastructure:**
+    - Set up HTML5 Drag and Drop event listeners specifically optimized for Shadow DOM event retargeting in `content.js`.
+    - Integrated four new renderer classes into `QuestionRendererFactory`.
+- **New Interaction Components:**
+    - `OrganizeTagsRenderer`: Implemented a tag pool and multiple drop buckets logic for multi-item sorting.
+    - `CategorizeItemsRenderer`: Adapted the tag-bucket logic for categorical item classification.
+    - `SequenceOrderRenderer`: Built a vertical draggable list for reordering items into a specific sequence.
+    - `ConnectTermsRenderer`: Developed a two-column click-to-match interaction with visual connecting states.
+- **Visual Feedback & Styling:**
+    - Added comprehensive CSS in `lock.css` for drag-and-drop states (`dragging`, `drag-over`).
+    - Implemented high-fidelity feedback animations: "shake" for incorrect answers and "green glow" for correct matches.
+- **Logic & Validation:**
+    - Enhanced `background.js` with a `deepEqual` utility to handle structured JSON answer validation (objects and arrays).
+    - Updated `questions.json` with complex sample data for IDs 5001-5004.
+- **Documentation & Verification:**
+    - Expanded `README.md` to include technical JSON schemas for `organize-tags`, `categorize-items`, `sequence-order`, and `connect-terms`.
+    - Developed `verification/verify_phase5.py` (Playwright) to programmatically verify the rendering and layout of the new components.
