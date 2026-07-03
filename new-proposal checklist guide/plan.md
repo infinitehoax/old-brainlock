@@ -1,16 +1,16 @@
 # Checkmark the ones that has been completed and log your progress and the things you changed in the changes.md (Yes, I'm talking to you, Jules)
 
 ### Phase 1: The Inescapable Interruption Engine
-- [ ] - Day 1: Initialize MV3 `manifest.json` with alarms, tabs, and scripting permissions.
-- [ ] - Day 2: Set up the background service worker (`content.js` / `background.js`) to handle alarms.
-- [ ] - Day 3: Implement the core 30-minute repeating timer using `chrome.alarms`.
-- [ ] - Day 4: Write tab-querying logic to identify currently active and audible tabs.
-- [ ] - Day 5: Create the media-muter script to pause all `<video>` and `<audio>` tags.
-- [ ] - Day 6: Create the media-muter script to mute all media (preventing auto-play loopholes).
-- [ ] - Day 7: Inject the media-muter script into the active tab exactly when the alarm fires.
-- [ ] - Day 8: Establish message passing to trigger the UI overlay from the background script.
-- [ ] - Day 9: Add edge-case handling to prevent injection on restricted `chrome://` URLs.
-- [ ] - Day 10: Perform end-to-end testing of the timer triggering the pause/mute function.
+- [x] - Day 1: Initialize MV3 `manifest.json` with alarms, tabs, and scripting permissions.
+- [x] - Day 2: Set up the background service worker (`content.js` / `background.js`) to handle alarms.
+- [x] - Day 3: Implement the core 30-minute repeating timer using `chrome.alarms`.
+- [x] - Day 4: Write tab-querying logic to identify currently active and audible tabs.
+- [x] - Day 5: Create the media-muter script to pause all `<video>` and `<audio>` tags.
+- [x] - Day 6: Create the media-muter script to mute all media (preventing auto-play loopholes).
+- [x] - Day 7: Inject the media-muter script into the active tab exactly when the alarm fires.
+- [x] - Day 8: Establish message passing to trigger the UI overlay from the background script.
+- [x] - Day 9: Add edge-case handling to prevent injection on restricted `chrome://` URLs.
+- [x] - Day 10: Perform end-to-end testing of the timer triggering the pause/mute function.
 
 ### Phase 2: Shadow DOM & Cosmic Toybox UI
 - [ ] - Day 11: Set up Shadow DOM in your content script to ensure total CSS isolation.
