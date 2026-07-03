@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { margin: 0; padding: 20px; background: #1a1a2e; color: white; font-family: sans-serif; }
+        #host { border: 1px solid #333; min-height: 800px; position: relative; margin-top: 20px; }
+        .controls { margin-bottom: 20px; display: flex; flex-wrap: wrap; gap: 10px; }
+        button { padding: 10px; cursor: pointer; background: #3f51b5; color: white; border: none; border-radius: 4px; }
+        button:hover { background: #5c6bc0; }
+        .type-group { border: 1px solid #444; padding: 10px; border-radius: 8px; }
+        .type-label { font-weight: bold; margin-bottom: 5px; display: block; }
+    </style>
+</head>
+<body>
+    <h1>Phase 4 Visual Verification (Live questions.json)</h1>
+    <div class="controls" id="controls">
+        <!-- Buttons will be generated here -->
+    </div>
+    <div id="host"></div>
+
+    <script>
+        // Mock chrome API
+        window.chrome = {
+            runtime: {
+                getURL: (path) => {
+                    return "../" + path;
+                },
+                sendMessage: (msg, cb) => {
+                    console.log("Mock sendMessage:", msg);
+                    if (msg.action === "getQuestion") {
+                        cb({ isLocked: false });
+                    }
+                    if (msg.action === "checkAnswer") {
+                        cb({
+                            correct: true,
+                            feedback: "Correct! Logic verified.",
+                            generalFeedback: "This is automated general feedback."
+                        });
+                    }
+                },
+                onMessage: {
+                    addListener: () => {}
+                }
+            }
+        };
+        window.removeLockScreen = () => {
+            console.log("Lock screen removed");
+            const hostDiv = document.getElementById('host');
+            hostDiv.innerHTML = '<div style="padding:20px; text-align:center;"><h2>Question Answered!</h2><p>The lock screen was successfully dismissed.</p></div>';
+        };
+    </script>
+    <script src="../content.js"></script>
+    <script>
+        async function init() {
+            try {
+                const response = await fetch('../questions.json');
+                const questions = await response.json();
+
+                const groups = {};
+                questions.forEach(q => {
+                    const type = q.type || 'multiple-choice';
+                    if (!groups[type]) groups[type] = [];
+                    groups[type].push(q);
+                });
+
+                const controls = document.getElementById('controls');
+                Object.keys(groups).sort().forEach(type => {
+                    const groupDiv = document.createElement('div');
+                    groupDiv.className = 'type-group';
+
+                    const label = document.createElement('span');
+                    label.className = 'type-label';
+                    label.innerText = type.toUpperCase();
+                    groupDiv.appendChild(label);
+
+                    // Just take the first 2 of each type to keep it clean
+                    groups[type].slice(0, 2).forEach(q => {
+                        const btn = document.createElement('button');
+                        btn.innerText = `ID: ${q.id}`;
+                        btn.onclick = () => {
+                            console.log("Testing Question:", q);
+                            showLockScreen(q);
+                        };
+                        groupDiv.appendChild(btn);
+                    });
+
+                    controls.appendChild(groupDiv);
+                });
+
+            } catch (e) {
+                console.error("Failed to load questions.json:", e);
+            }
+        }
+
+        init();
+    </script>
+</body>
+</html>

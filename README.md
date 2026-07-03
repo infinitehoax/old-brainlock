@@ -55,5 +55,106 @@ This project uses Manifest V3 (MV3).
 
 ---
 
+### 📚 Question JSON Schema
+
+Brain Lock supports 7 distinct question types. All questions must follow this base structure:
+
+```json
+{
+  "id": 1001,
+  "type": "type-name",
+  "category": "Mathematics",
+  "question": "The question text...",
+  "correctAnswer": "The expected answer",
+  "generalFeedback": "Optional feedback shown after any answer"
+}
+```
+
+#### 1. Multiple Choice (`multiple-choice`)
+Requires an `answers` array of objects.
+```json
+{
+  "type": "multiple-choice",
+  "question": "Which of these is a prime number?",
+  "answers": [
+    { "text": "9", "feedback": "Incorrect. 9 has factors 1, 3, and 9." },
+    { "text": "11", "feedback": "Correct! 11 is prime." }
+  ],
+  "correctAnswer": "11"
+}
+```
+
+#### 2. True/False (`true-false`)
+Similar to multiple choice, but usually with two options.
+```json
+{
+  "type": "true-false",
+  "question": "The sun is a star.",
+  "answers": [
+    { "text": "True", "feedback": "Correct!" },
+    { "text": "False", "feedback": "Incorrect." }
+  ],
+  "correctAnswer": "True"
+}
+```
+
+#### 3. Short Answer (`short-answer`)
+Displays a single text input. Validation is case-insensitive and trims whitespace.
+```json
+{
+  "type": "short-answer",
+  "question": "What is the capital of France?",
+  "correctAnswer": "Paris"
+}
+```
+
+#### 4. Fill-in-the-Blank (`fill-in-the-blank`)
+Map `___` (three underscores) to inline text inputs.
+* **Single Blank:** `correctAnswer` is a string.
+* **Multiple Blanks:** `correctAnswer` is an array of strings.
+```json
+{
+  "type": "fill-in-the-blank",
+  "question": "The process by which plants make their food is called ___.",
+  "correctAnswer": "photosynthesis"
+}
+```
+
+#### 5. Odd One Out (`odd-one-out`)
+Similar to multiple choice.
+```json
+{
+  "type": "odd-one-out",
+  "question": "Which of these is NOT a primary color?",
+  "answers": [
+    { "text": "Red", "feedback": "Red is primary." },
+    { "text": "Green", "feedback": "Correct! Green is secondary." }
+  ],
+  "correctAnswer": "Green"
+}
+```
+
+#### 6. Spell It Out (`spell-it-out`)
+The UI generates a pool of letter tiles including the correct answer letters plus decoys.
+```json
+{
+  "type": "spell-it-out",
+  "question": "Spell the name of the planet we live on.",
+  "correctAnswer": "EARTH"
+}
+```
+
+#### 7. Word Scramble (`word-scramble`)
+The UI displays the `correctAnswer` as scrambled tiles for the user to reorder.
+```json
+{
+  "type": "word-scramble",
+  "question": "Unscramble this science word: MTOA",
+  "correctAnswer": "ATOM"
+}
+```
+
+---
+
 ### 📄 License & Credits
 Developed for students, parents, and educators looking to make the internet a slightly smarter place. Feel free to fork, adapt the JSON for your own local curriculum, and contribute!

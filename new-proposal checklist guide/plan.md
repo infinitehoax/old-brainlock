@@ -37,21 +37,21 @@
 - [x] - Day 30: Save the selected category to local storage so it locks in for the rest of the day.
 
 ### Phase 4: Core Question Engine & Text Interactions
-- [ ] - Day 31: Build the internal JSON parser to read your local question bank (the one gotten from periodicly pinging this GitHub repo to fetch the latest).
-- [ ] - Day 32: Create a central Question Renderer Factory to display different component types.
-- [ ] - Day 33: Build the Multiple Choice UI component.
-- [ ] - Day 34: Add visual states (selected, correct, wrong) to Multiple Choice buttons.
-- [ ] - Day 35: Build the True/False component.
-- [ ] - Day 36: Build the Short Answer text input component.
-- [ ] - Day 37: Implement fuzzy-matching validation for Short Answer (case-insensitive, substrings).
-- [ ] - Day 38: Build the Fill-in-the-Blank component logic.
-- [ ] - Day 39: Map `___` in strings to inline HTML text inputs for Fill-in-the-Blank.
-- [ ] - Day 40: Build the Odd One Out UI component.
-- [ ] - Day 41: Build the Spell It Out component.
-- [ ] - Day 42: Write the logic to generate a pool of random letters plus the correct answer letters.
-- [ ] - Day 43: Build the Word Scramble component.
-- [ ] - Day 44: Add click-to-move tile logic for Word Scramble.
-- [ ] - Day 45: Connect all Phase 4 basic question types to a unified validation function.
+- [x] - Day 31: Build the internal JSON parser to read your local question bank (the one gotten from periodicly pinging this GitHub repo to fetch the latest).
+- [x] - Day 32: Create a central Question Renderer Factory to display different component types.
+- [x] - Day 33: Build the Multiple Choice UI component.
+- [x] - Day 34: Add visual states (selected, correct, wrong) to Multiple Choice buttons.
+- [x] - Day 35: Build the True/False component.
+- [x] - Day 36: Build the Short Answer text input component.
+- [x] - Day 37: Implement fuzzy-matching validation for Short Answer (case-insensitive, substrings).
+- [x] - Day 38: Build the Fill-in-the-Blank component logic.
+- [x] - Day 39: Map `___` in strings to inline HTML text inputs for Fill-in-the-Blank.
+- [x] - Day 40: Build the Odd One Out UI component.
+- [x] - Day 41: Build the Spell It Out component.
+- [x] - Day 42: Write the logic to generate a pool of random letters plus the correct answer letters.
+- [x] - Day 43: Build the Word Scramble component.
+- [x] - Day 44: Add click-to-move tile logic for Word Scramble.
+- [x] - Day 45: Connect all Phase 4 basic question types to a unified validation function.
 
 ### Phase 5: Advanced Drag & Drop Interactions
 - [ ] - Day 46: Set up HTML5 Drag and Drop event listeners inside the Shadow DOM.

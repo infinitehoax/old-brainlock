@@ -5,7 +5,7 @@ const fallbackQuestions = [
   {
     "id": 1,
     "question": "Which of these numbers is a prime number?",
-    "subject": "Mathematics",
+    "category": "Mathematics",
     "generalFeedback": "A prime number is a whole number greater than 1 that has only two factors: 1 and itself.",
     "answers": [
       {"text": "9", "feedback": "Incorrect. 9 has factors 1, 3, and 9."},
@@ -34,9 +34,11 @@ async function fetchQuestionsFromGithub() {
 
     // Programmatically clean up the "Correct." prefix from feedback
     questions.forEach(question => {
-      const correctAnswer = question.answers.find(ans => ans.text === question.correctAnswer);
-      if (correctAnswer && correctAnswer.feedback.startsWith('Correct. ')) {
-        correctAnswer.feedback = correctAnswer.feedback.substring('Correct. '.length);
+      if (question.answers) {
+        const correctAnswer = question.answers.find(ans => ans.text === question.correctAnswer);
+        if (correctAnswer && correctAnswer.feedback.startsWith('Correct. ')) {
+          correctAnswer.feedback = correctAnswer.feedback.substring('Correct. '.length);
+        }
       }
     });
 
@@ -189,8 +191,31 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
       const questions = result.questions || fallbackQuestions;
       const q = result.currentQuestion;
       const answered = result.answeredQuestions || [];
-      const isCorrect = q.correctAnswer === request.answer;
-      const selectedAnswerObj = q.answers.find(a => a.text === request.answer);
+
+      let isCorrect = false;
+
+      const checkFuzzy = (user, correct, isShortAnswer = false) => {
+        const userNorm = (user || "").toString().trim().toLowerCase();
+        const correctNorm = (correct || "").toString().trim().toLowerCase();
+        if (isShortAnswer) {
+          return userNorm.includes(correctNorm);
+        }
+        return userNorm === correctNorm;
+      };
+
+      if (q.type === 'fill-in-the-blank' && Array.isArray(q.correctAnswer)) {
+        const userAnswers = Array.isArray(request.answer) ? request.answer : [request.answer];
+        isCorrect = q.correctAnswer.every((val, idx) => checkFuzzy(userAnswers[idx], val));
+      } else if (q.type === 'short-answer') {
+        isCorrect = checkFuzzy(request.answer, q.correctAnswer, true);
+      } else if (q.type === 'fill-in-the-blank' || q.type === 'spell-it-out' || q.type === 'word-scramble') {
+        // Fuzzy matching: case insensitive, trim whitespace
+        isCorrect = checkFuzzy(request.answer, q.correctAnswer);
+      } else {
+        isCorrect = q.correctAnswer === request.answer;
+      }
+
+      const selectedAnswerObj = q.answers ? q.answers.find(a => a.text === request.answer) : null;
 
       if (isCorrect) {
         const newAnswered = [...answered, q.id];
@@ -203,18 +228,18 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
         });
         sendResponse({
           correct: true,
-          feedback: selectedAnswerObj.feedback,
+          feedback: selectedAnswerObj ? selectedAnswerObj.feedback : "Correct!",
           generalFeedback: q.generalFeedback
         });
       } else {
-        const correctAnswerObj = q.answers.find(a => a.text === q.correctAnswer);
+        const correctAnswerObj = q.answers ? q.answers.find(a => a.text === q.correctAnswer) : null;
         const newQuestion = getNextQuestion(questions, answered);
         chrome.storage.local.set({ currentQuestion: newQuestion });
         sendResponse({
           correct: false,
-          feedback: selectedAnswerObj.feedback,
+          feedback: selectedAnswerObj ? selectedAnswerObj.feedback : "Incorrect.",
           correctAnswerText: q.correctAnswer, // Send correct answer text for display
-          correctAnswerFeedback: correctAnswerObj.feedback,
+          correctAnswerFeedback: correctAnswerObj ? correctAnswerObj.feedback : null,
           generalFeedback: q.generalFeedback,
           newQuestion: newQuestion
         });

@@ -38,3 +38,18 @@
     - Implemented `dailyCategory` persistence to lock in the subject for the entire day.
     - Enhanced `getNextQuestion` to filter questions based on the locked-in category.
 - Added message passing for `setDailyCategory` to sync frontend selections with background storage.
+
+### Phase 4: Core Question Engine & Text Interactions
+- **Question JSON Schema Update:** Added `type` field to all questions in `questions.json`. Diversified the question bank to include all 7 new types (Multiple Choice, True/False, Short Answer, Fill-in-the-Blank, Odd One Out, Spell It Out, Word Scramble).
+- **Architecture:** Implemented `QuestionRendererFactory` and a class-based inheritance model (`BaseRenderer`) for UI components in `content.js`.
+- **UI Components:**
+    - `MultipleChoiceRenderer`: Standard radio-style interaction with selection/correct/wrong states.
+    - `TrueFalseRenderer`: Simplified binary choice.
+    - `ShortAnswerRenderer`: Text input component with "Submit Answer" button.
+    - `FillInTheBlankRenderer`: Dynamic replacement of `___` in question text with inline `<input>` fields; supports multiple blanks.
+    - `OddOneOutRenderer`: List-based interaction for finding the outlier.
+    - `SpellItOutRenderer`: Generates an interactive pool of letter tiles including the correct answer letters plus decoys.
+    - `WordScrambleRenderer`: Displays the correct answer as scrambled, click-to-move interactive tiles.
+- **Validation Engine:** Enhanced `background.js` to handle multi-blank arrays and fuzzy text matching (case-insensitive, whitespace trimming).
+- **Documentation:** Updated `README.md` with the new JSON schema documentation for all 7 types.
+- **Testing:** Created `verification/test_phase4.html` for visual auditing of all interaction types using live `questions.json` data.
