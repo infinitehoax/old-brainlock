@@ -3,7 +3,7 @@
   "name": "Brain Lock",
   "version": "1.1",
   "description": "Answer a question correctly to unlock your browser",
-  "permissions": ["storage", "tabs", "alarms"],
+  "permissions": ["storage", "tabs", "alarms", "scripting"],
   "host_permissions": [
     "<all_urls>",
     "https://raw.githubusercontent.com/*"

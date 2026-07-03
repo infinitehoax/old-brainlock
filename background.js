@@ -79,7 +79,7 @@ chrome.runtime.onStartup.addListener(async () => {
 });
 
 function setupAlarms() {
-  chrome.alarms.create('lockBrowser', { periodInMinutes: 20 });
+  chrome.alarms.create('lockBrowser', { periodInMinutes: 30 });
   chrome.alarms.create('periodicFetch', { periodInMinutes: 60 });
 }
 
@@ -101,10 +101,38 @@ chrome.alarms.onAlarm.addListener((alarm) => {
         lastUnlockTime: null
       }, () => {
         broadcastLockState(true); // Tell all tabs to show lock screen
+
+        // Mute and pause media on active and audible tabs
+        chrome.tabs.query({ active: true, currentWindow: true }, (activeTabs) => {
+          chrome.tabs.query({ audible: true }, (audibleTabs) => {
+            // Deduplicate tabs by ID
+            const tabsMap = new Map();
+            activeTabs.forEach(t => tabsMap.set(t.id, t));
+            audibleTabs.forEach(t => tabsMap.set(t.id, t));
+
+            tabsMap.forEach(tab => {
+              if (tab.url && !tab.url.startsWith('chrome://') && !tab.url.startsWith('chrome-extension://') && !tab.url.startsWith('https://chrome.google.com/webstore')) {
+                chrome.scripting.executeScript({
+                  target: { tabId: tab.id, allFrames: true },
+                  func: muteAndPauseMedia
+                }).catch(err => console.error('Script injection failed:', err));
+              }
+            });
+          });
+        });
       });
     });
   }
 });
+
+// Function to pause and mute all media elements
+function muteAndPauseMedia() {
+  const mediaElements = document.querySelectorAll('video, audio');
+  mediaElements.forEach(media => {
+    media.pause();
+    media.muted = true;
+  });
+}
 
 function getNextQuestion(questions, answeredIds) {
   if (!questions || questions.length === 0) return fallbackQuestions[0];
