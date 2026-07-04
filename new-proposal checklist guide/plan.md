@@ -66,16 +66,17 @@
 - [x] - Day 55: Finalize validation state updates for all advanced drag-and-drop types.
 
 ### Phase 6: YouTube Learner & IPA Transcriber Pillars
-- [ ] - Day 56: Build the YouTube iframe container inside the question modal.
-- [ ] - Day 57: Configure the iframe API (no-cookie domain, zero autoplay, zero related videos).
-- [ ] - Day 58: Map `videoId` from the JSON to dynamically inject into the iframe.
-- [ ] - Day 59: Ensure all 13 question types render correctly beneath the YouTube video embed.
-- [ ] - Day 60: Design the IPA Transcriber custom on-screen keyboard UI.
-- [ ] - Day 61: Populate the keyboard with Consonant and Vowel phonetic symbols.
-- [ ] - Day 62: Add Diphthongs and Stress Mark sections to the IPA keyboard.
-- [ ] - Day 63: Build the custom input display box with a blinking cursor.
-- [ ] - Day 64: Write custom backspace logic to handle multi-character IPA symbols (e.g., `tʃ`).
-- [ ] - Day 65: Connect the IPA keyboard output to the validation engine.
+- [x] - Day 56: Build the YouTube iframe container inside the question modal.
+- [x] - Day 57: Configure the iframe API (no-cookie domain, zero autoplay, zero related videos).
+- [x] - Day 58: Map `videoId` from the JSON to dynamically inject into the iframe.
+- [x] - Day 59: Ensure all 13 question types render correctly beneath the YouTube video embed.
+- [x] - Day 60: Design the IPA Transcriber custom on-screen keyboard UI.
+- [x] - Day 61: Populate the keyboard with Consonant and Vowel phonetic symbols.
+- [x] - Day 62: Add Diphthongs and Stress Mark sections to the IPA keyboard.
+- [x] - Day 63: Build the custom input display box with a blinking cursor.
+- [x] - Day 63: Build the custom input display box with a blinking cursor.
+- [x] - Day 64: Write custom backspace logic to handle multi-character IPA symbols (e.g., `tʃ`).
+- [x] - Day 65: Connect the IPA keyboard output to the validation engine.
 
 ### Phase 7: Gamification, Streaks, and Confetti
 - [ ] - Day 66: Build the visual SVG timer ring component for the top bar.
