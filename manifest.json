@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "Brain Lock",
-  "version": "1.1",
-  "description": "Answer a question correctly to unlock your browser",
+  "version": "1.0.0",
+  "description": "An inescapable educational interruption engine.",
   "permissions": ["storage", "tabs", "alarms", "scripting"],
   "host_permissions": [
     "<all_urls>",

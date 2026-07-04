@@ -90,13 +90,11 @@ chrome.runtime.onStartup.addListener(async () => {
     const today = new Date().toDateString();
 
     let dailyCategory = result.dailyCategory;
-    if (result.lastSpinDate !== today) {
-      dailyCategory = null;
-    }
-
     let breaksToday = result.breaksToday || 0;
     let lastStatsResetDate = result.lastStatsResetDate;
+
     if (lastStatsResetDate !== today) {
+      dailyCategory = null;
       breaksToday = 0;
       lastStatsResetDate = today;
     }
@@ -146,7 +144,8 @@ async function triggerLock(targetTabId = null) {
     'breaksToday',
     'lifetimeBreaks',
     'lastStatsResetDate',
-    'dailyCategory'
+    'dailyCategory',
+    'lastSpinDate'
   ]);
 
   let questions = result.questions;
@@ -159,10 +158,13 @@ async function triggerLock(targetTabId = null) {
   let breaksToday = result.breaksToday || 0;
   let lifetimeBreaks = result.lifetimeBreaks || 0;
   let lastStatsResetDate = result.lastStatsResetDate;
+  let dailyCategory = result.dailyCategory;
 
+  // Midnight Rollover Logic: Reset daily stats and category if the day has changed
   if (lastStatsResetDate !== today) {
     breaksToday = 0;
     lastStatsResetDate = today;
+    dailyCategory = null; // Forces a new wheel spin
   }
 
   breaksToday++;
@@ -170,11 +172,12 @@ async function triggerLock(targetTabId = null) {
 
   chrome.storage.local.set({
     isLocked: true,
-    currentQuestion: getNextQuestion(questions, answered, result.dailyCategory),
+    currentQuestion: getNextQuestion(questions, answered, dailyCategory),
     lastUnlockTime: null,
     breaksToday: breaksToday,
     lifetimeBreaks: lifetimeBreaks,
-    lastStatsResetDate: lastStatsResetDate
+    lastStatsResetDate: lastStatsResetDate,
+    dailyCategory: dailyCategory
   }, () => {
     if (targetTabId) {
       // Targeted lock for "Test Break Now"
@@ -228,6 +231,18 @@ function muteAndPauseMedia() {
   });
 }
 
+// Function to unmute and play all media elements
+function unmuteAndPlayMedia() {
+  const mediaElements = document.querySelectorAll('video, audio');
+  mediaElements.forEach(media => {
+    media.muted = false;
+    media.play().catch(() => {
+      // Autoplay might be blocked until user interacts, which is fine here
+      console.log('Autoplay prevented on some media.');
+    });
+  });
+}
+
 function getNextQuestion(questions, answeredIds, category = null) {
   if (!questions || questions.length === 0) return fallbackQuestions[0];
 
@@ -256,9 +271,16 @@ function getNextQuestion(questions, answeredIds, category = null) {
 function broadcastLockState(isLocked) {
   chrome.tabs.query({}, (tabs) => {
     tabs.forEach(tab => {
-      if (tab.url && !tab.url.startsWith('chrome://')) {
+      if (tab.url && isInjectable(tab.url)) {
         const message = isLocked ? { action: "showLock" } : { action: "clearLock" };
         chrome.tabs.sendMessage(tab.id, message).catch(() => {});
+
+        if (!isLocked) {
+          chrome.scripting.executeScript({
+            target: { tabId: tab.id, allFrames: true },
+            func: unmuteAndPlayMedia
+          }).catch(() => {});
+        }
       }
     });
   });

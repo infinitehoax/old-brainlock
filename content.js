@@ -30,6 +30,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 
 let shadowRoot;
 let currentRenderer;
+let activeConfetti = null;
 
 class Timer {
   constructor(duration, onTick, onComplete) {
@@ -69,13 +70,21 @@ class Confetti {
     this.ctx = canvas.getContext('2d');
     this.particles = [];
     this.animationId = null;
+    this.resizeHandler = this.resize.bind(this);
     this.resize();
-    window.addEventListener('resize', () => this.resize());
+    window.addEventListener('resize', this.resizeHandler);
   }
 
   resize() {
     this.canvas.width = window.innerWidth;
     this.canvas.height = window.innerHeight;
+  }
+
+  destroy() {
+    window.removeEventListener('resize', this.resizeHandler);
+    if (this.animationId) {
+      cancelAnimationFrame(this.animationId);
+    }
   }
 
   burst() {
@@ -313,8 +322,8 @@ class BaseRenderer {
       const canvas = document.createElement('canvas');
       canvas.id = 'confetti-canvas';
       shadowRoot.appendChild(canvas);
-      const confetti = new Confetti(canvas);
-      confetti.burst();
+      activeConfetti = new Confetti(canvas);
+      activeConfetti.burst();
     }
 
     container.classList.add('screen-fade-exit-active');
@@ -1225,6 +1234,15 @@ function initWheel() {
 }
 
 function removeLockScreen() {
+  // Cleanup logic
+  if (currentRenderer && currentRenderer.timer) {
+    currentRenderer.timer.stop();
+  }
+  if (activeConfetti) {
+    activeConfetti.destroy();
+    activeConfetti = null;
+  }
+
   const host = document.getElementById('brain-lock-host');
   if (host) {
     const overlay = shadowRoot.getElementById('brain-lock-overlay');
