@@ -56,6 +56,8 @@ const QuestionRendererFactory = {
         return new SequenceOrderRenderer(question);
       case 'connect-terms':
         return new ConnectTermsRenderer(question);
+      case 'ipa-transcriber':
+        return new IPATranscriberRenderer(question);
       default:
         return new MultipleChoiceRenderer(question);
     }
@@ -72,6 +74,20 @@ class BaseRenderer {
 
   render(container) {
     this.container = container;
+    let youtubeHtml = "";
+    if (this.question.videoId) {
+      youtubeHtml = `
+        <div class="video-container">
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/${this.question.videoId}?rel=0&autoplay=0&showinfo=0&controls=1"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+      `;
+    }
+
     container.innerHTML = `
       <div class="brain-lock-header">
         <div class="modal-logo">${this.getIcon()}</div>
@@ -83,6 +99,7 @@ class BaseRenderer {
         <p>Answer this question correctly to unlock your browser</p>
       </div>
       <div class="brain-lock-content">
+        ${youtubeHtml}
         <div class="question-text">${this.question.question}</div>
         <div class="interactive-area"></div>
         <div id="feedback-message" class="feedback-message"></div>
@@ -597,6 +614,79 @@ class ConnectTermsRenderer extends BaseRenderer {
 
 class CategorizeItemsRenderer extends OrganizeTagsRenderer {
   getIcon() { return "🗂️"; }
+}
+
+class IPATranscriberRenderer extends BaseRenderer {
+  constructor(question) {
+    super(question);
+    this.userInput = []; // Array of IPA symbols
+  }
+
+  getIcon() { return "🗣️"; }
+
+  renderInteractiveArea(area) {
+    area.className = 'interactive-area ipa-transcriber-container';
+    area.innerHTML = `
+      <div class="ipa-input-box">
+        <div class="ipa-display"><span id="ipa-text"></span><span class="cursor">|</span></div>
+        <button id="ipa-backspace" class="ipa-key backspace-key">⌫</button>
+      </div>
+      <div class="ipa-keyboard">
+        <div class="keyboard-section">
+          <div class="section-label">Consonants</div>
+          <div class="key-grid">
+            ${['p','b','t','d','k','g','f','v','θ','ð','s','z','ʃ','ʒ','h','m','n','ŋ','r','l','j','w','tʃ','dʒ'].map(s => `<button class="ipa-key" data-symbol="${s}">${s}</button>`).join('')}
+          </div>
+        </div>
+        <div class="keyboard-section">
+          <div class="section-label">Vowels & Diphthongs</div>
+          <div class="key-grid">
+            ${['iː','ɪ','e','æ','ɑː','ɒ','ɔː','ʊ','uː','ʌ','ɜː','ə','eɪ','aɪ','ɔɪ','əʊ','aʊ','ɪə','eə','ʊə'].map(s => `<button class="ipa-key" data-symbol="${s}">${s}</button>`).join('')}
+          </div>
+        </div>
+        <div class="keyboard-section">
+          <div class="section-label">Marks</div>
+          <div class="key-grid">
+            ${['ˈ','ˌ','.', 'ː', '/'].map(s => `<button class="ipa-key" data-symbol="${s}">${s}</button>`).join('')}
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  setupEventListeners(container) {
+    super.setupEventListeners(container);
+    const keys = container.querySelectorAll('.ipa-key:not(.backspace-key)');
+    const backspace = container.querySelector('#ipa-backspace');
+    const display = container.querySelector('#ipa-text');
+
+    keys.forEach(key => {
+      key.addEventListener('click', () => {
+        if (container.querySelector('#brain-lock-submit').disabled) return;
+        const symbol = key.dataset.symbol;
+        this.userInput.push(symbol);
+        this.updateDisplay(display);
+      });
+    });
+
+    backspace.addEventListener('click', () => {
+      if (container.querySelector('#brain-lock-submit').disabled) return;
+      this.userInput.pop();
+      this.updateDisplay(display);
+    });
+  }
+
+  updateDisplay(display) {
+    display.textContent = this.userInput.join('');
+  }
+
+  getAnswer() {
+    return this.userInput.join('');
+  }
+
+  disableInput() {
+    this.container.querySelectorAll('.ipa-key').forEach(k => k.disabled = true);
+  }
 }
 
 class SequenceOrderRenderer extends BaseRenderer {
