@@ -10683,5 +10683,64 @@
     ],
     "correctAnswer": "Nucleus",
     "type": "multiple-choice"
+  },
+  {
+    "id": 5001,
+    "type": "organize-tags",
+    "question": "Drag these words into the correct buckets: Nouns and Verbs.",
+    "category": "English",
+    "buckets": ["Noun", "Verb"],
+    "items": [
+      {"text": "Apple", "category": "Noun"},
+      {"text": "Run", "category": "Verb"},
+      {"text": "Table", "category": "Noun"},
+      {"text": "Jump", "category": "Verb"}
+    ],
+    "correctAnswer": {
+      "Apple": "Noun",
+      "Run": "Verb",
+      "Table": "Noun",
+      "Jump": "Verb"
+    }
+  },
+  {
+    "id": 5002,
+    "type": "sequence-order",
+    "question": "Arrange these historical events in chronological order (earliest to latest).",
+    "category": "History",
+    "items": ["World War I", "World War II", "Cold War", "Fall of Berlin Wall"],
+    "correctAnswer": ["World War I", "World War II", "Cold War", "Fall of Berlin Wall"]
+  },
+  {
+    "id": 5003,
+    "type": "connect-terms",
+    "question": "Match the countries to their capitals.",
+    "category": "Social Humanity",
+    "leftColumn": ["France", "Nigeria", "Japan"],
+    "rightColumn": ["Abuja", "Paris", "Tokyo"],
+    "correctAnswer": {
+      "France": "Paris",
+      "Nigeria": "Abuja",
+      "Japan": "Tokyo"
+    }
+  },
+  {
+    "id": 5004,
+    "type": "categorize-items",
+    "question": "Categorize these animals into Mammals or Reptiles.",
+    "category": "Basic Science",
+    "buckets": ["Mammals", "Reptiles"],
+    "items": [
+      {"text": "Dog", "category": "Mammals"},
+      {"text": "Snake", "category": "Reptiles"},
+      {"text": "Whale", "category": "Mammals"},
+      {"text": "Crocodile", "category": "Reptiles"}
+    ],
+    "correctAnswer": {
+      "Dog": "Mammals",
+      "Snake": "Reptiles",
+      "Whale": "Mammals",
+      "Crocodile": "Reptiles"
+    }
   }
 ]

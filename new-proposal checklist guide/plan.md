@@ -54,16 +54,16 @@
 - [x] - Day 45: Connect all Phase 4 basic question types to a unified validation function.
 
 ### Phase 5: Advanced Drag & Drop Interactions
-- [ ] - Day 46: Set up HTML5 Drag and Drop event listeners inside the Shadow DOM.
-- [ ] - Day 47: Build the Organize Tags component UI (tag pool and buckets).
-- [ ] - Day 48: Implement dragstart, dragover, and drop logic for Organize Tags.
-- [ ] - Day 49: Build the Categorize Items component (reusing tag logic for categories).
-- [ ] - Day 50: Build the Sequence Order component UI (draggable list rows).
-- [ ] - Day 51: Implement list reordering logic and update array order on drop.
-- [ ] - Day 52: Build the Connect Terms component UI (two columns).
-- [ ] - Day 53: Implement click-to-match logic between left and right columns.
-- [ ] - Day 54: Add CSS animations (shake for wrong match, green glow for correct match).
-- [ ] - Day 55: Finalize validation state updates for all advanced drag-and-drop types.
+- [x] - Day 46: Set up HTML5 Drag and Drop event listeners inside the Shadow DOM.
+- [x] - Day 47: Build the Organize Tags component UI (tag pool and buckets).
+- [x] - Day 48: Implement dragstart, dragover, and drop logic for Organize Tags.
+- [x] - Day 49: Build the Categorize Items component (reusing tag logic for categories).
+- [x] - Day 50: Build the Sequence Order component UI (draggable list rows).
+- [x] - Day 51: Implement list reordering logic and update array order on drop.
+- [x] - Day 52: Build the Connect Terms component UI (two columns).
+- [x] - Day 53: Implement click-to-match logic between left and right columns.
+- [x] - Day 54: Add CSS animations (shake for wrong match, green glow for correct match).
+- [x] - Day 55: Finalize validation state updates for all advanced drag-and-drop types.
 
 ### Phase 6: YouTube Learner & IPA Transcriber Pillars
 - [ ] - Day 56: Build the YouTube iframe container inside the question modal.

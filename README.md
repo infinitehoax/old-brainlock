@@ -57,7 +57,7 @@ This project uses Manifest V3 (MV3).
 
 ### 📚 Question JSON Schema
 
-Brain Lock supports 7 distinct question types. All questions must follow this base structure:
+Brain Lock supports 11 distinct question types. All questions must follow this base structure:
 
 ```json
 {
@@ -151,6 +151,68 @@ The UI displays the `correctAnswer` as scrambled tiles for the user to reorder.
   "type": "word-scramble",
   "question": "Unscramble this science word: MTOA",
   "correctAnswer": "ATOM"
+}
+```
+
+#### 8. Organize Tags (`organize-tags`)
+Requires `buckets` and `items`. The user drags tags into the correct buckets.
+```json
+{
+  "type": "organize-tags",
+  "question": "Drag these words into the correct buckets: Nouns and Verbs.",
+  "buckets": ["Noun", "Verb"],
+  "items": [
+    {"text": "Apple", "category": "Noun"},
+    {"text": "Run", "category": "Verb"}
+  ],
+  "correctAnswer": {
+    "Apple": "Noun",
+    "Run": "Verb"
+  }
+}
+```
+
+#### 9. Categorize Items (`categorize-items`)
+Identical to `organize-tags` but uses a different icon (🗂️).
+```json
+{
+  "type": "categorize-items",
+  "question": "Categorize these animals.",
+  "buckets": ["Mammals", "Reptiles"],
+  "items": [
+    {"text": "Dog", "category": "Mammals"},
+    {"text": "Snake", "category": "Reptiles"}
+  ],
+  "correctAnswer": {
+    "Dog": "Mammals",
+    "Snake": "Reptiles"
+  }
+}
+```
+
+#### 10. Sequence Order (`sequence-order`)
+Requires an `items` array. The user reorders the list via drag and drop.
+```json
+{
+  "type": "sequence-order",
+  "question": "Arrange these in chronological order.",
+  "items": ["World War I", "World War II", "Cold War"],
+  "correctAnswer": ["World War I", "World War II", "Cold War"]
+}
+```
+
+#### 11. Connect Terms (`connect-terms`)
+Requires `leftColumn` and `rightColumn`. The user clicks a term from the left, then its match on the right.
+```json
+{
+  "type": "connect-terms",
+  "question": "Match countries to capitals.",
+  "leftColumn": ["France", "Japan"],
+  "rightColumn": ["Tokyo", "Paris"],
+  "correctAnswer": {
+    "France": "Paris",
+    "Japan": "Tokyo"
+  }
 }
 ```
 

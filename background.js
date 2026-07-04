@@ -211,6 +211,19 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
       } else if (q.type === 'fill-in-the-blank' || q.type === 'spell-it-out' || q.type === 'word-scramble') {
         // Fuzzy matching: case insensitive, trim whitespace
         isCorrect = checkFuzzy(request.answer, q.correctAnswer);
+      } else if (q.type === 'sequence-order') {
+        isCorrect = Array.isArray(request.answer) &&
+                    request.answer.length === q.correctAnswer.length &&
+                    request.answer.every((val, idx) => val === q.correctAnswer[idx]);
+      } else if (q.type === 'organize-tags' || q.type === 'categorize-items' || q.type === 'connect-terms') {
+        // request.answer and q.correctAnswer are objects
+        const userKeys = Object.keys(request.answer || {});
+        const correctKeys = Object.keys(q.correctAnswer || {});
+        if (userKeys.length !== correctKeys.length) {
+          isCorrect = false;
+        } else {
+          isCorrect = correctKeys.every(key => request.answer[key] === q.correctAnswer[key]);
+        }
       } else {
         isCorrect = q.correctAnswer === request.answer;
       }
@@ -235,10 +248,18 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
         const correctAnswerObj = q.answers ? q.answers.find(a => a.text === q.correctAnswer) : null;
         const newQuestion = getNextQuestion(questions, answered);
         chrome.storage.local.set({ currentQuestion: newQuestion });
+
+        let correctAnswerText = q.correctAnswer;
+        if (typeof q.correctAnswer === 'object' && !Array.isArray(q.correctAnswer)) {
+          correctAnswerText = Object.entries(q.correctAnswer).map(([k, v]) => `${k} ➔ ${v}`).join(', ');
+        } else if (Array.isArray(q.correctAnswer)) {
+          correctAnswerText = q.correctAnswer.join(', ');
+        }
+
         sendResponse({
           correct: false,
           feedback: selectedAnswerObj ? selectedAnswerObj.feedback : "Incorrect.",
-          correctAnswerText: q.correctAnswer, // Send correct answer text for display
+          correctAnswerText: correctAnswerText, // Send correct answer text for display
           correctAnswerFeedback: correctAnswerObj ? correctAnswerObj.feedback : null,
           generalFeedback: q.generalFeedback,
           newQuestion: newQuestion

@@ -371,3 +371,225 @@
     flex-direction: column;
   }
 }
+
+/* Phase 5: Drag & Drop Styles */
+
+/* Organize Tags & Categorize Items */
+.organize-tags-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.tag-pool {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px dashed rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  min-height: 80px;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.tag-pool.drag-over {
+  background: rgba(102, 126, 234, 0.1);
+  border-color: #667eea;
+}
+
+.buckets-container {
+  display: flex;
+  gap: 15px;
+  justify-content: space-around;
+}
+
+.tag-bucket {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: all 0.3s ease;
+}
+
+.tag-bucket.drag-over {
+  background: rgba(0, 255, 136, 0.05);
+  border-color: #00ff88;
+  transform: scale(1.02);
+}
+
+.bucket-name {
+  text-align: center;
+  font-weight: 700;
+  color: #a5b4fc;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 8px;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+.bucket-items {
+  min-height: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  align-content: flex-start;
+}
+
+.draggable-tag {
+  padding: 8px 16px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 20px;
+  color: white;
+  cursor: grab;
+  font-size: 14px;
+  font-weight: 600;
+  user-select: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease;
+}
+
+.draggable-tag:active { cursor: grabbing; }
+.draggable-tag.dragging { opacity: 0.5; transform: scale(0.9); }
+
+/* Sequence Order */
+.sequence-order-container {
+  padding: 10px;
+}
+
+.draggable-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sequence-row {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  cursor: grab;
+  transition: all 0.2s ease;
+}
+
+.sequence-row:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #667eea;
+}
+
+.sequence-row.dragging {
+  opacity: 0.4;
+  background: #667eea;
+}
+
+.order-handle {
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.3);
+  cursor: grab;
+}
+
+.row-text {
+  font-size: 17px;
+  font-weight: 500;
+}
+
+/* Connect Terms */
+.connect-terms-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.connect-columns {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.connect-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.term-item {
+  padding: 12px 15px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+
+.term-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: #a5b4fc;
+}
+
+.term-item.selected {
+  background: rgba(102, 126, 234, 0.2);
+  border-color: #667eea;
+  box-shadow: 0 0 15px rgba(102, 126, 234, 0.4);
+  transform: scale(1.05);
+}
+
+.term-item.matched {
+  background: rgba(0, 255, 136, 0.1);
+  border-color: #00ff88;
+  color: #00ff88;
+  cursor: default;
+}
+
+.matches-display {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 10px;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 12px;
+  min-height: 40px;
+}
+
+.match-pair {
+  padding: 6px 12px;
+  background: rgba(165, 180, 252, 0.1);
+  border: 1px solid rgba(165, 180, 252, 0.3);
+  border-radius: 20px;
+  font-size: 13px;
+  color: #a5b4fc;
+  animation: fadeIn 0.3s ease;
+}
+
+.match-pair span { font-weight: 700; }
+
+/* Feedback Animations */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+.wrong-match {
+  animation: shake 0.3s ease-in-out;
+  border-color: #ff4d4d !important;
+  background: rgba(255, 77, 77, 0.1) !important;
+}
+
+.correct-match {
+  box-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
+  border-color: #00ff88 !important;
+}
