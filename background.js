@@ -30,7 +30,17 @@ async function fetchQuestionsFromGithub() {
   try {
     const response = await fetch(QUESTIONS_URL);
     if (!response.ok) throw new Error('Network response was not ok');
-    const questions = await response.json();
+    const data = await response.json();
+
+    let questions = [];
+    if (Array.isArray(data)) {
+      questions = data;
+    } else if (data.questions && Array.isArray(data.questions)) {
+      questions = data.questions;
+      if (data.config) {
+        await applyConfig(data.config);
+      }
+    }
 
     // Programmatically clean up the "Correct." prefix from feedback
     questions.forEach(question => {
@@ -55,9 +65,10 @@ async function fetchQuestionsFromGithub() {
 // Initialize extension on install
 chrome.runtime.onInstalled.addListener(async () => {
   const questions = await fetchQuestionsFromGithub();
+  const data = await chrome.storage.local.get('activeHours');
 
   chrome.storage.local.set({
-    isLocked: true,
+    isLocked: isWithinActiveHours(data.activeHours),
     currentQuestion: getNextQuestion(questions, []),
     answeredQuestions: [],
     lastUnlockTime: null,
@@ -84,7 +95,8 @@ chrome.runtime.onStartup.addListener(async () => {
     'dailyCategory',
     'lastSpinDate',
     'lastStatsResetDate',
-    'breaksToday'
+    'breaksToday',
+    'activeHours'
   ], (result) => {
     const answered = result.answeredQuestions || [];
     const today = new Date().toDateString();
@@ -100,7 +112,7 @@ chrome.runtime.onStartup.addListener(async () => {
     }
 
     chrome.storage.local.set({
-      isLocked: true,
+      isLocked: isWithinActiveHours(result.activeHours),
       currentQuestion: getNextQuestion(questions, answered, dailyCategory),
       dailyCategory: dailyCategory,
       breaksToday: breaksToday,
@@ -111,16 +123,15 @@ chrome.runtime.onStartup.addListener(async () => {
 });
 
 async function setupAlarms() {
-  const data = await chrome.storage.local.get('breakInterval');
+  const data = await chrome.storage.local.get(['breakInterval', 'githubPingInterval']);
   const interval = data.breakInterval || 30;
+  const fetchInterval = data.githubPingInterval || 60;
 
   chrome.alarms.clear('lockBrowser');
   chrome.alarms.create('lockBrowser', { periodInMinutes: interval });
 
-  // Periodic fetch stays at 60 mins
-  if (!(await chrome.alarms.get('periodicFetch'))) {
-    chrome.alarms.create('periodicFetch', { periodInMinutes: 60 });
-  }
+  chrome.alarms.clear('periodicFetch');
+  chrome.alarms.create('periodicFetch', { periodInMinutes: fetchInterval });
 }
 
 // Listener for alarms
@@ -145,8 +156,15 @@ async function triggerLock(targetTabId = null) {
     'lifetimeBreaks',
     'lastStatsResetDate',
     'dailyCategory',
-    'lastSpinDate'
+    'lastSpinDate',
+    'activeHours'
   ]);
+
+  // Skip if not in active hours, unless it's a manual test
+  if (!targetTabId && !isWithinActiveHours(result.activeHours)) {
+    console.log('Skipping lock: outside of active hours.');
+    return;
+  }
 
   let questions = result.questions;
   if (!questions) {
@@ -474,3 +492,43 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     return true;
   }
 });
+
+/**
+ * Helper to check if current time is within active hours window
+ */
+function isWithinActiveHours(activeHours) {
+  if (!activeHours || !activeHours.start || !activeHours.end) return true;
+
+  const now = new Date();
+  const currentTime = now.getHours() * 60 + now.getMinutes();
+
+  const [startH, startM] = activeHours.start.split(':').map(Number);
+  const [endH, endM] = activeHours.end.split(':').map(Number);
+
+  const startTime = startH * 60 + startM;
+  const endTime = endH * 60 + endM;
+
+  if (startTime <= endTime) {
+    return currentTime >= startTime && currentTime <= endTime;
+  } else {
+    // Overlays midnight (e.g., 22:00 to 06:00)
+    return currentTime >= startTime || currentTime <= endTime;
+  }
+}
+
+/**
+ * Applies configuration settings to storage and updates alarms
+ */
+async function applyConfig(config) {
+  if (!config) return;
+
+  const updates = {};
+  if (config.githubPingInterval) updates.githubPingInterval = config.githubPingInterval;
+  if (config.brainLockInterval) updates.breakInterval = config.brainLockInterval;
+  if (config.activeHours) updates.activeHours = config.activeHours;
+
+  if (Object.keys(updates).length > 0) {
+    await chrome.storage.local.set(updates);
+    setupAlarms();
+  }
+}

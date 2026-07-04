@@ -8,10 +8,11 @@
   backdrop-filter: blur(10px) !important;
   z-index: 2147483647 !important;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  overflow: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
   color: #fff;
 }
 
@@ -52,6 +53,7 @@
   max-width: 600px;
   width: 90%;
   padding: 40px;
+  margin: 40px auto;
   position: relative;
   z-index: 2;
   animation: popIn 0.5s cubic-bezier(0.26, 0.53, 0.74, 1.48) forwards;
