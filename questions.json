@@ -3,255 +3,1454 @@
     "githubPingInterval": 60,
     "brainLockInterval": 30,
     "activeHours": {
-      "start": "07:00",
-      "end": "21:00"
+      "start": "15:00",
+      "end": "06:00"
     }
   },
   "questions": [
     {
       "id": 1,
       "type": "multiple-choice",
-      "timer": 60,
-      "question": "What is the largest planet in our solar system?",
-      "category": "Academic",
+      "timer": "infinite",
+      "question": "What is the result of 15 multiplied by 6?",
+      "category": "Mathematics",
       "answers": [
-        {
-          "text": "Earth",
-          "feedback": "Incorrect. Earth is the 5th largest."
-        },
-        {
-          "text": "Jupiter",
-          "feedback": "Correct! Jupiter is a gas giant and the largest planet."
-        },
-        {
-          "text": "Mars",
-          "feedback": "Incorrect. Mars is smaller than Earth."
-        },
-        {
-          "text": "Saturn",
-          "feedback": "Incorrect. Saturn is the 2nd largest."
-        }
+        {"text": "80", "feedback": "Incorrect."},
+        {"text": "90", "feedback": "Correct!"},
+        {"text": "100", "feedback": "Incorrect."},
+        {"text": "85", "feedback": "Incorrect."}
       ],
-      "correctAnswer": "Jupiter",
-      "generalFeedback": "Jupiter is more than twice as massive as all the other planets in the Solar System combined."
+      "correctAnswer": "90",
+      "generalFeedback": "10 * 6 = 60, and 5 * 6 = 30. 60 + 30 = 90."
     },
     {
       "id": 2,
-      "type": "true-false",
+      "type": "multiple-choice",
       "timer": "infinite",
-      "question": "The Great Wall of China is visible from the Moon with the naked eye.",
-      "category": "Academic",
+      "question": "What is the capital city of Nigeria?",
+      "category": "Social Studies",
       "answers": [
-        {
-          "text": "True",
-          "feedback": "Incorrect. This is a common myth."
-        },
-        {
-          "text": "False",
-          "feedback": "Correct! It is not visible without aid."
-        }
+        {"text": "Lagos", "feedback": "Lagos is the commercial hub, but not the capital."},
+        {"text": "Kano", "feedback": "Incorrect."},
+        {"text": "Abuja", "feedback": "Correct!"},
+        {"text": "Enugu", "feedback": "Incorrect."}
       ],
-      "correctAnswer": "False",
-      "generalFeedback": "Apollo astronauts confirmed that the Great Wall is not visible from the Moon."
+      "correctAnswer": "Abuja",
+      "generalFeedback": "Abuja became the capital of Nigeria in 1991, replacing Lagos."
     },
     {
       "id": 3,
-      "type": "short-answer",
-      "question": "What is the chemical symbol for Gold?",
-      "category": "Academic",
-      "correctAnswer": "Au",
-      "generalFeedback": "Au comes from the Latin word for gold, 'aurum'."
+      "type": "multiple-choice",
+      "timer": "infinite",
+      "question": "Which of these is a noun?",
+      "category": "English Language",
+      "answers": [
+        {"text": "Quickly", "feedback": "This is an adverb."},
+        {"text": "Beautiful", "feedback": "This is an adjective."},
+        {"text": "Teacher", "feedback": "Correct! A noun is a naming word."},
+        {"text": "Run", "feedback": "This is a verb."}
+      ],
+      "correctAnswer": "Teacher",
+      "generalFeedback": "A noun is the name of a person, animal, place, or thing."
     },
     {
       "id": 4,
-      "type": "fill-in-the-blank",
-      "question": "The process of ___ is how plants convert sunlight into energy.",
-      "category": "Academic",
-      "correctAnswer": "photosynthesis",
-      "generalFeedback": "Photosynthesis uses chlorophyll to capture light energy."
+      "type": "multiple-choice",
+      "timer": "infinite",
+      "question": "Which continent is the largest by landmass?",
+      "category": "Social Studies",
+      "answers": [
+        {"text": "Africa", "feedback": "Africa is the second largest."},
+        {"text": "Asia", "feedback": "Correct! Asia is the largest continent."},
+        {"text": "Europe", "feedback": "Incorrect."},
+        {"text": "North America", "feedback": "Incorrect."}
+      ],
+      "correctAnswer": "Asia",
+      "generalFeedback": "Asia covers about 30% of Earth's total land area."
     },
     {
       "id": 5,
-      "type": "odd-one-out",
-      "question": "Which of these is NOT a primary color?",
-      "category": "Academic",
+      "type": "multiple-choice",
+      "timer": "infinite",
+      "question": "What gas do humans breathe out during respiration?",
+      "category": "Basic Science",
       "answers": [
-        {
-          "text": "Red",
-          "feedback": "Red is a primary color."
-        },
-        {
-          "text": "Blue",
-          "feedback": "Blue is a primary color."
-        },
-        {
-          "text": "Green",
-          "feedback": "Correct! Green is a secondary color (Yellow + Blue)."
-        },
-        {
-          "text": "Yellow",
-          "feedback": "Yellow is a primary color."
-        }
+        {"text": "Oxygen", "feedback": "We breathe oxygen in."},
+        {"text": "Carbon Dioxide", "feedback": "Correct!"},
+        {"text": "Nitrogen", "feedback": "Incorrect."},
+        {"text": "Helium", "feedback": "Incorrect."}
       ],
-      "correctAnswer": "Green"
+      "correctAnswer": "Carbon Dioxide",
+      "generalFeedback": "Humans inhale oxygen and exhale carbon dioxide."
     },
     {
       "id": 6,
-      "type": "spell-it-out",
-      "question": "Spell the word for a person who travels to space.",
-      "category": "Academic",
-      "correctAnswer": "ASTRONAUT",
-      "generalFeedback": "The word comes from Greek words meaning 'star sailor'."
+      "type": "multiple-choice",
+      "timer": "infinite",
+      "question": "What is the sum of angles in a triangle?",
+      "category": "Mathematics",
+      "answers": [
+        {"text": "90 degrees", "feedback": "Incorrect."},
+        {"text": "180 degrees", "feedback": "Correct!"},
+        {"text": "360 degrees", "feedback": "Incorrect. That is for a quadrilateral."},
+        {"text": "270 degrees", "feedback": "Incorrect."}
+      ],
+      "correctAnswer": "180 degrees",
+      "generalFeedback": "Every triangle's internal angles always add up to 180 degrees."
     },
     {
       "id": 7,
-      "type": "word-scramble",
-      "question": "Unscramble this science term: 'YVITARG'",
-      "category": "Academic",
-      "correctAnswer": "GRAVITY",
-      "generalFeedback": "Gravity is the force that pulls objects toward each other."
+      "type": "multiple-choice",
+      "timer": "infinite",
+      "question": "In what year did Nigeria gain independence?",
+      "category": "Social Studies",
+      "answers": [
+        {"text": "1960", "feedback": "Correct!"},
+        {"text": "1963", "feedback": "This is when Nigeria became a republic."},
+        {"text": "1914", "feedback": "This is the year of amalgamation."},
+        {"text": "1999", "feedback": "This marks the start of the 4th Republic."}
+      ],
+      "correctAnswer": "1960",
+      "generalFeedback": "Nigeria gained independence from British rule on October 1, 1960."
     },
     {
       "id": 8,
-      "type": "organize-tags",
-      "question": "Sort these words into Nouns and Verbs.",
-      "category": "Academic",
-      "buckets": [
-        "Noun",
-        "Verb"
+      "type": "multiple-choice",
+      "timer": "infinite",
+      "question": "What is the opposite (antonym) of 'ancient'?",
+      "category": "English Language",
+      "answers": [
+        {"text": "Old", "feedback": "This is a synonym."},
+        {"text": "Modern", "feedback": "Correct!"},
+        {"text": "Historic", "feedback": "Incorrect."},
+        {"text": "Broken", "feedback": "Incorrect."}
       ],
-      "items": [
-        {
-          "text": "Apple",
-          "category": "Noun"
-        },
-        {
-          "text": "Run",
-          "category": "Verb"
-        },
-        {
-          "text": "Book",
-          "category": "Noun"
-        },
-        {
-          "text": "Jump",
-          "category": "Verb"
-        }
-      ],
-      "correctAnswer": {
-        "Apple": "Noun",
-        "Run": "Verb",
-        "Book": "Noun",
-        "Jump": "Verb"
-      }
+      "correctAnswer": "Modern",
+      "generalFeedback": "'Ancient' means very old, while 'Modern' relates to present or recent times."
     },
     {
       "id": 9,
-      "type": "categorize-items",
-      "question": "Categorize these animals by their habitat.",
-      "category": "Academic",
-      "buckets": [
-        "Land",
-        "Water"
+      "type": "true-false",
+      "timer": "infinite",
+      "question": "Spiders are classified as insects.",
+      "category": "Basic Science",
+      "answers": [
+        {"text": "True", "feedback": "Incorrect. Spiders have 8 legs, insects have 6."},
+        {"text": "False", "feedback": "Correct! Spiders are arachnids."}
       ],
-      "items": [
-        {
-          "text": "Elephant",
-          "category": "Land"
-        },
-        {
-          "text": "Shark",
-          "category": "Water"
-        },
-        {
-          "text": "Lion",
-          "category": "Land"
-        },
-        {
-          "text": "Whale",
-          "category": "Water"
-        }
-      ],
-      "correctAnswer": {
-        "Elephant": "Land",
-        "Shark": "Water",
-        "Lion": "Land",
-        "Whale": "Water"
-      }
+      "correctAnswer": "False",
+      "generalFeedback": "Spiders are arachnids because they have eight legs and two main body parts."
     },
     {
       "id": 10,
-      "type": "sequence-order",
-      "question": "Put these planets in order of distance from the Sun (closest to farthest).",
-      "category": "Academic",
-      "items": [
-        "Mercury",
-        "Venus",
-        "Earth",
-        "Mars"
+      "type": "true-false",
+      "timer": "infinite",
+      "question": "Water freezes at 0 degrees Celsius.",
+      "category": "Basic Science",
+      "answers": [
+        {"text": "True", "feedback": "Correct!"},
+        {"text": "False", "feedback": "Incorrect."}
       ],
-      "correctAnswer": [
-        "Mercury",
-        "Venus",
-        "Earth",
-        "Mars"
-      ]
+      "correctAnswer": "True",
+      "generalFeedback": "0°C is the freezing point of water at standard atmospheric pressure."
     },
     {
       "id": 11,
-      "type": "connect-terms",
-      "question": "Match the countries to their capitals.",
-      "category": "Academic",
-      "leftColumn": [
-        "France",
-        "Japan",
-        "Nigeria"
+      "type": "true-false",
+      "timer": "infinite",
+      "question": "15 is a prime number.",
+      "category": "Mathematics",
+      "answers": [
+        {"text": "True", "feedback": "Incorrect. 15 can be divided by 3 and 5."},
+        {"text": "False", "feedback": "Correct!"}
       ],
-      "rightColumn": [
-        "Abuja",
-        "Paris",
-        "Tokyo"
-      ],
-      "correctAnswer": {
-        "France": "Paris",
-        "Japan": "Tokyo",
-        "Nigeria": "Abuja"
-      }
+      "correctAnswer": "False",
+      "generalFeedback": "A prime number is only divisible by 1 and itself. 15 has factors 1, 3, 5, and 15."
     },
     {
       "id": 12,
-      "type": "ipa-transcriber",
-      "question": "Transcribe the word 'Cat' into IPA symbols.",
-      "category": "IPA",
-      "correctAnswer": "kæt",
-      "generalFeedback": "The symbol /æ/ represents the short 'a' sound."
+      "type": "true-false",
+      "timer": "infinite",
+      "question": "The Sahara is the largest hot desert in the world.",
+      "category": "Social Studies",
+      "answers": [
+        {"text": "True", "feedback": "Correct!"},
+        {"text": "False", "feedback": "Incorrect."}
+      ],
+      "correctAnswer": "True",
+      "generalFeedback": "The Sahara is the largest hot desert, though Antarctica is the largest cold desert."
     },
     {
       "id": 13,
-      "type": "multiple-choice",
-      "videoId": "hW7DW9NIO9M",
-      "question": "According to the video, which planet is known as the 'Red Planet'?",
-      "category": "YouTube",
+      "type": "true-false",
+      "timer": "infinite",
+      "question": "A polygon with 5 sides is called a hexagon.",
+      "category": "Mathematics",
       "answers": [
-        {
-          "text": "Mars",
-          "feedback": "Correct! Iron oxide on its surface gives it a reddish look."
-        },
-        {
-          "text": "Venus",
-          "feedback": "Incorrect. Venus is yellow/white."
-        },
-        {
-          "text": "Jupiter",
-          "feedback": "Incorrect. Jupiter is striped brown/white."
-        },
-        {
-          "text": "Neptune",
-          "feedback": "Incorrect. Neptune is blue."
-        }
+        {"text": "True", "feedback": "Incorrect. A 5-sided shape is a pentagon."},
+        {"text": "False", "feedback": "Correct!"}
       ],
-      "correctAnswer": "Mars",
-      "generalFeedback": "Mars has been a target for many exploration missions."
+      "correctAnswer": "False",
+      "generalFeedback": "A hexagon has 6 sides, while a pentagon has 5."
+    },
+    {
+      "id": 14,
+      "type": "true-false",
+      "timer": "infinite",
+      "question": "Africa is a country.",
+      "category": "Social Studies",
+      "answers": [
+        {"text": "True", "feedback": "Incorrect."},
+        {"text": "False", "feedback": "Correct! Africa is a continent."}
+      ],
+      "correctAnswer": "False",
+      "generalFeedback": "Africa is a continent made up of 54 fully recognized sovereign countries."
+    },
+    {
+      "id": 15,
+      "type": "true-false",
+      "timer": "infinite",
+      "question": "The sun is a star.",
+      "category": "Basic Science",
+      "answers": [
+        {"text": "True", "feedback": "Correct!"},
+        {"text": "False", "feedback": "Incorrect."}
+      ],
+      "correctAnswer": "True",
+      "generalFeedback": "The sun is a medium-sized star at the center of our solar system."
+    },
+    {
+      "id": 16,
+      "type": "true-false",
+      "timer": "infinite",
+      "question": "Fish breathe under water using gills.",
+      "category": "Basic Science",
+      "answers": [
+        {"text": "True", "feedback": "Correct!"},
+        {"text": "False", "feedback": "Incorrect."}
+      ],
+      "correctAnswer": "True",
+      "generalFeedback": "Gills extract dissolved oxygen from water and excrete carbon dioxide."
+    },
+    {
+      "id": 17,
+      "type": "short-answer",
+      "timer": "infinite",
+      "question": "H2O is the scientific formula for what common liquid?",
+      "category": "Basic Science",
+      "correctAnswer": "Water",
+      "generalFeedback": "H2O stands for two Hydrogen atoms and one Oxygen atom."
+    },
+    {
+      "id": 18,
+      "type": "short-answer",
+      "timer": "infinite",
+      "question": "What is the square root of 64?",
+      "category": "Mathematics",
+      "correctAnswer": "8",
+      "generalFeedback": "8 multiplied by 8 equals 64."
+    },
+    {
+      "id": 19,
+      "type": "short-answer",
+      "timer": "infinite",
+      "question": "Which animal is commonly known as the 'King of the Jungle'?",
+      "category": "Basic Science",
+      "correctAnswer": "Lion",
+      "generalFeedback": "Lions are apex predators and live in groups called prides."
+    },
+    {
+      "id": 20,
+      "type": "short-answer",
+      "timer": "infinite",
+      "question": "How many seconds are in one hour?",
+      "category": "Mathematics",
+      "correctAnswer": "3600",
+      "generalFeedback": "60 seconds in a minute * 60 minutes in an hour = 3600."
+    },
+    {
+      "id": 21,
+      "type": "short-answer",
+      "timer": "infinite",
+      "question": "What punctuation mark is used at the end of an interrogative sentence?",
+      "category": "English Language",
+      "correctAnswer": "?",
+      "generalFeedback": "A question mark (?) indicates a question is being asked."
+    },
+    {
+      "id": 22,
+      "type": "short-answer",
+      "timer": "infinite",
+      "question": "What is the name of the planet closest to the sun?",
+      "category": "Basic Science",
+      "correctAnswer": "Mercury",
+      "generalFeedback": "Mercury is the smallest and closest planet to the Sun."
+    },
+    {
+      "id": 23,
+      "type": "short-answer",
+      "timer": "infinite",
+      "question": "What do we call a baby dog?",
+      "category": "English Language",
+      "correctAnswer": "Puppy",
+      "generalFeedback": "A young dog is called a puppy."
+    },
+    {
+      "id": 24,
+      "type": "short-answer",
+      "timer": "infinite",
+      "question": "How many sides does an octagon have?",
+      "category": "Mathematics",
+      "correctAnswer": "8",
+      "generalFeedback": "The prefix 'octa-' means eight."
+    },
+    {
+      "id": 25,
+      "type": "fill-in-the-blank",
+      "timer": "infinite",
+      "question": "A leap year has ___ days in total.",
+      "category": "Mathematics",
+      "correctAnswer": "366",
+      "generalFeedback": "Leap years have an extra day in February."
+    },
+    {
+      "id": 26,
+      "type": "fill-in-the-blank",
+      "timer": "infinite",
+      "question": "The Earth revolves around the ___.",
+      "category": "Basic Science",
+      "correctAnswer": "Sun",
+      "generalFeedback": "It takes the Earth approximately 365.25 days to complete one revolution."
+    },
+    {
+      "id": 27,
+      "type": "fill-in-the-blank",
+      "timer": "infinite",
+      "question": "An ___ is a word that describes or modifies a noun.",
+      "category": "English Language",
+      "correctAnswer": "Adjective",
+      "generalFeedback": "Words like 'tall', 'beautiful', and 'blue' are adjectives."
+    },
+    {
+      "id": 28,
+      "type": "fill-in-the-blank",
+      "timer": "infinite",
+      "question": "___ is the capital city of Lagos State.",
+      "category": "Social Studies",
+      "correctAnswer": "Ikeja",
+      "generalFeedback": "Ikeja is the capital of Lagos State, while Lagos was the former national capital."
+    },
+    {
+      "id": 29,
+      "type": "fill-in-the-blank",
+      "timer": "infinite",
+      "question": "One hundred centimeters make one ___.",
+      "category": "Mathematics",
+      "correctAnswer": "Meter",
+      "generalFeedback": "The prefix 'centi' means one-hundredth."
+    },
+    {
+      "id": 30,
+      "type": "fill-in-the-blank",
+      "timer": "infinite",
+      "question": "The past tense of the verb 'go' is ___.",
+      "category": "English Language",
+      "correctAnswer": "went",
+      "generalFeedback": "'Go' is an irregular verb."
+    },
+    {
+      "id": 31,
+      "type": "fill-in-the-blank",
+      "timer": "infinite",
+      "question": "A professional who treats sick people in a hospital is called a ___.",
+      "category": "Social Studies",
+      "correctAnswer": "Doctor",
+      "generalFeedback": "Doctors and nurses work in the healthcare sector."
+    },
+    {
+      "id": 32,
+      "type": "fill-in-the-blank",
+      "timer": "infinite",
+      "question": "There are exactly ___ days in one standard week.",
+      "category": "Mathematics",
+      "correctAnswer": "7",
+      "generalFeedback": "Monday through Sunday makes 7 days."
+    },
+    {
+      "id": 33,
+      "type": "odd-one-out",
+      "timer": "infinite",
+      "question": "Which of these does NOT belong to the group?",
+      "category": "English Language",
+      "answers": [
+        {"text": "Dog", "feedback": "Animal."},
+        {"text": "Cat", "feedback": "Animal."},
+        {"text": "Lion", "feedback": "Animal."},
+        {"text": "Car", "feedback": "Correct! A car is a machine, not an animal."}
+      ],
+      "correctAnswer": "Car"
+    },
+    {
+      "id": 34,
+      "type": "odd-one-out",
+      "timer": "infinite",
+      "question": "Identify the odd one out.",
+      "category": "Basic Science",
+      "answers": [
+        {"text": "Apple", "feedback": "Fruit."},
+        {"text": "Banana", "feedback": "Fruit."},
+        {"text": "Carrot", "feedback": "Correct! Carrot is a root vegetable."},
+        {"text": "Orange", "feedback": "Fruit."}
+      ],
+      "correctAnswer": "Carrot"
+    },
+    {
+      "id": 35,
+      "type": "odd-one-out",
+      "timer": "infinite",
+      "question": "Which city does NOT belong?",
+      "category": "Social Studies",
+      "answers": [
+        {"text": "Lagos", "feedback": "City in Nigeria."},
+        {"text": "Abuja", "feedback": "City in Nigeria."},
+        {"text": "Kano", "feedback": "City in Nigeria."},
+        {"text": "London", "feedback": "Correct! London is in the UK."}
+      ],
+      "correctAnswer": "London"
+    },
+    {
+      "id": 36,
+      "type": "odd-one-out",
+      "timer": "infinite",
+      "question": "Select the number that doesn't fit the pattern.",
+      "category": "Mathematics",
+      "answers": [
+        {"text": "2", "feedback": "Even number."},
+        {"text": "4", "feedback": "Even number."},
+        {"text": "6", "feedback": "Even number."},
+        {"text": "9", "feedback": "Correct! 9 is an odd number."}
+      ],
+      "correctAnswer": "9"
+    },
+    {
+      "id": 37,
+      "type": "odd-one-out",
+      "timer": "infinite",
+      "question": "Find the odd word.",
+      "category": "English Language",
+      "answers": [
+        {"text": "Run", "feedback": "Verb."},
+        {"text": "Jump", "feedback": "Verb."},
+        {"text": "Swim", "feedback": "Verb."},
+        {"text": "Book", "feedback": "Correct! Book is a noun."}
+      ],
+      "correctAnswer": "Book"
+    },
+    {
+      "id": 38,
+      "type": "odd-one-out",
+      "timer": "infinite",
+      "question": "Which shape is the odd one out?",
+      "category": "Mathematics",
+      "answers": [
+        {"text": "Triangle", "feedback": "Has straight sides."},
+        {"text": "Square", "feedback": "Has straight sides."},
+        {"text": "Rectangle", "feedback": "Has straight sides."},
+        {"text": "Circle", "feedback": "Correct! A circle has no straight sides."}
+      ],
+      "correctAnswer": "Circle"
+    },
+    {
+      "id": 39,
+      "type": "odd-one-out",
+      "timer": "infinite",
+      "question": "Which body part does not belong with the others?",
+      "category": "Basic Science",
+      "answers": [
+        {"text": "Eyes", "feedback": "External sensory organ."},
+        {"text": "Ears", "feedback": "External sensory organ."},
+        {"text": "Nose", "feedback": "External sensory organ."},
+        {"text": "Heart", "feedback": "Correct! The heart is an internal organ."}
+      ],
+      "correctAnswer": "Heart"
+    },
+    {
+      "id": 40,
+      "type": "odd-one-out",
+      "timer": "infinite",
+      "question": "Which of these is NOT a stationery item?",
+      "category": "General Knowledge",
+      "answers": [
+        {"text": "Pen", "feedback": "Stationery."},
+        {"text": "Pencil", "feedback": "Stationery."},
+        {"text": "Eraser", "feedback": "Stationery."},
+        {"text": "Water", "feedback": "Correct! Water is a liquid for drinking."}
+      ],
+      "correctAnswer": "Water"
+    },
+    {
+      "id": 41,
+      "type": "spell-it-out",
+      "timer": "infinite",
+      "question": "Spell the word for our natural surroundings.",
+      "category": "English Language",
+      "correctAnswer": "ENVIRONMENT",
+      "generalFeedback": "The environment is everything around us."
+    },
+    {
+      "id": 42,
+      "type": "spell-it-out",
+      "timer": "infinite",
+      "question": "Spell the adjective meaning 'pleasing to the senses or mind'.",
+      "category": "English Language",
+      "correctAnswer": "BEAUTIFUL",
+      "generalFeedback": "Ensure you remember the 'E-A-U' sequence."
+    },
+    {
+      "id": 43,
+      "type": "spell-it-out",
+      "timer": "infinite",
+      "question": "Spell the word for the group of people who rule a country.",
+      "category": "Social Studies",
+      "correctAnswer": "GOVERNMENT",
+      "generalFeedback": "Don't forget the 'n' in the middle!"
+    },
+    {
+      "id": 44,
+      "type": "spell-it-out",
+      "timer": "infinite",
+      "question": "Spell the word meaning facts, information, and skills acquired through learning.",
+      "category": "English Language",
+      "correctAnswer": "KNOWLEDGE",
+      "generalFeedback": "It starts with a silent 'K'."
+    },
+    {
+      "id": 45,
+      "type": "spell-it-out",
+      "timer": "infinite",
+      "question": "Spell the word for the process of receiving or giving systematic instruction.",
+      "category": "Social Studies",
+      "correctAnswer": "EDUCATION",
+      "generalFeedback": "Education is the key to success."
+    },
+    {
+      "id": 46,
+      "type": "spell-it-out",
+      "timer": "infinite",
+      "question": "Spell the word for a large natural elevation of the earth's surface.",
+      "category": "Geography",
+      "correctAnswer": "MOUNTAIN",
+      "generalFeedback": "The tallest mountain on Earth is Mount Everest."
+    },
+    {
+      "id": 47,
+      "type": "spell-it-out",
+      "timer": "infinite",
+      "question": "Spell the word for the application of scientific knowledge for practical purposes.",
+      "category": "Basic Science",
+      "correctAnswer": "TECHNOLOGY",
+      "generalFeedback": "Computers and smartphones are examples of technology."
+    },
+    {
+      "id": 48,
+      "type": "spell-it-out",
+      "timer": "infinite",
+      "question": "Spell the word for a unit of pronunciation having one vowel sound.",
+      "category": "English Language",
+      "correctAnswer": "SYLLABLE",
+      "generalFeedback": "The word 'Water' has two syllables (Wa-ter)."
+    },
+    {
+      "id": 49,
+      "type": "word-scramble",
+      "timer": "infinite",
+      "question": "Unscramble this electronic device: RMECTUPO",
+      "category": "ICT",
+      "correctAnswer": "COMPUTER",
+      "generalFeedback": "A computer is an electronic machine for processing data."
+    },
+    {
+      "id": 50,
+      "type": "word-scramble",
+      "timer": "infinite",
+      "question": "Unscramble this school subject: CIECESN",
+      "category": "Basic Science",
+      "correctAnswer": "SCIENCE",
+      "generalFeedback": "Science helps us understand the natural world."
+    },
+    {
+      "id": 51,
+      "type": "word-scramble",
+      "timer": "infinite",
+      "question": "Unscramble this global network: ETINNRTE",
+      "category": "ICT",
+      "correctAnswer": "INTERNET",
+      "generalFeedback": "The internet connects computers worldwide."
+    },
+    {
+      "id": 52,
+      "type": "word-scramble",
+      "timer": "infinite",
+      "question": "Unscramble the word for someone who instructs: RCETHEA",
+      "category": "English Language",
+      "correctAnswer": "TEACHER",
+      "generalFeedback": "A teacher helps students learn."
+    },
+    {
+      "id": 53,
+      "type": "word-scramble",
+      "timer": "infinite",
+      "question": "Unscramble the building where you live: EUSHO",
+      "category": "English Language",
+      "correctAnswer": "HOUSE",
+      "generalFeedback": "A house provides shelter."
+    },
+    {
+      "id": 54,
+      "type": "word-scramble",
+      "timer": "infinite",
+      "question": "Unscramble this part of a room that lets in light: WDNWIO",
+      "category": "English Language",
+      "correctAnswer": "WINDOW",
+      "generalFeedback": "Windows allow ventilation and light."
+    },
+    {
+      "id": 55,
+      "type": "word-scramble",
+      "timer": "infinite",
+      "question": "Unscramble this place full of books: RYBAILR",
+      "category": "English Language",
+      "correctAnswer": "LIBRARY",
+      "generalFeedback": "A library is a quiet place for reading."
+    },
+    {
+      "id": 56,
+      "type": "word-scramble",
+      "timer": "infinite",
+      "question": "Unscramble this word for a pupil: NDESTRU",
+      "category": "English Language",
+      "correctAnswer": "STUDENT",
+      "generalFeedback": "You are a student!"
+    },
+    {
+      "id": 57,
+      "type": "organize-tags",
+      "timer": "infinite",
+      "question": "Sort these letters into Vowels and Consonants.",
+      "category": "English Language",
+      "buckets": ["Vowel", "Consonant"],
+      "items": [
+        {"text": "A", "category": "Vowel"},
+        {"text": "E", "category": "Vowel"},
+        {"text": "B", "category": "Consonant"},
+        {"text": "C", "category": "Consonant"}
+      ],
+      "correctAnswer": {
+        "A": "Vowel",
+        "E": "Vowel",
+        "B": "Consonant",
+        "C": "Consonant"
+      }
+    },
+    {
+      "id": 58,
+      "type": "organize-tags",
+      "timer": "infinite",
+      "question": "Sort these numbers into Odd and Even.",
+      "category": "Mathematics",
+      "buckets": ["Odd", "Even"],
+      "items": [
+        {"text": "1", "category": "Odd"},
+        {"text": "2", "category": "Even"},
+        {"text": "3", "category": "Odd"},
+        {"text": "4", "category": "Even"}
+      ],
+      "correctAnswer": {
+        "1": "Odd",
+        "2": "Even",
+        "3": "Odd",
+        "4": "Even"
+      }
+    },
+    {
+      "id": 59,
+      "type": "organize-tags",
+      "timer": "infinite",
+      "question": "Sort these animals into Mammals and Birds.",
+      "category": "Basic Science",
+      "buckets": ["Mammal", "Bird"],
+      "items": [
+        {"text": "Dog", "category": "Mammal"},
+        {"text": "Eagle", "category": "Bird"},
+        {"text": "Cow", "category": "Mammal"},
+        {"text": "Owl", "category": "Bird"}
+      ],
+      "correctAnswer": {
+        "Dog": "Mammal",
+        "Eagle": "Bird",
+        "Cow": "Mammal",
+        "Owl": "Bird"
+      }
+    },
+    {
+      "id": 60,
+      "type": "organize-tags",
+      "timer": "infinite",
+      "question": "Sort into Living and Non-Living things.",
+      "category": "Basic Science",
+      "buckets": ["Living", "Non-Living"],
+      "items": [
+        {"text": "Tree", "category": "Living"},
+        {"text": "Boy", "category": "Living"},
+        {"text": "Rock", "category": "Non-Living"},
+        {"text": "Pen", "category": "Non-Living"}
+      ],
+      "correctAnswer": {
+        "Tree": "Living",
+        "Boy": "Living",
+        "Rock": "Non-Living",
+        "Pen": "Non-Living"
+      }
+    },
+    {
+      "id": 61,
+      "type": "organize-tags",
+      "timer": "infinite",
+      "question": "Sort into Fruits and Vegetables.",
+      "category": "Basic Science",
+      "buckets": ["Fruit", "Vegetable"],
+      "items": [
+        {"text": "Apple", "category": "Fruit"},
+        {"text": "Mango", "category": "Fruit"},
+        {"text": "Onion", "category": "Vegetable"},
+        {"text": "Yam", "category": "Vegetable"}
+      ],
+      "correctAnswer": {
+        "Apple": "Fruit",
+        "Mango": "Fruit",
+        "Onion": "Vegetable",
+        "Yam": "Vegetable"
+      }
+    },
+    {
+      "id": 62,
+      "type": "organize-tags",
+      "timer": "infinite",
+      "question": "Sort these words into Nouns and Adjectives.",
+      "category": "English Language",
+      "buckets": ["Noun", "Adjective"],
+      "items": [
+        {"text": "Table", "category": "Noun"},
+        {"text": "Tall", "category": "Adjective"},
+        {"text": "Car", "category": "Noun"},
+        {"text": "Blue", "category": "Adjective"}
+      ],
+      "correctAnswer": {
+        "Table": "Noun",
+        "Tall": "Adjective",
+        "Car": "Noun",
+        "Blue": "Adjective"
+      }
+    },
+    {
+      "id": 63,
+      "type": "organize-tags",
+      "timer": "infinite",
+      "question": "Sort into Continents and Oceans.",
+      "category": "Geography",
+      "buckets": ["Continent", "Ocean"],
+      "items": [
+        {"text": "Africa", "category": "Continent"},
+        {"text": "Atlantic", "category": "Ocean"},
+        {"text": "Asia", "category": "Continent"},
+        {"text": "Pacific", "category": "Ocean"}
+      ],
+      "correctAnswer": {
+        "Africa": "Continent",
+        "Atlantic": "Ocean",
+        "Asia": "Continent",
+        "Pacific": "Ocean"
+      }
+    },
+    {
+      "id": 64,
+      "type": "organize-tags",
+      "timer": "infinite",
+      "question": "Sort into Metals and Gases.",
+      "category": "Basic Science",
+      "buckets": ["Metal", "Gas"],
+      "items": [
+        {"text": "Iron", "category": "Metal"},
+        {"text": "Oxygen", "category": "Gas"},
+        {"text": "Gold", "category": "Metal"},
+        {"text": "Helium", "category": "Gas"}
+      ],
+      "correctAnswer": {
+        "Iron": "Metal",
+        "Oxygen": "Gas",
+        "Gold": "Metal",
+        "Helium": "Gas"
+      }
+    },
+    {
+      "id": 65,
+      "type": "categorize-items",
+      "timer": "infinite",
+      "question": "Categorize these Nigerian locations into States and Capitals.",
+      "category": "Social Studies",
+      "buckets": ["State", "Capital"],
+      "items": [
+        {"text": "Lagos", "category": "State"},
+        {"text": "Ikeja", "category": "Capital"},
+        {"text": "Kano", "category": "State"},
+        {"text": "Abuja", "category": "Capital"}
+      ],
+      "correctAnswer": {
+        "Lagos": "State",
+        "Ikeja": "Capital",
+        "Kano": "State",
+        "Abuja": "Capital"
+      }
+    },
+    {
+      "id": 66,
+      "type": "categorize-items",
+      "timer": "infinite",
+      "question": "Categorize into Shapes and Colors.",
+      "category": "General Knowledge",
+      "buckets": ["Shape", "Color"],
+      "items": [
+        {"text": "Square", "category": "Shape"},
+        {"text": "Red", "category": "Color"},
+        {"text": "Circle", "category": "Shape"},
+        {"text": "Green", "category": "Color"}
+      ],
+      "correctAnswer": {
+        "Square": "Shape",
+        "Red": "Color",
+        "Circle": "Shape",
+        "Green": "Color"
+      }
+    },
+    {
+      "id": 67,
+      "type": "categorize-items",
+      "timer": "infinite",
+      "question": "Categorize verbs into Past Tense and Present Tense.",
+      "category": "English Language",
+      "buckets": ["Past", "Present"],
+      "items": [
+        {"text": "Went", "category": "Past"},
+        {"text": "Go", "category": "Present"},
+        {"text": "Ate", "category": "Past"},
+        {"text": "Eat", "category": "Present"}
+      ],
+      "correctAnswer": {
+        "Went": "Past",
+        "Go": "Present",
+        "Ate": "Past",
+        "Eat": "Present"
+      }
+    },
+    {
+      "id": 68,
+      "type": "categorize-items",
+      "timer": "infinite",
+      "question": "Categorize matter into Solid and Liquid.",
+      "category": "Basic Science",
+      "buckets": ["Solid", "Liquid"],
+      "items": [
+        {"text": "Ice", "category": "Solid"},
+        {"text": "Water", "category": "Liquid"},
+        {"text": "Wood", "category": "Solid"},
+        {"text": "Milk", "category": "Liquid"}
+      ],
+      "correctAnswer": {
+        "Ice": "Solid",
+        "Water": "Liquid",
+        "Wood": "Solid",
+        "Milk": "Liquid"
+      }
+    },
+    {
+      "id": 69,
+      "type": "categorize-items",
+      "timer": "infinite",
+      "question": "Categorize animals by diet.",
+      "category": "Basic Science",
+      "buckets": ["Herbivore", "Carnivore"],
+      "items": [
+        {"text": "Cow", "category": "Herbivore"},
+        {"text": "Goat", "category": "Herbivore"},
+        {"text": "Lion", "category": "Carnivore"},
+        {"text": "Tiger", "category": "Carnivore"}
+      ],
+      "correctAnswer": {
+        "Cow": "Herbivore",
+        "Goat": "Herbivore",
+        "Lion": "Carnivore",
+        "Tiger": "Carnivore"
+      }
+    },
+    {
+      "id": 70,
+      "type": "categorize-items",
+      "timer": "infinite",
+      "question": "Categorize words as Synonyms of Happy or Sad.",
+      "category": "English Language",
+      "buckets": ["Happy", "Sad"],
+      "items": [
+        {"text": "Joyful", "category": "Happy"},
+        {"text": "Glad", "category": "Happy"},
+        {"text": "Unhappy", "category": "Sad"},
+        {"text": "Down", "category": "Sad"}
+      ],
+      "correctAnswer": {
+        "Joyful": "Happy",
+        "Glad": "Happy",
+        "Unhappy": "Sad",
+        "Down": "Sad"
+      }
+    },
+    {
+      "id": 71,
+      "type": "categorize-items",
+      "timer": "infinite",
+      "question": "Categorize animals into Domestic and Wild.",
+      "category": "Basic Science",
+      "buckets": ["Domestic", "Wild"],
+      "items": [
+        {"text": "Dog", "category": "Domestic"},
+        {"text": "Cat", "category": "Domestic"},
+        {"text": "Lion", "category": "Wild"},
+        {"text": "Bear", "category": "Wild"}
+      ],
+      "correctAnswer": {
+        "Dog": "Domestic",
+        "Cat": "Domestic",
+        "Lion": "Wild",
+        "Bear": "Wild"
+      }
+    },
+    {
+      "id": 72,
+      "type": "categorize-items",
+      "timer": "infinite",
+      "question": "Categorize the modes of transportation.",
+      "category": "Social Studies",
+      "buckets": ["Road", "Air"],
+      "items": [
+        {"text": "Car", "category": "Road"},
+        {"text": "Bus", "category": "Road"},
+        {"text": "Airplane", "category": "Air"},
+        {"text": "Helicopter", "category": "Air"}
+      ],
+      "correctAnswer": {
+        "Car": "Road",
+        "Bus": "Road",
+        "Airplane": "Air",
+        "Helicopter": "Air"
+      }
+    },
+    {
+      "id": 73,
+      "type": "sequence-order",
+      "timer": "infinite",
+      "question": "Put the times of day in chronological order.",
+      "category": "General Knowledge",
+      "items": ["Evening", "Morning", "Night", "Afternoon"],
+      "correctAnswer": ["Morning", "Afternoon", "Evening", "Night"]
+    },
+    {
+      "id": 74,
+      "type": "sequence-order",
+      "timer": "infinite",
+      "question": "Order these units of length from smallest to largest.",
+      "category": "Mathematics",
+      "items": ["Meter", "Millimeter", "Kilometer", "Centimeter"],
+      "correctAnswer": ["Millimeter", "Centimeter", "Meter", "Kilometer"]
+    },
+    {
+      "id": 75,
+      "type": "sequence-order",
+      "timer": "infinite",
+      "question": "Order these numbers from smallest to largest.",
+      "category": "Mathematics",
+      "items": ["100", "10", "1000", "50"],
+      "correctAnswer": ["10", "50", "100", "1000"]
+    },
+    {
+      "id": 76,
+      "type": "sequence-order",
+      "timer": "infinite",
+      "question": "Put the life cycle of a plant in order.",
+      "category": "Basic Science",
+      "items": ["Sapling", "Seed", "Tree", "Sprout"],
+      "correctAnswer": ["Seed", "Sprout", "Sapling", "Tree"]
+    },
+    {
+      "id": 77,
+      "type": "sequence-order",
+      "timer": "infinite",
+      "question": "Put these words in alphabetical order.",
+      "category": "English Language",
+      "items": ["Cherry", "Apple", "Date", "Banana"],
+      "correctAnswer": ["Apple", "Banana", "Cherry", "Date"]
+    },
+    {
+      "id": 78,
+      "type": "sequence-order",
+      "timer": "infinite",
+      "question": "Order the days of the school week.",
+      "category": "General Knowledge",
+      "items": ["Wednesday", "Monday", "Thursday", "Tuesday"],
+      "correctAnswer": ["Monday", "Tuesday", "Wednesday", "Thursday"]
+    },
+    {
+      "id": 79,
+      "type": "sequence-order",
+      "timer": "infinite",
+      "question": "Order this simple food chain (Producer to Apex).",
+      "category": "Basic Science",
+      "items": ["Frog", "Grass", "Bird", "Grasshopper"],
+      "correctAnswer": ["Grass", "Grasshopper", "Frog", "Bird"]
+    },
+    {
+      "id": 80,
+      "type": "sequence-order",
+      "timer": "infinite",
+      "question": "Order the educational levels in Nigeria from lowest to highest.",
+      "category": "Social Studies",
+      "items": ["SS 3", "Primary 1", "JSS 1", "Primary 6"],
+      "correctAnswer": ["Primary 1", "Primary 6", "JSS 1", "SS 3"]
+    },
+    {
+      "id": 81,
+      "type": "connect-terms",
+      "timer": "infinite",
+      "question": "Match the adult animals to their babies.",
+      "category": "Basic Science",
+      "leftColumn": ["Dog", "Cat", "Cow"],
+      "rightColumn": ["Kitten", "Puppy", "Calf"],
+      "correctAnswer": {
+        "Dog": "Puppy",
+        "Cat": "Kitten",
+        "Cow": "Calf"
+      }
+    },
+    {
+      "id": 82,
+      "type": "connect-terms",
+      "timer": "infinite",
+      "question": "Match these Nigerian States to their Capitals.",
+      "category": "Social Studies",
+      "leftColumn": ["Kano", "Oyo", "Rivers"],
+      "rightColumn": ["Ibadan", "Port Harcourt", "Kano"],
+      "correctAnswer": {
+        "Kano": "Kano",
+        "Oyo": "Ibadan",
+        "Rivers": "Port Harcourt"
+      }
+    },
+    {
+      "id": 83,
+      "type": "connect-terms",
+      "timer": "infinite",
+      "question": "Match the shapes to the number of sides they have.",
+      "category": "Mathematics",
+      "leftColumn": ["Triangle", "Square", "Pentagon"],
+      "rightColumn": ["5", "3", "4"],
+      "correctAnswer": {
+        "Triangle": "3",
+        "Square": "4",
+        "Pentagon": "5"
+      }
+    },
+    {
+      "id": 84,
+      "type": "connect-terms",
+      "timer": "infinite",
+      "question": "Match the words to their opposites.",
+      "category": "English Language",
+      "leftColumn": ["Hot", "Tall", "Fast"],
+      "rightColumn": ["Slow", "Cold", "Short"],
+      "correctAnswer": {
+        "Hot": "Cold",
+        "Tall": "Short",
+        "Fast": "Slow"
+      }
+    },
+    {
+      "id": 85,
+      "type": "connect-terms",
+      "timer": "infinite",
+      "question": "Match the instruments to what they measure.",
+      "category": "Basic Science",
+      "leftColumn": ["Thermometer", "Barometer", "Ruler"],
+      "rightColumn": ["Length", "Temperature", "Air Pressure"],
+      "correctAnswer": {
+        "Thermometer": "Temperature",
+        "Barometer": "Air Pressure",
+        "Ruler": "Length"
+      }
+    },
+    {
+      "id": 86,
+      "type": "connect-terms",
+      "timer": "infinite",
+      "question": "Match the school subject to its core topic.",
+      "category": "Education",
+      "leftColumn": ["Mathematics", "English", "Science"],
+      "rightColumn": ["Atoms", "Numbers", "Grammar"],
+      "correctAnswer": {
+        "Mathematics": "Numbers",
+        "English": "Grammar",
+        "Science": "Atoms"
+      }
+    },
+    {
+      "id": 87,
+      "type": "connect-terms",
+      "timer": "infinite",
+      "question": "Match the continent to a country found within it.",
+      "category": "Geography",
+      "leftColumn": ["Africa", "Europe", "Asia"],
+      "rightColumn": ["Japan", "Nigeria", "France"],
+      "correctAnswer": {
+        "Africa": "Nigeria",
+        "Europe": "France",
+        "Asia": "Japan"
+      }
+    },
+    {
+      "id": 88,
+      "type": "connect-terms",
+      "timer": "infinite",
+      "question": "Match the currency to the country.",
+      "category": "Social Studies",
+      "leftColumn": ["Naira", "Dollar", "Yen"],
+      "rightColumn": ["USA", "Japan", "Nigeria"],
+      "correctAnswer": {
+        "Naira": "Nigeria",
+        "Dollar": "USA",
+        "Yen": "Japan"
+      }
+    },
+    {
+      "id": 89,
+      "type": "ipa-transcriber",
+      "timer": "infinite",
+      "question": "Transcribe the word 'Teacher' into IPA symbols.",
+      "category": "IPA",
+      "correctAnswer": "ˈtiːtʃə",
+      "generalFeedback": "Focus on the long /iː/ and the 'ch' /tʃ/ sound."
+    },
+    {
+      "id": 90,
+      "type": "ipa-transcriber",
+      "timer": "infinite",
+      "question": "Transcribe the word 'Book' into IPA symbols.",
+      "category": "IPA",
+      "correctAnswer": "bʊk",
+      "generalFeedback": "It uses the short /ʊ/ vowel."
+    },
+    {
+      "id": 91,
+      "type": "ipa-transcriber",
+      "timer": "infinite",
+      "question": "Transcribe the word 'Cat' into IPA symbols.",
+      "category": "IPA",
+      "correctAnswer": "kæt",
+      "generalFeedback": "The 'a' sound is represented by the ash symbol /æ/."
+    },
+    {
+      "id": 92,
+      "type": "ipa-transcriber",
+      "timer": "infinite",
+      "question": "Transcribe the word 'Dog' into IPA symbols.",
+      "category": "IPA",
+      "correctAnswer": "dɒɡ",
+      "generalFeedback": "Uses the short /ɒ/ vowel sound."
+    },
+    {
+      "id": 93,
+      "type": "ipa-transcriber",
+      "timer": "infinite",
+      "question": "Transcribe the word 'Fish' into IPA symbols.",
+      "category": "IPA",
+      "correctAnswer": "fɪʃ",
+      "generalFeedback": "The 'sh' sound is represented by /ʃ/."
+    },
+    {
+      "id": 94,
+      "type": "ipa-transcriber",
+      "timer": "infinite",
+      "question": "Transcribe the word 'Bird' into IPA symbols (British RP).",
+      "category": "IPA",
+      "correctAnswer": "bɜːd",
+      "generalFeedback": "It uses the long central vowel /ɜː/."
+    },
+    {
+      "id": 95,
+      "type": "ipa-transcriber",
+      "timer": "infinite",
+      "question": "Transcribe the word 'Shoe' into IPA symbols.",
+      "category": "IPA",
+      "correctAnswer": "ʃuː",
+      "generalFeedback": "Contains the /ʃ/ consonant and the long /uː/ vowel."
+    },
+    {
+      "id": 96,
+      "type": "ipa-transcriber",
+      "timer": "infinite",
+      "question": "Transcribe the word 'Tree' into IPA symbols.",
+      "category": "IPA",
+      "correctAnswer": "triː",
+      "generalFeedback": "Uses the long /iː/ vowel at the end."
+    },
+    {
+      "id": 97,
+      "type": "ipa-transcriber",
+      "timer": "infinite",
+      "question": "Transcribe the word 'Sun' into IPA symbols.",
+      "category": "IPA",
+      "correctAnswer": "sʌn",
+      "generalFeedback": "The vowel is the short, wedge symbol /ʌ/."
+    },
+    {
+      "id": 98,
+      "type": "ipa-transcriber",
+      "timer": "infinite",
+      "question": "Transcribe the word 'Moon' into IPA symbols.",
+      "category": "IPA",
+      "correctAnswer": "muːn",
+      "generalFeedback": "Has the long /uː/ sound."
+    },
+    {
+      "id": 99,
+      "type": "ipa-transcriber",
+      "timer": "infinite",
+      "question": "Transcribe the word 'Star' into IPA symbols (British RP).",
+      "category": "IPA",
+      "correctAnswer": "stɑː",
+      "generalFeedback": "Uses the long back vowel /ɑː/."
+    },
+    {
+      "id": 100,
+      "type": "ipa-transcriber",
+      "timer": "infinite",
+      "question": "Transcribe the word 'Rain' into IPA symbols.",
+      "category": "IPA",
+      "correctAnswer": "reɪn",
+      "generalFeedback": "Contains the diphthong /eɪ/."
+    },
+    {
+      "id": 101,
+      "type": "multiple-choice",
+      "timer": "infinite",
+      "videoId": "6IdPpiW1hDs",
+      "question": "Based on the video, how many chambers does the human heart have?",
+      "category": "YouTube-Science",
+      "answers": [
+        {"text": "2", "feedback": "Incorrect. Check the video again."},
+        {"text": "4", "feedback": "Correct! The right atrium, left atrium, right ventricle, and left ventricle."},
+        {"text": "6", "feedback": "Incorrect."},
+        {"text": "8", "feedback": "Incorrect."}
+      ],
+      "correctAnswer": "4",
+      "generalFeedback": "The human heart has 4 chambers acting like 'rooms' for pumping blood."
+    },
+    {
+      "id": 102,
+      "type": "true-false",
+      "timer": "infinite",
+      "videoId": "6IdPpiW1hDs",
+      "question": "According to the video, the heart pumps blood through veins and arteries.",
+      "category": "YouTube-Science",
+      "answers": [
+        {"text": "True", "feedback": "Correct! This is part of the circulatory system."},
+        {"text": "False", "feedback": "Incorrect."}
+      ],
+      "correctAnswer": "True",
+      "generalFeedback": "The network of veins and arteries is called the circulatory system."
+    },
+    {
+      "id": 103,
+      "type": "short-answer",
+      "timer": "infinite",
+      "videoId": "6IdPpiW1hDs",
+      "question": "In the video, what is the outer shell of the Earth called?",
+      "category": "YouTube-Science",
+      "correctAnswer": "Crust",
+      "generalFeedback": "The crust is like the outer bread crust of the Earth."
+    },
+    {
+      "id": 104,
+      "type": "fill-in-the-blank",
+      "timer": "infinite",
+      "videoId": "6IdPpiW1hDs",
+      "question": "The video explains that reptiles are ___-blooded animals.",
+      "category": "YouTube-Science",
+      "correctAnswer": "cold",
+      "generalFeedback": "Cold-blooded animals rely on the sun to warm their bodies."
+    },
+    {
+      "id": 105,
+      "type": "odd-one-out",
+      "timer": "infinite",
+      "videoId": "6IdPpiW1hDs",
+      "question": "Which of these is NOT a part of the nervous system mentioned in the video?",
+      "category": "YouTube-Science",
+      "answers": [
+        {"text": "Brain", "feedback": "This is the control center."},
+        {"text": "Spinal Cord", "feedback": "This works with the brain."},
+        {"text": "Nerves", "feedback": "These send signals to the body."},
+        {"text": "Stomach", "feedback": "Correct! The stomach is part of the digestive system."}
+      ],
+      "correctAnswer": "Stomach"
+    },
+    {
+      "id": 106,
+      "type": "spell-it-out",
+      "timer": "infinite",
+      "videoId": "6IdPpiW1hDs",
+      "question": "Spell the word for the underground starting point of an earthquake as shown in the video.",
+      "category": "YouTube-Science",
+      "correctAnswer": "FOCUS",
+      "generalFeedback": "The earthquake starts at the focus, and the spot right above it is the epicenter."
+    },
+    {
+      "id": 107,
+      "type": "word-scramble",
+      "timer": "infinite",
+      "videoId": "6IdPpiW1hDs",
+      "question": "Unscramble this plant part that the video says makes most of the plant's food: SVELEA",
+      "category": "YouTube-Science",
+      "correctAnswer": "LEAVES",
+      "generalFeedback": "Leaves use air, water, and sunlight to make food."
+    },
+    {
+      "id": 108,
+      "type": "organize-tags",
+      "timer": "infinite",
+      "videoId": "6IdPpiW1hDs",
+      "question": "Based on the video, sort these planets into Rocky vs Gas planets.",
+      "category": "YouTube-Science",
+      "buckets": ["Rocky", "Gas"],
+      "items": [
+        {"text": "Mars", "category": "Rocky"},
+        {"text": "Earth", "category": "Rocky"},
+        {"text": "Jupiter", "category": "Gas"},
+        {"text": "Saturn", "category": "Gas"}
+      ],
+      "correctAnswer": {
+        "Mars": "Rocky",
+        "Earth": "Rocky",
+        "Jupiter": "Gas",
+        "Saturn": "Gas"
+      }
+    },
+    {
+      "id": 109,
+      "type": "categorize-items",
+      "timer": "infinite",
+      "videoId": "6IdPpiW1hDs",
+      "question": "Categorize these plant parts by their primary jobs as explained in the video.",
+      "category": "YouTube-Science",
+      "buckets": ["Get Water/Food", "Make New Plants"],
+      "items": [
+        {"text": "Roots", "category": "Get Water/Food"},
+        {"text": "Stems", "category": "Get Water/Food"},
+        {"text": "Flowers", "category": "Make New Plants"},
+        {"text": "Fruit", "category": "Make New Plants"}
+      ],
+      "correctAnswer": {
+        "Roots": "Get Water/Food",
+        "Stems": "Get Water/Food",
+        "Flowers": "Make New Plants",
+        "Fruit": "Make New Plants"
+      }
+    },
+    {
+      "id": 110,
+      "type": "sequence-order",
+      "timer": "infinite",
+      "videoId": "6IdPpiW1hDs",
+      "question": "Put the first four planets in order from closest to the sun to farthest.",
+      "category": "YouTube-Science",
+      "items": ["Earth", "Mercury", "Mars", "Venus"],
+      "correctAnswer": ["Mercury", "Venus", "Earth", "Mars"]
+    },
+    {
+      "id": 111,
+      "type": "connect-terms",
+      "timer": "infinite",
+      "videoId": "6IdPpiW1hDs",
+      "question": "Match the planet to its description from the video.",
+      "category": "YouTube-Science",
+      "leftColumn": ["Venus", "Mars", "Jupiter"],
+      "rightColumn": ["Largest planet", "Earth's twin", "Red Planet"],
+      "correctAnswer": {
+        "Venus": "Earth's twin",
+        "Mars": "Red Planet",
+        "Jupiter": "Largest planet"
+      }
+    },
+    {
+      "id": 112,
+      "type": "multiple-choice",
+      "timer": "infinite",
+      "videoId": "6IdPpiW1hDs",
+      "question": "How many primary planets are in our solar system according to the video?",
+      "category": "YouTube-Science",
+      "answers": [
+        {"text": "5", "feedback": "Incorrect. That's the number of dwarf planets."},
+        {"text": "8", "feedback": "Correct!"},
+        {"text": "9", "feedback": "Incorrect. Pluto is now considered a dwarf planet."},
+        {"text": "12", "feedback": "Incorrect."}
+      ],
+      "correctAnswer": "8",
+      "generalFeedback": "There are 8 primary planets and 5 dwarf planets."
+    },
+    {
+      "id": 113,
+      "type": "true-false",
+      "timer": "infinite",
+      "videoId": "6IdPpiW1hDs",
+      "question": "The video states that you can see Saturn without a telescope.",
+      "category": "YouTube-Science",
+      "answers": [
+        {"text": "True", "feedback": "Correct! It is the farthest planet you can see without one."},
+        {"text": "False", "feedback": "Incorrect. You can actually see it!"}
+      ],
+      "correctAnswer": "True",
+      "generalFeedback": "Uranus and Neptune are the only ones you cannot see without a telescope."
+    },
+    {
+      "id": 114,
+      "type": "fill-in-the-blank",
+      "timer": "infinite",
+      "videoId": "6IdPpiW1hDs",
+      "question": "The video teaches that the ___ is the organ that controls most of the body's activities.",
+      "category": "YouTube-Science",
+      "correctAnswer": "brain",
+      "generalFeedback": "The brain sits inside the skull to stay protected while controlling your body."
+    },
+    {
+      "id": 115,
+      "type": "multiple-choice",
+      "timer": "infinite",
+      "videoId": "6IdPpiW1hDs",
+      "question": "According to the video, which planet is the hottest and closest to the sun?",
+      "category": "YouTube-Science",
+      "answers": [
+        {"text": "Mars", "feedback": "Incorrect."},
+        {"text": "Venus", "feedback": "Incorrect. Though Venus is very hot, Mercury is closest."},
+        {"text": "Earth", "feedback": "Incorrect."},
+        {"text": "Mercury", "feedback": "Correct! It is 4 times hotter than boiling water."}
+      ],
+      "correctAnswer": "Mercury",
+      "generalFeedback": "Mercury is the smallest primary planet and sits right next to the Sun."
     }
   ]
 }
