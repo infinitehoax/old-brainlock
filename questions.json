@@ -1,245 +1,257 @@
-[
-  {
-    "id": 1,
-    "type": "multiple-choice",
-    "question": "What is the largest planet in our solar system?",
-    "category": "Academic",
-    "answers": [
-      {
-        "text": "Earth",
-        "feedback": "Incorrect. Earth is the 5th largest."
-      },
-      {
-        "text": "Jupiter",
-        "feedback": "Correct! Jupiter is a gas giant and the largest planet."
-      },
-      {
-        "text": "Mars",
-        "feedback": "Incorrect. Mars is smaller than Earth."
-      },
-      {
-        "text": "Saturn",
-        "feedback": "Incorrect. Saturn is the 2nd largest."
-      }
-    ],
-    "correctAnswer": "Jupiter",
-    "generalFeedback": "Jupiter is more than twice as massive as all the other planets in the Solar System combined."
-  },
-  {
-    "id": 2,
-    "type": "true-false",
-    "question": "The Great Wall of China is visible from the Moon with the naked eye.",
-    "category": "Academic",
-    "answers": [
-      {
-        "text": "True",
-        "feedback": "Incorrect. This is a common myth."
-      },
-      {
-        "text": "False",
-        "feedback": "Correct! It is not visible without aid."
-      }
-    ],
-    "correctAnswer": "False",
-    "generalFeedback": "Apollo astronauts confirmed that the Great Wall is not visible from the Moon."
-  },
-  {
-    "id": 3,
-    "type": "short-answer",
-    "question": "What is the chemical symbol for Gold?",
-    "category": "Academic",
-    "correctAnswer": "Au",
-    "generalFeedback": "Au comes from the Latin word for gold, 'aurum'."
-  },
-  {
-    "id": 4,
-    "type": "fill-in-the-blank",
-    "question": "The process of ___ is how plants convert sunlight into energy.",
-    "category": "Academic",
-    "correctAnswer": "photosynthesis",
-    "generalFeedback": "Photosynthesis uses chlorophyll to capture light energy."
-  },
-  {
-    "id": 5,
-    "type": "odd-one-out",
-    "question": "Which of these is NOT a primary color?",
-    "category": "Academic",
-    "answers": [
-      {
-        "text": "Red",
-        "feedback": "Red is a primary color."
-      },
-      {
-        "text": "Blue",
-        "feedback": "Blue is a primary color."
-      },
-      {
-        "text": "Green",
-        "feedback": "Correct! Green is a secondary color (Yellow + Blue)."
-      },
-      {
-        "text": "Yellow",
-        "feedback": "Yellow is a primary color."
-      }
-    ],
-    "correctAnswer": "Green"
-  },
-  {
-    "id": 6,
-    "type": "spell-it-out",
-    "question": "Spell the word for a person who travels to space.",
-    "category": "Academic",
-    "correctAnswer": "ASTRONAUT",
-    "generalFeedback": "The word comes from Greek words meaning 'star sailor'."
-  },
-  {
-    "id": 7,
-    "type": "word-scramble",
-    "question": "Unscramble this science term: 'YVITARG'",
-    "category": "Academic",
-    "correctAnswer": "GRAVITY",
-    "generalFeedback": "Gravity is the force that pulls objects toward each other."
-  },
-  {
-    "id": 8,
-    "type": "organize-tags",
-    "question": "Sort these words into Nouns and Verbs.",
-    "category": "Academic",
-    "buckets": [
-      "Noun",
-      "Verb"
-    ],
-    "items": [
-      {
-        "text": "Apple",
-        "category": "Noun"
-      },
-      {
-        "text": "Run",
-        "category": "Verb"
-      },
-      {
-        "text": "Book",
-        "category": "Noun"
-      },
-      {
-        "text": "Jump",
-        "category": "Verb"
-      }
-    ],
-    "correctAnswer": {
-      "Apple": "Noun",
-      "Run": "Verb",
-      "Book": "Noun",
-      "Jump": "Verb"
+{
+  "config": {
+    "githubPingInterval": 60,
+    "brainLockInterval": 30,
+    "activeHours": {
+      "start": "07:00",
+      "end": "21:00"
     }
   },
-  {
-    "id": 9,
-    "type": "categorize-items",
-    "question": "Categorize these animals by their habitat.",
-    "category": "Academic",
-    "buckets": [
-      "Land",
-      "Water"
-    ],
-    "items": [
-      {
-        "text": "Elephant",
-        "category": "Land"
-      },
-      {
-        "text": "Shark",
-        "category": "Water"
-      },
-      {
-        "text": "Lion",
-        "category": "Land"
-      },
-      {
-        "text": "Whale",
-        "category": "Water"
+  "questions": [
+    {
+      "id": 1,
+      "type": "multiple-choice",
+      "timer": 60,
+      "question": "What is the largest planet in our solar system?",
+      "category": "Academic",
+      "answers": [
+        {
+          "text": "Earth",
+          "feedback": "Incorrect. Earth is the 5th largest."
+        },
+        {
+          "text": "Jupiter",
+          "feedback": "Correct! Jupiter is a gas giant and the largest planet."
+        },
+        {
+          "text": "Mars",
+          "feedback": "Incorrect. Mars is smaller than Earth."
+        },
+        {
+          "text": "Saturn",
+          "feedback": "Incorrect. Saturn is the 2nd largest."
+        }
+      ],
+      "correctAnswer": "Jupiter",
+      "generalFeedback": "Jupiter is more than twice as massive as all the other planets in the Solar System combined."
+    },
+    {
+      "id": 2,
+      "type": "true-false",
+      "timer": "infinite",
+      "question": "The Great Wall of China is visible from the Moon with the naked eye.",
+      "category": "Academic",
+      "answers": [
+        {
+          "text": "True",
+          "feedback": "Incorrect. This is a common myth."
+        },
+        {
+          "text": "False",
+          "feedback": "Correct! It is not visible without aid."
+        }
+      ],
+      "correctAnswer": "False",
+      "generalFeedback": "Apollo astronauts confirmed that the Great Wall is not visible from the Moon."
+    },
+    {
+      "id": 3,
+      "type": "short-answer",
+      "question": "What is the chemical symbol for Gold?",
+      "category": "Academic",
+      "correctAnswer": "Au",
+      "generalFeedback": "Au comes from the Latin word for gold, 'aurum'."
+    },
+    {
+      "id": 4,
+      "type": "fill-in-the-blank",
+      "question": "The process of ___ is how plants convert sunlight into energy.",
+      "category": "Academic",
+      "correctAnswer": "photosynthesis",
+      "generalFeedback": "Photosynthesis uses chlorophyll to capture light energy."
+    },
+    {
+      "id": 5,
+      "type": "odd-one-out",
+      "question": "Which of these is NOT a primary color?",
+      "category": "Academic",
+      "answers": [
+        {
+          "text": "Red",
+          "feedback": "Red is a primary color."
+        },
+        {
+          "text": "Blue",
+          "feedback": "Blue is a primary color."
+        },
+        {
+          "text": "Green",
+          "feedback": "Correct! Green is a secondary color (Yellow + Blue)."
+        },
+        {
+          "text": "Yellow",
+          "feedback": "Yellow is a primary color."
+        }
+      ],
+      "correctAnswer": "Green"
+    },
+    {
+      "id": 6,
+      "type": "spell-it-out",
+      "question": "Spell the word for a person who travels to space.",
+      "category": "Academic",
+      "correctAnswer": "ASTRONAUT",
+      "generalFeedback": "The word comes from Greek words meaning 'star sailor'."
+    },
+    {
+      "id": 7,
+      "type": "word-scramble",
+      "question": "Unscramble this science term: 'YVITARG'",
+      "category": "Academic",
+      "correctAnswer": "GRAVITY",
+      "generalFeedback": "Gravity is the force that pulls objects toward each other."
+    },
+    {
+      "id": 8,
+      "type": "organize-tags",
+      "question": "Sort these words into Nouns and Verbs.",
+      "category": "Academic",
+      "buckets": [
+        "Noun",
+        "Verb"
+      ],
+      "items": [
+        {
+          "text": "Apple",
+          "category": "Noun"
+        },
+        {
+          "text": "Run",
+          "category": "Verb"
+        },
+        {
+          "text": "Book",
+          "category": "Noun"
+        },
+        {
+          "text": "Jump",
+          "category": "Verb"
+        }
+      ],
+      "correctAnswer": {
+        "Apple": "Noun",
+        "Run": "Verb",
+        "Book": "Noun",
+        "Jump": "Verb"
       }
-    ],
-    "correctAnswer": {
-      "Elephant": "Land",
-      "Shark": "Water",
-      "Lion": "Land",
-      "Whale": "Water"
-    }
-  },
-  {
-    "id": 10,
-    "type": "sequence-order",
-    "question": "Put these planets in order of distance from the Sun (closest to farthest).",
-    "category": "Academic",
-    "items": [
-      "Mercury",
-      "Venus",
-      "Earth",
-      "Mars"
-    ],
-    "correctAnswer": [
-      "Mercury",
-      "Venus",
-      "Earth",
-      "Mars"
-    ]
-  },
-  {
-    "id": 11,
-    "type": "connect-terms",
-    "question": "Match the countries to their capitals.",
-    "category": "Academic",
-    "leftColumn": [
-      "France",
-      "Japan",
-      "Nigeria"
-    ],
-    "rightColumn": [
-      "Abuja",
-      "Paris",
-      "Tokyo"
-    ],
-    "correctAnswer": {
-      "France": "Paris",
-      "Japan": "Tokyo",
-      "Nigeria": "Abuja"
-    }
-  },
-  {
-    "id": 12,
-    "type": "ipa-transcriber",
-    "question": "Transcribe the word 'Cat' into IPA symbols.",
-    "category": "IPA",
-    "correctAnswer": "k\u00e6t",
-    "generalFeedback": "The symbol /\u00e6/ represents the short 'a' sound."
-  },
-  {
-    "id": 13,
-    "type": "multiple-choice",
-    "videoId": "hW7DW9NIO9M",
-    "question": "According to the video, which planet is known as the 'Red Planet'?",
-    "category": "YouTube",
-    "answers": [
-      {
-        "text": "Mars",
-        "feedback": "Correct! Iron oxide on its surface gives it a reddish look."
-      },
-      {
-        "text": "Venus",
-        "feedback": "Incorrect. Venus is yellow/white."
-      },
-      {
-        "text": "Jupiter",
-        "feedback": "Incorrect. Jupiter is striped brown/white."
-      },
-      {
-        "text": "Neptune",
-        "feedback": "Incorrect. Neptune is blue."
+    },
+    {
+      "id": 9,
+      "type": "categorize-items",
+      "question": "Categorize these animals by their habitat.",
+      "category": "Academic",
+      "buckets": [
+        "Land",
+        "Water"
+      ],
+      "items": [
+        {
+          "text": "Elephant",
+          "category": "Land"
+        },
+        {
+          "text": "Shark",
+          "category": "Water"
+        },
+        {
+          "text": "Lion",
+          "category": "Land"
+        },
+        {
+          "text": "Whale",
+          "category": "Water"
+        }
+      ],
+      "correctAnswer": {
+        "Elephant": "Land",
+        "Shark": "Water",
+        "Lion": "Land",
+        "Whale": "Water"
       }
-    ],
-    "correctAnswer": "Mars",
-    "generalFeedback": "Mars has been a target for many exploration missions."
-  }
-]
+    },
+    {
+      "id": 10,
+      "type": "sequence-order",
+      "question": "Put these planets in order of distance from the Sun (closest to farthest).",
+      "category": "Academic",
+      "items": [
+        "Mercury",
+        "Venus",
+        "Earth",
+        "Mars"
+      ],
+      "correctAnswer": [
+        "Mercury",
+        "Venus",
+        "Earth",
+        "Mars"
+      ]
+    },
+    {
+      "id": 11,
+      "type": "connect-terms",
+      "question": "Match the countries to their capitals.",
+      "category": "Academic",
+      "leftColumn": [
+        "France",
+        "Japan",
+        "Nigeria"
+      ],
+      "rightColumn": [
+        "Abuja",
+        "Paris",
+        "Tokyo"
+      ],
+      "correctAnswer": {
+        "France": "Paris",
+        "Japan": "Tokyo",
+        "Nigeria": "Abuja"
+      }
+    },
+    {
+      "id": 12,
+      "type": "ipa-transcriber",
+      "question": "Transcribe the word 'Cat' into IPA symbols.",
+      "category": "IPA",
+      "correctAnswer": "kæt",
+      "generalFeedback": "The symbol /æ/ represents the short 'a' sound."
+    },
+    {
+      "id": 13,
+      "type": "multiple-choice",
+      "videoId": "hW7DW9NIO9M",
+      "question": "According to the video, which planet is known as the 'Red Planet'?",
+      "category": "YouTube",
+      "answers": [
+        {
+          "text": "Mars",
+          "feedback": "Correct! Iron oxide on its surface gives it a reddish look."
+        },
+        {
+          "text": "Venus",
+          "feedback": "Incorrect. Venus is yellow/white."
+        },
+        {
+          "text": "Jupiter",
+          "feedback": "Incorrect. Jupiter is striped brown/white."
+        },
+        {
+          "text": "Neptune",
+          "feedback": "Incorrect. Neptune is blue."
+        }
+      ],
+      "correctAnswer": "Mars",
+      "generalFeedback": "Mars has been a target for many exploration missions."
+    }
+  ]
+}

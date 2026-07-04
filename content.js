@@ -224,14 +224,19 @@ class BaseRenderer {
       </div>
     ` : "";
 
-    container.innerHTML = `
+    const hasTimer = this.question.timer !== "infinite";
+    const timerHtml = hasTimer ? `
       <div class="timer-container">
         <svg class="timer-svg" viewBox="0 0 40 40">
           <circle class="timer-bg" cx="20" cy="20" r="18"></circle>
           <circle class="timer-progress" cx="20" cy="20" r="18" stroke-dasharray="113.1" stroke-dashoffset="0"></circle>
         </svg>
-        <div id="timer-text" class="timer-text">120</div>
+        <div id="timer-text" class="timer-text">${this.question.timer || 120}</div>
       </div>
+    ` : "";
+
+    container.innerHTML = `
+      ${timerHtml}
       <div class="brain-lock-header">
         <div class="modal-logo">${this.getIcon()}</div>
         <div style="display: flex; align-items: center; justify-content: center; gap: 10px;">
@@ -261,9 +266,11 @@ class BaseRenderer {
   }
 
   startTimer(container) {
+    if (this.question.timer === "infinite") return;
+
     const progressCircle = container.querySelector('.timer-progress');
     const timerText = container.querySelector('#timer-text');
-    const totalTime = 120;
+    const totalTime = parseInt(this.question.timer) || 120;
     const circumference = 2 * Math.PI * 18;
 
     this.timer = new Timer(totalTime, (remaining) => {
