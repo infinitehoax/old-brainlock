@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
     <style>
         body { margin: 0; padding: 20px; background: #1a1a2e; color: white; font-family: sans-serif; }
         #host { border: 1px solid #333; min-height: 800px; position: relative; margin-top: 20px; }
@@ -73,8 +74,8 @@
                     label.innerText = type.toUpperCase();
                     groupDiv.appendChild(label);
 
-                    // Just take the first 2 of each type to keep it clean
-                    groups[type].slice(0, 2).forEach(q => {
+                    // Take up to 500 of each type to make sure we find new ones
+                    groups[type].forEach(q => {
                         const btn = document.createElement('button');
                         btn.innerText = `ID: ${q.id}`;
                         btn.onclick = () => {

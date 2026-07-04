@@ -10742,5 +10742,45 @@
       "Whale": "Mammals",
       "Crocodile": "Reptiles"
     }
+  },
+  {
+    "id": 6001,
+    "type": "multiple-choice",
+    "videoId": "hW7DW9NIO9M",
+    "question": "What is the primary topic of this video?",
+    "category": "YouTube",
+    "answers": [
+      { "text": "The Solar System", "feedback": "Correct! The video explores our cosmic neighborhood." },
+      { "text": "Ancient Rome", "feedback": "Incorrect. The video is about space, not history." },
+      { "text": "Cooking Pasta", "feedback": "Incorrect. This isn't a cooking tutorial!" },
+      { "text": "Basketball Rules", "feedback": "Incorrect. It's about planets and stars." }
+    ],
+    "correctAnswer": "The Solar System",
+    "generalFeedback": "This video provides a great overview of the Sun and the planets orbiting it."
+  },
+  {
+    "id": 6002,
+    "type": "short-answer",
+    "videoId": "dQw4w9WgXcQ",
+    "question": "Who is the artist in this legendary video?",
+    "category": "YouTube",
+    "correctAnswer": "Rick Astley",
+    "generalFeedback": "You've been Rickrolled! But at least you know the artist."
+  },
+  {
+    "id": 7001,
+    "type": "ipa-transcriber",
+    "question": "Transcribe the word 'Cheese' into IPA.",
+    "category": "IPA",
+    "correctAnswer": "/tʃiːz/",
+    "generalFeedback": "In IPA, 'ch' is represented by /tʃ/, the long 'e' by /iː/, and 's' by /z/."
+  },
+  {
+    "id": 7002,
+    "type": "ipa-transcriber",
+    "question": "Transcribe the word 'Cat' into IPA.",
+    "category": "IPA",
+    "correctAnswer": "/kæt/",
+    "generalFeedback": "The 'a' in 'cat' is the 'ash' symbol /æ/."
   }
 ]
