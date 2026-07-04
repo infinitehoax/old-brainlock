@@ -79,26 +79,26 @@
 - [x] - Day 65: Connect the IPA keyboard output to the validation engine.
 
 ### Phase 7: Gamification, Streaks, and Confetti
-- [ ] - Day 66: Build the visual SVG timer ring component for the top bar.
-- [ ] - Day 67: Implement the strict 2-minute countdown interval.
-- [ ] - Day 68: Animate the SVG timer stroke to change color from green to yellow to red.
-- [ ] - Day 69: Write logic to auto-submit the current answer if the timer reaches zero.
-- [ ] - Day 70: Build the XP calculation engine (Base XP + early-answer Time Bonus).
-- [ ] - Day 71: Create daily streak tracking logic in local storage (checking date rollovers).
-- [ ] - Day 72: Apply 1.5x and 2.0x XP multipliers for 3-day and 7-day streaks.
-- [ ] - Day 73: Update the modal header to display the current streak fire badge.
-- [ ] - Day 74: Build the Result Screen UI (Titles, XP amount, Explanation text).
-- [ ] - Day 75: Animate the XP progress bar filling up on correct answers.
-- [ ] - Day 76: Set up an independent HTML5 Canvas covering the viewport for Confetti.
-- [ ] - Day 77: Write particle physics logic (gravity, velocity, alpha decay) for confetti.
-- [ ] - Day 78: Add random shapes (circles, squares, strips) and colors to the confetti.
-- [ ] - Day 79: Hook the confetti burst exclusively to the correct-answer trigger.
-- [ ] - Day 80: Populate an array of randomized encouraging titles ("Brilliant!", "Superstar!").
-- [ ] - Day 81: Populate randomized failure messages ("Almost there!", "Keep going!").
-- [ ] - Day 82: Implement smooth screen transitions between the Question and Result screens.
-- [ ] - Day 83: Program the "Next Question" logic to render a fresh challenge.
-- [ ] - Day 84: Program the "I'm Done" button to dismantle the UI and unpause background media.
-- [ ] - Day 85: Perform a z-index audit to ensure Confetti renders over the modal, and the modal renders over the site.
+- [x] - Day 66: Build the visual SVG timer ring component for the top bar.
+- [x] - Day 67: Implement the strict 2-minute countdown interval.
+- [x] - Day 68: Animate the SVG timer stroke to change color from green to yellow to red.
+- [x] - Day 69: Write logic to auto-submit the current answer if the timer reaches zero.
+- [x] - Day 70: Build the XP calculation engine (Base XP + early-answer Time Bonus).
+- [x] - Day 71: Create daily streak tracking logic in local storage (checking date rollovers).
+- [x] - Day 72: Apply 1.5x and 2.0x XP multipliers for 3-day and 7-day streaks.
+- [x] - Day 73: Update the modal header to display the current streak fire badge.
+- [x] - Day 74: Build the Result Screen UI (Titles, XP amount, Explanation text).
+- [x] - Day 75: Animate the XP progress bar filling up on correct answers.
+- [x] - Day 76: Set up an independent HTML5 Canvas covering the viewport for Confetti.
+- [x] - Day 77: Write particle physics logic (gravity, velocity, alpha decay) for confetti.
+- [x] - Day 78: Add random shapes (circles, squares, strips) and colors to the confetti.
+- [x] - Day 79: Hook the confetti burst exclusively to the correct-answer trigger.
+- [x] - Day 80: Populate an array of randomized encouraging titles ("Brilliant!", "Superstar!").
+- [x] - Day 81: Populate randomized failure messages ("Almost there!", "Keep going!").
+- [x] - Day 82: Implement smooth screen transitions between the Question and Result screens.
+- [x] - Day 83: Program the "Next Question" logic to render a fresh challenge.
+- [x] - Day 84: Program the "I'm Done" button to dismantle the UI and unpause background media.
+- [x] - Day 85: Perform a z-index audit to ensure Confetti renders over the modal, and the modal renders over the site.
 
 ### Phase 8: Parent Dashboard & Controls
 - [ ] - Day 86: Convert your existing `options.html` / `popup.html` into the Parent Dashboard UI.
