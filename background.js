@@ -62,7 +62,10 @@ chrome.runtime.onInstalled.addListener(async () => {
     answeredQuestions: [],
     lastUnlockTime: null,
     dailyCategory: null,
-    lastSpinDate: null
+    lastSpinDate: null,
+    totalXP: 0,
+    dailyStreak: 0,
+    lastStreakDate: null
   });
 
   setupAlarms();
@@ -187,10 +190,20 @@ function broadcastLockState(isLocked) {
 // Listener for messages from content scripts
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   if (request.action === "checkAnswer") {
-    chrome.storage.local.get(['questions', 'currentQuestion', 'answeredQuestions'], (result) => {
+    chrome.storage.local.get([
+      'questions',
+      'currentQuestion',
+      'answeredQuestions',
+      'totalXP',
+      'dailyStreak',
+      'lastStreakDate'
+    ], (result) => {
       const questions = result.questions || fallbackQuestions;
       const q = result.currentQuestion;
       const answered = result.answeredQuestions || [];
+      let totalXP = result.totalXP || 0;
+      let dailyStreak = result.dailyStreak || 0;
+      let lastStreakDate = result.lastStreakDate;
 
       let isCorrect = false;
 
@@ -232,17 +245,48 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 
       if (isCorrect) {
         const newAnswered = [...answered, q.id];
+
+        // Gamification Logic
+        const today = new Date().toDateString();
+        const yesterday = new Date(Date.now() - 86400000).toDateString();
+
+        if (lastStreakDate !== today) {
+          if (lastStreakDate === yesterday) {
+            dailyStreak++;
+          } else {
+            dailyStreak = 1;
+          }
+          lastStreakDate = today;
+        }
+
+        let multiplier = 1.0;
+        if (dailyStreak >= 7) multiplier = 2.0;
+        else if (dailyStreak >= 3) multiplier = 1.5;
+
+        const baseXP = 100;
+        const timeBonus = Math.max(0, Math.floor(request.remainingTime || 0));
+        const xpEarned = Math.floor((baseXP + timeBonus) * multiplier);
+        totalXP += xpEarned;
+
         chrome.storage.local.set({
           isLocked: false,
           answeredQuestions: newAnswered,
-          lastUnlockTime: Date.now()
+          lastUnlockTime: Date.now(),
+          totalXP: totalXP,
+          dailyStreak: dailyStreak,
+          lastStreakDate: lastStreakDate
         }, () => {
           broadcastLockState(false); // On correct answer, tell all tabs to unlock
         });
+
         sendResponse({
           correct: true,
           feedback: selectedAnswerObj ? selectedAnswerObj.feedback : "Correct!",
-          generalFeedback: q.generalFeedback
+          generalFeedback: q.generalFeedback,
+          xpEarned: xpEarned,
+          newTotalXP: totalXP,
+          streak: dailyStreak,
+          multiplier: multiplier
         });
       } else {
         const correctAnswerObj = q.answers ? q.answers.find(a => a.text === q.correctAnswer) : null;

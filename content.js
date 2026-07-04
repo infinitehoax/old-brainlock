@@ -31,6 +31,119 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 let shadowRoot;
 let currentRenderer;
 
+class Timer {
+  constructor(duration, onTick, onComplete) {
+    this.duration = duration;
+    this.remaining = duration;
+    this.onTick = onTick;
+    this.onComplete = onComplete;
+    this.timerId = null;
+  }
+
+  start() {
+    this.timerId = setInterval(() => {
+      this.remaining--;
+      if (this.onTick) this.onTick(this.remaining);
+      if (this.remaining <= 0) {
+        this.stop();
+        if (this.onComplete) this.onComplete();
+      }
+    }, 1000);
+  }
+
+  stop() {
+    if (this.timerId) {
+      clearInterval(this.timerId);
+      this.timerId = null;
+    }
+  }
+
+  getRemainingTime() {
+    return this.remaining;
+  }
+}
+
+class Confetti {
+  constructor(canvas) {
+    this.canvas = canvas;
+    this.ctx = canvas.getContext('2d');
+    this.particles = [];
+    this.animationId = null;
+    this.resize();
+    window.addEventListener('resize', () => this.resize());
+  }
+
+  resize() {
+    this.canvas.width = window.innerWidth;
+    this.canvas.height = window.innerHeight;
+  }
+
+  burst() {
+    const colors = ['#f44336', '#e91e63', '#9c27b0', '#673ab7', '#3f51b5', '#2196f3', '#03a9f4', '#00bcd4', '#009688', '#4caf50', '#8bc34a', '#cddc39', '#ffeb3b', '#ffc107', '#ff9800', '#ff5722'];
+    const shapes = ['circle', 'square', 'strip'];
+
+    for (let i = 0; i < 150; i++) {
+      this.particles.push({
+        x: this.canvas.width / 2,
+        y: this.canvas.height / 2,
+        vx: (Math.random() - 0.5) * 20,
+        vy: (Math.random() - 0.5) * 20 - 10,
+        size: Math.random() * 10 + 5,
+        color: colors[Math.floor(Math.random() * colors.length)],
+        shape: shapes[Math.floor(Math.random() * shapes.length)],
+        rotation: Math.random() * 360,
+        vRotation: (Math.random() - 0.5) * 10,
+        alpha: 1
+      });
+    }
+
+    if (!this.animationId) {
+      this.animate();
+    }
+  }
+
+  animate() {
+    this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+
+    for (let i = this.particles.length - 1; i >= 0; i--) {
+      const p = this.particles[i];
+      p.x += p.vx;
+      p.y += p.vy;
+      p.vy += 0.5; // Gravity
+      p.rotation += p.vRotation;
+      p.alpha -= 0.01;
+
+      if (p.alpha <= 0) {
+        this.particles.splice(i, 1);
+        continue;
+      }
+
+      this.ctx.save();
+      this.ctx.translate(p.x, p.y);
+      this.ctx.rotate(p.rotation * Math.PI / 180);
+      this.ctx.globalAlpha = p.alpha;
+      this.ctx.fillStyle = p.color;
+
+      if (p.shape === 'circle') {
+        this.ctx.beginPath();
+        this.ctx.arc(0, 0, p.size / 2, 0, Math.PI * 2);
+        this.ctx.fill();
+      } else if (p.shape === 'square') {
+        this.ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size);
+      } else {
+        this.ctx.fillRect(-p.size / 2, -p.size / 4, p.size, p.size / 2);
+      }
+      this.ctx.restore();
+    }
+
+    if (this.particles.length > 0) {
+      this.animationId = requestAnimationFrame(() => this.animate());
+    } else {
+      this.animationId = null;
+    }
+  }
+}
+
 const QuestionRendererFactory = {
   createRenderer(question) {
     switch (question.type) {
@@ -68,12 +181,19 @@ class BaseRenderer {
   constructor(question) {
     this.question = question;
     this.container = null;
+    this.timer = null;
+    this.streak = 0;
   }
 
   getIcon() { return "🚀"; }
 
-  render(container) {
+  async render(container) {
     this.container = container;
+
+    // Get current streak
+    const storage = await chrome.storage.local.get(['dailyStreak']);
+    this.streak = storage.dailyStreak || 0;
+
     let youtubeHtml = "";
     if (this.question.videoId) {
       youtubeHtml = `
@@ -88,10 +208,27 @@ class BaseRenderer {
       `;
     }
 
+    const streakHtml = this.streak > 0 ? `
+      <div class="streak-badge">
+        <span class="streak-fire">🔥</span>
+        <span class="streak-count">${this.streak} Day Streak!</span>
+      </div>
+    ` : "";
+
     container.innerHTML = `
+      <div class="timer-container">
+        <svg class="timer-svg" viewBox="0 0 40 40">
+          <circle class="timer-bg" cx="20" cy="20" r="18"></circle>
+          <circle class="timer-progress" cx="20" cy="20" r="18" stroke-dasharray="113.1" stroke-dashoffset="0"></circle>
+        </svg>
+        <div id="timer-text" class="timer-text">120</div>
+      </div>
       <div class="brain-lock-header">
         <div class="modal-logo">${this.getIcon()}</div>
-        <h1>Brain Lock</h1>
+        <div style="display: flex; align-items: center; justify-content: center; gap: 10px;">
+          <h1>Brain Lock</h1>
+          ${streakHtml}
+        </div>
         <div class="header-metadata">
           <span class="category-tag">${this.question.category || 'Standard'}</span>
           <span class="difficulty-tag">Normal</span>
@@ -111,6 +248,33 @@ class BaseRenderer {
     const area = container.querySelector('.interactive-area');
     this.renderInteractiveArea(area);
     this.setupEventListeners(container);
+    this.startTimer(container);
+  }
+
+  startTimer(container) {
+    const progressCircle = container.querySelector('.timer-progress');
+    const timerText = container.querySelector('#timer-text');
+    const totalTime = 120;
+    const circumference = 2 * Math.PI * 18;
+
+    this.timer = new Timer(totalTime, (remaining) => {
+      timerText.textContent = remaining;
+      const offset = circumference - (remaining / totalTime) * circumference;
+      progressCircle.style.strokeDashoffset = offset;
+
+      if (remaining <= 20) progressCircle.style.stroke = "#ff4d4d";
+      else if (remaining <= 60) progressCircle.style.stroke = "#ff8c00";
+    }, () => {
+      this.getAnswerAndSubmit();
+    });
+    this.timer.start();
+  }
+
+  getAnswerAndSubmit() {
+    const submitBtn = this.container.querySelector('#brain-lock-submit');
+    if (submitBtn && !submitBtn.disabled) {
+      submitBtn.click();
+    }
   }
 
   renderInteractiveArea(area) {
@@ -129,8 +293,13 @@ class BaseRenderer {
       submitBtn.disabled = true;
       submitBtn.textContent = "Checking...";
       this.disableInput();
+      if (this.timer) this.timer.stop();
 
-      chrome.runtime.sendMessage({ action: "checkAnswer", answer: answer }, (response) => {
+      chrome.runtime.sendMessage({
+        action: "checkAnswer",
+        answer: answer,
+        remainingTime: this.timer ? this.timer.getRemainingTime() : 0
+      }, (response) => {
         this.handleResponse(response, container);
       });
     });
@@ -140,39 +309,88 @@ class BaseRenderer {
   disableInput() {}
 
   handleResponse(response, container) {
-    const feedbackEl = container.querySelector('#feedback-message');
-    const submitBtn = container.querySelector('#brain-lock-submit');
-    const newBtn = submitBtn.cloneNode(true);
-    submitBtn.parentNode.replaceChild(newBtn, submitBtn);
-
     if (response.correct) {
-      showFeedback(response.feedback, false);
-      container.classList.add('correct-match');
-      feedbackEl.innerHTML += `<div class="general-feedback">${response.generalFeedback || ""}</div>`;
-      newBtn.textContent = 'Continue';
-      newBtn.className = 'submit-button continue-btn';
-      newBtn.disabled = false;
-      newBtn.addEventListener('click', () => {
-        removeLockScreen();
-      });
-    } else {
-      showFeedback(response.feedback, true);
-      container.classList.add('shake');
-      container.addEventListener('animationend', () => {
-        container.classList.remove('shake');
-      }, { once: true });
-      this.showCorrectAnswer(response, container);
-
-      if (response.generalFeedback) {
-        feedbackEl.innerHTML += `<div class="general-feedback">${response.generalFeedback}</div>`;
-      }
-      newBtn.textContent = 'Try Another Question';
-      newBtn.className = 'submit-button try-again-btn';
-      newBtn.disabled = false;
-      newBtn.addEventListener('click', () => {
-        showLockScreen(response.newQuestion);
-      });
+      const canvas = document.createElement('canvas');
+      canvas.id = 'confetti-canvas';
+      shadowRoot.appendChild(canvas);
+      const confetti = new Confetti(canvas);
+      confetti.burst();
     }
+
+    container.classList.add('screen-fade-exit-active');
+    setTimeout(() => {
+      this.renderResultScreen(response, container);
+    }, 300);
+  }
+
+  renderResultScreen(response, container) {
+    container.innerHTML = "";
+    container.className = "brain-lock-container result-screen screen-fade-enter";
+
+    const encouragingTitles = ["Brilliant!", "Superstar!", "Amazing!", "Genius!", "Excellent!", "Correct!"];
+    const failureTitles = ["Almost there!", "Keep going!", "Not quite!", "Try again!", "Oops!"];
+    const title = response.correct ?
+      encouragingTitles[Math.floor(Math.random() * encouragingTitles.length)] :
+      failureTitles[Math.floor(Math.random() * failureTitles.length)];
+
+    const xpSection = response.correct ? `
+      <div class="xp-award-container">
+        <div class="xp-amount">+${response.xpEarned} XP</div>
+        ${response.multiplier > 1 ? `<div class="xp-multiplier-tag">${response.multiplier}x Streak Bonus!</div>` : ""}
+        <div class="xp-progress-container">
+          <div id="xp-bar" class="xp-progress-bar"></div>
+        </div>
+      </div>
+    ` : "";
+
+    container.innerHTML = `
+      <h2 class="result-title">${title}</h2>
+      <p style="font-size: 18px; color: #a5b4fc;">${response.feedback}</p>
+
+      ${xpSection}
+
+      <div class="explanation-container">
+        <div class="explanation-label">Explanation</div>
+        <div class="explanation-text">${this.question.generalFeedback || "No extra explanation for this one."}</div>
+      </div>
+
+      <div class="result-actions">
+        ${response.correct ?
+          `<button id="done-btn" class="submit-button continue-btn">I'm Done</button>` :
+          `<button id="next-q-btn" class="submit-button try-again-btn">Try Another Question</button>`
+        }
+        <button id="next-fresh-btn" class="submit-button" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);">Next Question</button>
+      </div>
+    `;
+
+    setTimeout(() => {
+      container.classList.remove('screen-fade-enter');
+      container.classList.add('screen-fade-enter-active');
+
+      if (response.correct) {
+        const bar = container.querySelector('#xp-bar');
+        if (bar) {
+          // Progress bar animation: calculate percentage based on 1000 XP levels (simple)
+          const progress = (response.newTotalXP % 1000) / 10;
+          setTimeout(() => bar.style.width = `${progress}%`, 100);
+        }
+      }
+    }, 10);
+
+    const doneBtn = container.querySelector('#done-btn');
+    if (doneBtn) doneBtn.addEventListener('click', () => removeLockScreen());
+
+    const nextQBtn = container.querySelector('#next-q-btn');
+    if (nextQBtn) nextQBtn.addEventListener('click', () => {
+       showLockScreen(response.newQuestion);
+    });
+
+    const nextFreshBtn = container.querySelector('#next-fresh-btn');
+    if (nextFreshBtn) nextFreshBtn.addEventListener('click', () => {
+      chrome.runtime.sendMessage({ action: "getQuestion" }, (res) => {
+        showLockScreen(res.question);
+      });
+    });
   }
 
   showCorrectAnswer(response, container) {
@@ -779,7 +997,7 @@ class SequenceOrderRenderer extends BaseRenderer {
   }
 }
 
-function showLockScreen(question, stage = 'question') {
+async function showLockScreen(question, stage = 'question') {
   const existingHost = document.getElementById('brain-lock-host');
   if (existingHost) existingHost.remove();
 
@@ -798,7 +1016,7 @@ function showLockScreen(question, stage = 'question') {
   overlay.id = 'brain-lock-overlay';
   shadowRoot.appendChild(overlay);
 
-  renderStage(overlay, stage, question);
+  await renderStage(overlay, stage, question);
 
   for (let i = 0; i < 20; i++) {
     const particle = document.createElement('div');
@@ -815,7 +1033,7 @@ function showLockScreen(question, stage = 'question') {
   }
 }
 
-function renderStage(overlay, stage, data) {
+async function renderStage(overlay, stage, data) {
   const container = document.createElement('div');
   container.className = 'brain-lock-container stage-transition';
   
@@ -885,7 +1103,7 @@ function renderStage(overlay, stage, data) {
   } else {
     overlay.appendChild(container);
     currentRenderer = QuestionRendererFactory.createRenderer(data);
-    currentRenderer.render(container);
+    await currentRenderer.render(container);
   }
 }
 
@@ -895,9 +1113,9 @@ function selectCategory(category) {
       const overlay = shadowRoot.getElementById('brain-lock-overlay');
       const container = shadowRoot.querySelector('.brain-lock-container');
       container.classList.add('fade-out');
-      setTimeout(() => {
+      setTimeout(async () => {
         container.remove();
-        renderStage(overlay, 'question', response.question);
+        await renderStage(overlay, 'question', response.question);
       }, 400);
     }
   });
