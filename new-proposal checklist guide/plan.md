@@ -113,8 +113,8 @@
 - [x] - Day 95: Add error handling for the test button if the parent is on an un-injectable tab (like the Chrome Web Store).
 
 ### Phase 9: Polish, Cleanup, & Deployment
-- [ ] - Day 96: Perform a complete audit of the midnight rollover logic (resetting daily stats/categories properly).
-- [ ] - Day 97: Refactor Python file (`cool.py`) if it plays a role, or remove it if strictly going MV3 JS.
-- [ ] - Day 98: Thorough cross-browser testing (Chrome, Brave, Edge).
-- [ ] - Day 99: Final bug hunting (Memory leaks, ensuring media un-pauses reliably after a break).
-- [ ] - Day 100: Update `manifest.json` versions, trigger your `.github/workflows/package.yml`, and launch the extension!
+- [x] - Day 96: Perform a complete audit of the midnight rollover logic (resetting daily stats/categories properly).
+- [x] - Day 97: Refactor Python file (`cool.py`) if it plays a role, or remove it if strictly going MV3 JS.
+- [x] - Day 98: Thorough cross-browser testing (Chrome, Brave, Edge).
+- [x] - Day 99: Final bug hunting (Memory leaks, ensuring media un-pauses reliably after a break).
+- [x] - Day 100: Update `manifest.json` versions, trigger your `.github/workflows/package.yml`, and launch the extension!
