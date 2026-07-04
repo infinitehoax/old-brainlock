@@ -101,16 +101,16 @@
 - [x] - Day 85: Perform a z-index audit to ensure Confetti renders over the modal, and the modal renders over the site.
 
 ### Phase 8: Parent Dashboard & Controls
-- [ ] - Day 86: Convert your existing `options.html` / `popup.html` into the Parent Dashboard UI.
-- [ ] - Day 87: Apply the global "Cosmic Toybox" font and color aesthetic to the popup menu.
-- [ ] - Day 88: Write logic to fetch and display "Breaks Today" stats from local storage.
-- [ ] - Day 89: Write logic to fetch and display "Lifetime Total Breaks".
-- [ ] - Day 90: Display the currently locked-in daily category on the dashboard.
-- [ ] - Day 91: Create the interval configuration number input (clamped between 5 and 120 minutes).
-- [ ] - Day 92: Write background logic to clear and reset the alarm immediately when the interval is changed.
-- [ ] - Day 93: Add the "Test Break Now" button to the popup UI.
-- [ ] - Day 94: Write message-passing logic to force a break on the active tab when the test button is clicked.
-- [ ] - Day 95: Add error handling for the test button if the parent is on an un-injectable tab (like the Chrome Web Store).
+- [x] - Day 86: Convert your existing `options.html` / `popup.html` into the Parent Dashboard UI.
+- [x] - Day 87: Apply the global "Cosmic Toybox" font and color aesthetic to the popup menu.
+- [x] - Day 88: Write logic to fetch and display "Breaks Today" stats from local storage.
+- [x] - Day 89: Write logic to fetch and display "Lifetime Total Breaks".
+- [x] - Day 90: Display the currently locked-in daily category on the dashboard.
+- [x] - Day 91: Create the interval configuration number input (clamped between 5 and 120 minutes).
+- [x] - Day 92: Write background logic to clear and reset the alarm immediately when the interval is changed.
+- [x] - Day 93: Add the "Test Break Now" button to the popup UI.
+- [x] - Day 94: Write message-passing logic to force a break on the active tab when the test button is clicked.
+- [x] - Day 95: Add error handling for the test button if the parent is on an un-injectable tab (like the Chrome Web Store).
 
 ### Phase 9: Polish, Cleanup, & Deployment
 - [ ] - Day 96: Perform a complete audit of the midnight rollover logic (resetting daily stats/categories properly).

@@ -1,69 +1,175 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Brain Lock Settings</title>
+  <title>Brain Lock - Question Bank</title>
   <meta charset="UTF-8">
   <style>
+    :root {
+      --bg-gradient: radial-gradient(circle at center, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      --accent-color: #667eea;
+      --accent-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      --text-main: #ffffff;
+      --text-dim: #a5b4fc;
+      --glass-bg: rgba(255, 255, 255, 0.05);
+      --glass-border: rgba(255, 255, 255, 0.1);
+    }
+
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      padding: 20px;
-      max-width: 800px;
-      margin: 20px auto;
-      background-color: #f9f9f9;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--bg-gradient);
+      color: var(--text-main);
+      min-height: 100vh;
+      margin: 0;
+      padding: 40px 20px;
+      display: flex;
+      justify-content: center;
     }
+
+    .options-container {
+      max-width: 900px;
+      width: 100%;
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+      border-radius: 24px;
+      padding: 40px;
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
     h1 {
-      color: #667eea;
+      margin: 0;
+      font-size: 36px;
+      font-weight: 800;
+      background: linear-gradient(to right, #fff, #a5b4fc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: -1px;
     }
+
+    p {
+      color: var(--text-dim);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .editor-wrapper {
+      position: relative;
+      margin-top: 20px;
+    }
+
     textarea {
       width: 100%;
       height: 500px;
-      font-family: monospace;
+      background: rgba(0, 0, 0, 0.3);
+      border: 2px solid var(--glass-border);
+      border-radius: 16px;
+      padding: 20px;
+      color: #00ff88;
+      font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
       font-size: 14px;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      padding: 10px;
-      margin-bottom: 15px;
+      line-height: 1.5;
+      resize: vertical;
       box-sizing: border-box;
+      outline: none;
+      transition: border-color 0.3s ease;
     }
+
+    textarea:focus {
+      border-color: var(--accent-color);
+      box-shadow: 0 0 15px rgba(102, 126, 234, 0.3);
+    }
+
+    .actions {
+      display: flex;
+      gap: 15px;
+      margin-top: 25px;
+      flex-wrap: wrap;
+    }
+
     button {
-      padding: 12px 20px;
+      padding: 14px 28px;
       border: none;
-      border-radius: 6px;
-      cursor: pointer;
+      border-radius: 12px;
       font-size: 16px;
-      font-weight: 600;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 10px;
       color: white;
-      margin-right: 10px;
-      transition: background-color 0.2s ease;
     }
+
     #saveBtn {
-      background-color: #667eea;
+      background: var(--accent-gradient);
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
     }
+
     #saveBtn:hover {
-      background-color: #5a6fd8;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
     }
+
+    #fetchBtn {
+      background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      box-shadow: 0 4px 15px rgba(79, 172, 254, 0.4);
+    }
+
+    #fetchBtn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(79, 172, 254, 0.6);
+    }
+
     #resetBtn {
-      background-color: #f44336;
+      background: rgba(255, 77, 77, 0.1);
+      border: 1px solid rgba(255, 77, 77, 0.3);
+      color: #ff4d4d;
     }
+
     #resetBtn:hover {
-      background-color: #d32f2f;
+      background: rgba(255, 77, 77, 0.2);
     }
+
     #status {
-      margin-top: 15px;
-      padding: 10px;
-      border-radius: 6px;
+      margin-top: 20px;
+      padding: 15px 20px;
+      border-radius: 12px;
+      font-weight: 600;
+      text-align: center;
       display: none;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
-  <h1>Edit Questions</h1>
-  <p>You can edit the questions in JSON format below. Ensure the structure of each question is correct before saving.</p>
-  <textarea id="questionsJson" spellcheck="false"></textarea>
-  <button id="saveBtn">Save Questions</button>
-  <button id="fetchBtn" style="background-color: #4CAF50;">Fetch Latest from GitHub</button>
-  <button id="resetBtn">Reset to Default</button>
-  <div id="status"></div>
+  <div class="options-container">
+    <header>
+      <h1>⚙️ Question Bank Editor</h1>
+      <p>Customize your child's learning experience by editing the JSON data below. Ensure you follow the correct structure for all 13 interaction types.</p>
+    </header>
+
+    <div class="editor-wrapper">
+      <textarea id="questionsJson" spellcheck="false" placeholder="[ { ... } ]"></textarea>
+    </div>
+
+    <div class="actions">
+      <button id="saveBtn">💾 Save Changes</button>
+      <button id="fetchBtn">🌐 Fetch from Cloud</button>
+      <button id="resetBtn">♻️ Reset to Defaults</button>
+    </div>
+
+    <div id="status"></div>
+  </div>
 
   <script src="options.js"></script>
 </body>

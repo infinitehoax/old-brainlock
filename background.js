@@ -65,7 +65,11 @@ chrome.runtime.onInstalled.addListener(async () => {
     lastSpinDate: null,
     totalXP: 0,
     dailyStreak: 0,
-    lastStreakDate: null
+    lastStreakDate: null,
+    breaksToday: 0,
+    lifetimeBreaks: 0,
+    breakInterval: 30,
+    lastStatsResetDate: new Date().toDateString()
   });
 
   setupAlarms();
@@ -75,7 +79,13 @@ chrome.runtime.onInstalled.addListener(async () => {
 chrome.runtime.onStartup.addListener(async () => {
   const questions = await fetchQuestionsFromGithub();
 
-  chrome.storage.local.get(['answeredQuestions', 'dailyCategory', 'lastSpinDate'], (result) => {
+  chrome.storage.local.get([
+    'answeredQuestions',
+    'dailyCategory',
+    'lastSpinDate',
+    'lastStatsResetDate',
+    'breaksToday'
+  ], (result) => {
     const answered = result.answeredQuestions || [];
     const today = new Date().toDateString();
 
@@ -84,18 +94,35 @@ chrome.runtime.onStartup.addListener(async () => {
       dailyCategory = null;
     }
 
+    let breaksToday = result.breaksToday || 0;
+    let lastStatsResetDate = result.lastStatsResetDate;
+    if (lastStatsResetDate !== today) {
+      breaksToday = 0;
+      lastStatsResetDate = today;
+    }
+
     chrome.storage.local.set({
       isLocked: true,
       currentQuestion: getNextQuestion(questions, answered, dailyCategory),
-      dailyCategory: dailyCategory
+      dailyCategory: dailyCategory,
+      breaksToday: breaksToday,
+      lastStatsResetDate: lastStatsResetDate
     });
   });
   setupAlarms();
 });
 
-function setupAlarms() {
-  chrome.alarms.create('lockBrowser', { periodInMinutes: 30 });
-  chrome.alarms.create('periodicFetch', { periodInMinutes: 60 });
+async function setupAlarms() {
+  const data = await chrome.storage.local.get('breakInterval');
+  const interval = data.breakInterval || 30;
+
+  chrome.alarms.clear('lockBrowser');
+  chrome.alarms.create('lockBrowser', { periodInMinutes: interval });
+
+  // Periodic fetch stays at 60 mins
+  if (!(await chrome.alarms.get('periodicFetch'))) {
+    chrome.alarms.create('periodicFetch', { periodInMinutes: 60 });
+  }
 }
 
 // Listener for alarms
@@ -104,41 +131,93 @@ chrome.alarms.onAlarm.addListener((alarm) => {
     fetchQuestionsFromGithub();
   }
   if (alarm.name === 'lockBrowser') {
-    chrome.storage.local.get(['questions', 'answeredQuestions'], async (result) => {
-      let questions = result.questions;
-      if (!questions) {
-          questions = await fetchQuestionsFromGithub();
-      }
-      const answered = result.answeredQuestions || [];
-      chrome.storage.local.set({
-        isLocked: true,
-        currentQuestion: getNextQuestion(questions, answered),
-        lastUnlockTime: null
-      }, () => {
-        broadcastLockState(true); // Tell all tabs to show lock screen
+    triggerLock();
+  }
+});
 
-        // Mute and pause media on active and audible tabs
-        chrome.tabs.query({ active: true, currentWindow: true }, (activeTabs) => {
-          chrome.tabs.query({ audible: true }, (audibleTabs) => {
-            // Deduplicate tabs by ID
-            const tabsMap = new Map();
-            activeTabs.forEach(t => tabsMap.set(t.id, t));
-            audibleTabs.forEach(t => tabsMap.set(t.id, t));
+/**
+ * Triggers the lock screen and media muting.
+ * @param {number} [targetTabId] - Optional specific tab ID to target (for "Test Break Now")
+ */
+async function triggerLock(targetTabId = null) {
+  const result = await chrome.storage.local.get([
+    'questions',
+    'answeredQuestions',
+    'breaksToday',
+    'lifetimeBreaks',
+    'lastStatsResetDate',
+    'dailyCategory'
+  ]);
 
-            tabsMap.forEach(tab => {
-              if (tab.url && !tab.url.startsWith('chrome://') && !tab.url.startsWith('chrome-extension://') && !tab.url.startsWith('https://chrome.google.com/webstore')) {
-                chrome.scripting.executeScript({
-                  target: { tabId: tab.id, allFrames: true },
-                  func: muteAndPauseMedia
-                }).catch(err => console.error('Script injection failed:', err));
-              }
-            });
+  let questions = result.questions;
+  if (!questions) {
+    questions = await fetchQuestionsFromGithub();
+  }
+  const answered = result.answeredQuestions || [];
+  const today = new Date().toDateString();
+
+  let breaksToday = result.breaksToday || 0;
+  let lifetimeBreaks = result.lifetimeBreaks || 0;
+  let lastStatsResetDate = result.lastStatsResetDate;
+
+  if (lastStatsResetDate !== today) {
+    breaksToday = 0;
+    lastStatsResetDate = today;
+  }
+
+  breaksToday++;
+  lifetimeBreaks++;
+
+  chrome.storage.local.set({
+    isLocked: true,
+    currentQuestion: getNextQuestion(questions, answered, result.dailyCategory),
+    lastUnlockTime: null,
+    breaksToday: breaksToday,
+    lifetimeBreaks: lifetimeBreaks,
+    lastStatsResetDate: lastStatsResetDate
+  }, () => {
+    if (targetTabId) {
+      // Targeted lock for "Test Break Now"
+      chrome.tabs.get(targetTabId, (tab) => {
+        if (tab && tab.url && isInjectable(tab.url)) {
+          chrome.tabs.sendMessage(tab.id, { action: "showLock" }).catch(() => {});
+          chrome.scripting.executeScript({
+            target: { tabId: tab.id, allFrames: true },
+            func: muteAndPauseMedia
+          }).catch(err => console.error('Script injection failed:', err));
+        }
+      });
+    } else {
+      // Global lock
+      broadcastLockState(true);
+
+      chrome.tabs.query({ active: true, currentWindow: true }, (activeTabs) => {
+        chrome.tabs.query({ audible: true }, (audibleTabs) => {
+          const tabsMap = new Map();
+          activeTabs.forEach(t => tabsMap.set(t.id, t));
+          audibleTabs.forEach(t => tabsMap.set(t.id, t));
+
+          tabsMap.forEach(tab => {
+            if (tab.url && isInjectable(tab.url)) {
+              chrome.scripting.executeScript({
+                target: { tabId: tab.id, allFrames: true },
+                func: muteAndPauseMedia
+              }).catch(err => console.error('Script injection failed:', err));
+            }
           });
         });
       });
-    });
-  }
-});
+    }
+  });
+}
+
+function isInjectable(url) {
+  return url &&
+         !url.startsWith('chrome://') &&
+         !url.startsWith('chrome-extension://') &&
+         !url.startsWith('https://chrome.google.com/webstore') &&
+         !url.startsWith('https://chromewebstore.google.com');
+}
 
 // Function to pause and mute all media elements
 function muteAndPauseMedia() {
@@ -167,9 +246,7 @@ function getNextQuestion(questions, answeredIds, category = null) {
 
   const unanswered = pool.filter(q => !answeredIds.includes(q.id));
   if (unanswered.length === 0) {
-    // If all in pool are answered, reset answered list (of that pool? no, let's keep it simple)
-    // Actually, maybe we should only reset if ALL questions are answered.
-    // For now, let's just pick a random one from the pool.
+    // If all in pool are answered, pick a random one from the pool.
     return pool[Math.floor(Math.random() * pool.length)];
   }
   return unanswered[Math.floor(Math.random() * unanswered.length)];
@@ -358,6 +435,20 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     }).catch(err => {
       sendResponse({ success: false, error: err.message });
     });
+    return true;
+  }
+
+  if (request.action === "updateInterval") {
+    chrome.storage.local.set({ breakInterval: request.interval }, () => {
+      setupAlarms();
+      sendResponse({ success: true });
+    });
+    return true;
+  }
+
+  if (request.action === "testBreakNow") {
+    triggerLock(request.tabId);
+    sendResponse({ success: true });
     return true;
   }
 });
