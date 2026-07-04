@@ -101,3 +101,12 @@
     - Updated `questions.json` with a comprehensive set of 13 high-quality samples.
     - Created `PARENTS_GUIDE.md` with customization and anti-uninstallation instructions.
     - Updated `manifest.json` to version 1.0.0 and finalized project status.
+
+Phase 8:
+
+- **Parent Dashboard:** Transformed `popup.html` into a centralized control panel displaying real-time stats like Breaks Today, Lifetime Total, Daily Category, Streak, and Total XP.
+- **Cosmic Aesthetic:** Applied a dark-blue radial gradient, glassmorphism stat cards, and neon accents to both `popup.html` and `options.html`.
+- **Stat Tracking Logic:** Added `breaksToday` and `lifetimeBreaks` counters in `background.js` with automatic daily reset logic.
+- **Dynamic Intervals:** Added a numeric input to the dashboard allowing parents to set the break interval (clamped 5-120 mins), which immediately resets the background alarm.
+- **Test Break Functionality:** Implemented a 'Test Break Now' button that triggers a lock on the current tab, including safety checks to prevent injection on restricted pages (like the Chrome Web Store).
+- **Verification:** Added a Playwright script (`verification/verify_phase8.py`) and verified all dashboard features and injection logic.
