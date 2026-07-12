@@ -3,8 +3,34 @@
     "githubPingInterval": 9,
     "brainLockInterval": 3,
     "activeHours": {
-      "start": "15:00",
-      "end": "06:00"
+      "Monday": {
+        "start": "15:00",
+        "end": "06:00"
+      },
+      "Tuesday": {
+        "start": "15:00",
+        "end": "06:00"
+      },
+      "Wednesday": {
+        "start": "15:00",
+        "end": "06:00"
+      },
+      "Thursday": {
+        "start": "15:00",
+        "end": "06:00"
+      },
+      "Friday": {
+        "start": "15:00",
+        "end": "06:00"
+      },
+      "Saturday": {
+        "start": "15:00",
+        "end": "06:00"
+      },
+      "Sunday": {
+        "start": "15:00",
+        "end": "06:00"
+      }
     }
   },
   "questions": [
