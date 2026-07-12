@@ -8,1449 +8,1085 @@
     }
   },
   "questions": [
-    {
-      "id": 1,
-      "type": "multiple-choice",
-      "timer": "infinite",
-      "question": "What is the result of 15 multiplied by 6?",
-      "category": "Mathematics",
-      "answers": [
-        {"text": "80", "feedback": "Incorrect."},
-        {"text": "90", "feedback": "Correct!"},
-        {"text": "100", "feedback": "Incorrect."},
-        {"text": "85", "feedback": "Incorrect."}
-      ],
-      "correctAnswer": "90",
-      "generalFeedback": "10 * 6 = 60, and 5 * 6 = 30. 60 + 30 = 90."
-    },
-    {
-      "id": 2,
-      "type": "multiple-choice",
-      "timer": "infinite",
-      "question": "What is the capital city of Nigeria?",
-      "category": "Social Studies",
-      "answers": [
-        {"text": "Lagos", "feedback": "Lagos is the commercial hub, but not the capital."},
-        {"text": "Kano", "feedback": "Incorrect."},
-        {"text": "Abuja", "feedback": "Correct!"},
-        {"text": "Enugu", "feedback": "Incorrect."}
-      ],
-      "correctAnswer": "Abuja",
-      "generalFeedback": "Abuja became the capital of Nigeria in 1991, replacing Lagos."
-    },
-    {
-      "id": 3,
-      "type": "multiple-choice",
-      "timer": "infinite",
-      "question": "Which of these is a noun?",
-      "category": "English Language",
-      "answers": [
-        {"text": "Quickly", "feedback": "This is an adverb."},
-        {"text": "Beautiful", "feedback": "This is an adjective."},
-        {"text": "Teacher", "feedback": "Correct! A noun is a naming word."},
-        {"text": "Run", "feedback": "This is a verb."}
-      ],
-      "correctAnswer": "Teacher",
-      "generalFeedback": "A noun is the name of a person, animal, place, or thing."
-    },
-    {
-      "id": 4,
-      "type": "multiple-choice",
-      "timer": "infinite",
-      "question": "Which continent is the largest by landmass?",
-      "category": "Social Studies",
-      "answers": [
-        {"text": "Africa", "feedback": "Africa is the second largest."},
-        {"text": "Asia", "feedback": "Correct! Asia is the largest continent."},
-        {"text": "Europe", "feedback": "Incorrect."},
-        {"text": "North America", "feedback": "Incorrect."}
-      ],
-      "correctAnswer": "Asia",
-      "generalFeedback": "Asia covers about 30% of Earth's total land area."
-    },
-    {
-      "id": 5,
-      "type": "multiple-choice",
-      "timer": "infinite",
-      "question": "What gas do humans breathe out during respiration?",
-      "category": "Basic Science",
-      "answers": [
-        {"text": "Oxygen", "feedback": "We breathe oxygen in."},
-        {"text": "Carbon Dioxide", "feedback": "Correct!"},
-        {"text": "Nitrogen", "feedback": "Incorrect."},
-        {"text": "Helium", "feedback": "Incorrect."}
-      ],
-      "correctAnswer": "Carbon Dioxide",
-      "generalFeedback": "Humans inhale oxygen and exhale carbon dioxide."
-    },
-    {
-      "id": 6,
-      "type": "multiple-choice",
-      "timer": "infinite",
-      "question": "What is the sum of angles in a triangle?",
-      "category": "Mathematics",
-      "answers": [
-        {"text": "90 degrees", "feedback": "Incorrect."},
-        {"text": "180 degrees", "feedback": "Correct!"},
-        {"text": "360 degrees", "feedback": "Incorrect. That is for a quadrilateral."},
-        {"text": "270 degrees", "feedback": "Incorrect."}
-      ],
-      "correctAnswer": "180 degrees",
-      "generalFeedback": "Every triangle's internal angles always add up to 180 degrees."
-    },
-    {
-      "id": 7,
-      "type": "multiple-choice",
-      "timer": "infinite",
-      "question": "In what year did Nigeria gain independence?",
-      "category": "Social Studies",
-      "answers": [
-        {"text": "1960", "feedback": "Correct!"},
-        {"text": "1963", "feedback": "This is when Nigeria became a republic."},
-        {"text": "1914", "feedback": "This is the year of amalgamation."},
-        {"text": "1999", "feedback": "This marks the start of the 4th Republic."}
-      ],
-      "correctAnswer": "1960",
-      "generalFeedback": "Nigeria gained independence from British rule on October 1, 1960."
-    },
-    {
-      "id": 8,
-      "type": "multiple-choice",
-      "timer": "infinite",
-      "question": "What is the opposite (antonym) of 'ancient'?",
-      "category": "English Language",
-      "answers": [
-        {"text": "Old", "feedback": "This is a synonym."},
-        {"text": "Modern", "feedback": "Correct!"},
-        {"text": "Historic", "feedback": "Incorrect."},
-        {"text": "Broken", "feedback": "Incorrect."}
-      ],
-      "correctAnswer": "Modern",
-      "generalFeedback": "'Ancient' means very old, while 'Modern' relates to present or recent times."
-    },
-    {
-      "id": 9,
-      "type": "true-false",
-      "timer": "infinite",
-      "question": "Spiders are classified as insects.",
-      "category": "Basic Science",
-      "answers": [
-        {"text": "True", "feedback": "Incorrect. Spiders have 8 legs, insects have 6."},
-        {"text": "False", "feedback": "Correct! Spiders are arachnids."}
-      ],
-      "correctAnswer": "False",
-      "generalFeedback": "Spiders are arachnids because they have eight legs and two main body parts."
-    },
-    {
-      "id": 10,
-      "type": "true-false",
-      "timer": "infinite",
-      "question": "Water freezes at 0 degrees Celsius.",
-      "category": "Basic Science",
-      "answers": [
-        {"text": "True", "feedback": "Correct!"},
-        {"text": "False", "feedback": "Incorrect."}
-      ],
-      "correctAnswer": "True",
-      "generalFeedback": "0°C is the freezing point of water at standard atmospheric pressure."
-    },
-    {
-      "id": 11,
-      "type": "true-false",
-      "timer": "infinite",
-      "question": "15 is a prime number.",
-      "category": "Mathematics",
-      "answers": [
-        {"text": "True", "feedback": "Incorrect. 15 can be divided by 3 and 5."},
-        {"text": "False", "feedback": "Correct!"}
-      ],
-      "correctAnswer": "False",
-      "generalFeedback": "A prime number is only divisible by 1 and itself. 15 has factors 1, 3, 5, and 15."
-    },
-    {
-      "id": 12,
-      "type": "true-false",
-      "timer": "infinite",
-      "question": "The Sahara is the largest hot desert in the world.",
-      "category": "Social Studies",
-      "answers": [
-        {"text": "True", "feedback": "Correct!"},
-        {"text": "False", "feedback": "Incorrect."}
-      ],
-      "correctAnswer": "True",
-      "generalFeedback": "The Sahara is the largest hot desert, though Antarctica is the largest cold desert."
-    },
-    {
-      "id": 13,
-      "type": "true-false",
-      "timer": "infinite",
-      "question": "A polygon with 5 sides is called a hexagon.",
-      "category": "Mathematics",
-      "answers": [
-        {"text": "True", "feedback": "Incorrect. A 5-sided shape is a pentagon."},
-        {"text": "False", "feedback": "Correct!"}
-      ],
-      "correctAnswer": "False",
-      "generalFeedback": "A hexagon has 6 sides, while a pentagon has 5."
-    },
-    {
-      "id": 14,
-      "type": "true-false",
-      "timer": "infinite",
-      "question": "Africa is a country.",
-      "category": "Social Studies",
-      "answers": [
-        {"text": "True", "feedback": "Incorrect."},
-        {"text": "False", "feedback": "Correct! Africa is a continent."}
-      ],
-      "correctAnswer": "False",
-      "generalFeedback": "Africa is a continent made up of 54 fully recognized sovereign countries."
-    },
-    {
-      "id": 15,
-      "type": "true-false",
-      "timer": "infinite",
-      "question": "The sun is a star.",
-      "category": "Basic Science",
-      "answers": [
-        {"text": "True", "feedback": "Correct!"},
-        {"text": "False", "feedback": "Incorrect."}
-      ],
-      "correctAnswer": "True",
-      "generalFeedback": "The sun is a medium-sized star at the center of our solar system."
-    },
-    {
-      "id": 16,
-      "type": "true-false",
-      "timer": "infinite",
-      "question": "Fish breathe under water using gills.",
-      "category": "Basic Science",
-      "answers": [
-        {"text": "True", "feedback": "Correct!"},
-        {"text": "False", "feedback": "Incorrect."}
-      ],
-      "correctAnswer": "True",
-      "generalFeedback": "Gills extract dissolved oxygen from water and excrete carbon dioxide."
-    },
-    {
-      "id": 17,
-      "type": "short-answer",
-      "timer": "infinite",
-      "question": "H2O is the scientific formula for what common liquid?",
-      "category": "Basic Science",
-      "correctAnswer": "Water",
-      "generalFeedback": "H2O stands for two Hydrogen atoms and one Oxygen atom."
-    },
-    {
-      "id": 18,
-      "type": "short-answer",
-      "timer": "infinite",
-      "question": "What is the square root of 64?",
-      "category": "Mathematics",
-      "correctAnswer": "8",
-      "generalFeedback": "8 multiplied by 8 equals 64."
-    },
-    {
-      "id": 19,
-      "type": "short-answer",
-      "timer": "infinite",
-      "question": "Which animal is commonly known as the 'King of the Jungle'?",
-      "category": "Basic Science",
-      "correctAnswer": "Lion",
-      "generalFeedback": "Lions are apex predators and live in groups called prides."
-    },
-    {
-      "id": 20,
-      "type": "short-answer",
-      "timer": "infinite",
-      "question": "How many seconds are in one hour?",
-      "category": "Mathematics",
-      "correctAnswer": "3600",
-      "generalFeedback": "60 seconds in a minute * 60 minutes in an hour = 3600."
-    },
-    {
-      "id": 21,
-      "type": "short-answer",
-      "timer": "infinite",
-      "question": "What punctuation mark is used at the end of an interrogative sentence?",
-      "category": "English Language",
-      "correctAnswer": "?",
-      "generalFeedback": "A question mark (?) indicates a question is being asked."
-    },
-    {
-      "id": 22,
-      "type": "short-answer",
-      "timer": "infinite",
-      "question": "What is the name of the planet closest to the sun?",
-      "category": "Basic Science",
-      "correctAnswer": "Mercury",
-      "generalFeedback": "Mercury is the smallest and closest planet to the Sun."
-    },
-    {
-      "id": 23,
-      "type": "short-answer",
-      "timer": "infinite",
-      "question": "What do we call a baby dog?",
-      "category": "English Language",
-      "correctAnswer": "Puppy",
-      "generalFeedback": "A young dog is called a puppy."
-    },
-    {
-      "id": 24,
-      "type": "short-answer",
-      "timer": "infinite",
-      "question": "How many sides does an octagon have?",
-      "category": "Mathematics",
-      "correctAnswer": "8",
-      "generalFeedback": "The prefix 'octa-' means eight."
-    },
-    {
-      "id": 25,
-      "type": "fill-in-the-blank",
-      "timer": "infinite",
-      "question": "A leap year has ___ days in total.",
-      "category": "Mathematics",
-      "correctAnswer": "366",
-      "generalFeedback": "Leap years have an extra day in February."
-    },
-    {
-      "id": 26,
-      "type": "fill-in-the-blank",
-      "timer": "infinite",
-      "question": "The Earth revolves around the ___.",
-      "category": "Basic Science",
-      "correctAnswer": "Sun",
-      "generalFeedback": "It takes the Earth approximately 365.25 days to complete one revolution."
-    },
-    {
-      "id": 27,
-      "type": "fill-in-the-blank",
-      "timer": "infinite",
-      "question": "An ___ is a word that describes or modifies a noun.",
-      "category": "English Language",
-      "correctAnswer": "Adjective",
-      "generalFeedback": "Words like 'tall', 'beautiful', and 'blue' are adjectives."
-    },
-    {
-      "id": 28,
-      "type": "fill-in-the-blank",
-      "timer": "infinite",
-      "question": "___ is the capital city of Lagos State.",
-      "category": "Social Studies",
-      "correctAnswer": "Ikeja",
-      "generalFeedback": "Ikeja is the capital of Lagos State, while Lagos was the former national capital."
-    },
-    {
-      "id": 29,
-      "type": "fill-in-the-blank",
-      "timer": "infinite",
-      "question": "One hundred centimeters make one ___.",
-      "category": "Mathematics",
-      "correctAnswer": "Meter",
-      "generalFeedback": "The prefix 'centi' means one-hundredth."
-    },
-    {
-      "id": 30,
-      "type": "fill-in-the-blank",
-      "timer": "infinite",
-      "question": "The past tense of the verb 'go' is ___.",
-      "category": "English Language",
-      "correctAnswer": "went",
-      "generalFeedback": "'Go' is an irregular verb."
-    },
-    {
-      "id": 31,
-      "type": "fill-in-the-blank",
-      "timer": "infinite",
-      "question": "A professional who treats sick people in a hospital is called a ___.",
-      "category": "Social Studies",
-      "correctAnswer": "Doctor",
-      "generalFeedback": "Doctors and nurses work in the healthcare sector."
-    },
-    {
-      "id": 32,
-      "type": "fill-in-the-blank",
-      "timer": "infinite",
-      "question": "There are exactly ___ days in one standard week.",
-      "category": "Mathematics",
-      "correctAnswer": "7",
-      "generalFeedback": "Monday through Sunday makes 7 days."
-    },
-    {
-      "id": 33,
-      "type": "odd-one-out",
-      "timer": "infinite",
-      "question": "Which of these does NOT belong to the group?",
-      "category": "English Language",
-      "answers": [
-        {"text": "Dog", "feedback": "Animal."},
-        {"text": "Cat", "feedback": "Animal."},
-        {"text": "Lion", "feedback": "Animal."},
-        {"text": "Car", "feedback": "Correct! A car is a machine, not an animal."}
-      ],
-      "correctAnswer": "Car"
-    },
-    {
-      "id": 34,
-      "type": "odd-one-out",
-      "timer": "infinite",
-      "question": "Identify the odd one out.",
-      "category": "Basic Science",
-      "answers": [
-        {"text": "Apple", "feedback": "Fruit."},
-        {"text": "Banana", "feedback": "Fruit."},
-        {"text": "Carrot", "feedback": "Correct! Carrot is a root vegetable."},
-        {"text": "Orange", "feedback": "Fruit."}
-      ],
-      "correctAnswer": "Carrot"
-    },
-    {
-      "id": 35,
-      "type": "odd-one-out",
-      "timer": "infinite",
-      "question": "Which city does NOT belong?",
-      "category": "Social Studies",
-      "answers": [
-        {"text": "Lagos", "feedback": "City in Nigeria."},
-        {"text": "Abuja", "feedback": "City in Nigeria."},
-        {"text": "Kano", "feedback": "City in Nigeria."},
-        {"text": "London", "feedback": "Correct! London is in the UK."}
-      ],
-      "correctAnswer": "London"
-    },
-    {
-      "id": 36,
-      "type": "odd-one-out",
-      "timer": "infinite",
-      "question": "Select the number that doesn't fit the pattern.",
-      "category": "Mathematics",
-      "answers": [
-        {"text": "2", "feedback": "Even number."},
-        {"text": "4", "feedback": "Even number."},
-        {"text": "6", "feedback": "Even number."},
-        {"text": "9", "feedback": "Correct! 9 is an odd number."}
-      ],
-      "correctAnswer": "9"
-    },
-    {
-      "id": 37,
-      "type": "odd-one-out",
-      "timer": "infinite",
-      "question": "Find the odd word.",
-      "category": "English Language",
-      "answers": [
-        {"text": "Run", "feedback": "Verb."},
-        {"text": "Jump", "feedback": "Verb."},
-        {"text": "Swim", "feedback": "Verb."},
-        {"text": "Book", "feedback": "Correct! Book is a noun."}
-      ],
-      "correctAnswer": "Book"
-    },
-    {
-      "id": 38,
-      "type": "odd-one-out",
-      "timer": "infinite",
-      "question": "Which shape is the odd one out?",
-      "category": "Mathematics",
-      "answers": [
-        {"text": "Triangle", "feedback": "Has straight sides."},
-        {"text": "Square", "feedback": "Has straight sides."},
-        {"text": "Rectangle", "feedback": "Has straight sides."},
-        {"text": "Circle", "feedback": "Correct! A circle has no straight sides."}
-      ],
-      "correctAnswer": "Circle"
-    },
-    {
-      "id": 39,
-      "type": "odd-one-out",
-      "timer": "infinite",
-      "question": "Which body part does not belong with the others?",
-      "category": "Basic Science",
-      "answers": [
-        {"text": "Eyes", "feedback": "External sensory organ."},
-        {"text": "Ears", "feedback": "External sensory organ."},
-        {"text": "Nose", "feedback": "External sensory organ."},
-        {"text": "Heart", "feedback": "Correct! The heart is an internal organ."}
-      ],
-      "correctAnswer": "Heart"
-    },
-    {
-      "id": 40,
-      "type": "odd-one-out",
-      "timer": "infinite",
-      "question": "Which of these is NOT a stationery item?",
-      "category": "General Knowledge",
-      "answers": [
-        {"text": "Pen", "feedback": "Stationery."},
-        {"text": "Pencil", "feedback": "Stationery."},
-        {"text": "Eraser", "feedback": "Stationery."},
-        {"text": "Water", "feedback": "Correct! Water is a liquid for drinking."}
-      ],
-      "correctAnswer": "Water"
-    },
-    {
-      "id": 41,
-      "type": "spell-it-out",
-      "timer": "infinite",
-      "question": "Spell the word for our natural surroundings.",
-      "category": "English Language",
-      "correctAnswer": "ENVIRONMENT",
-      "generalFeedback": "The environment is everything around us."
-    },
-    {
-      "id": 42,
-      "type": "spell-it-out",
-      "timer": "infinite",
-      "question": "Spell the adjective meaning 'pleasing to the senses or mind'.",
-      "category": "English Language",
-      "correctAnswer": "BEAUTIFUL",
-      "generalFeedback": "Ensure you remember the 'E-A-U' sequence."
-    },
-    {
-      "id": 43,
-      "type": "spell-it-out",
-      "timer": "infinite",
-      "question": "Spell the word for the group of people who rule a country.",
-      "category": "Social Studies",
-      "correctAnswer": "GOVERNMENT",
-      "generalFeedback": "Don't forget the 'n' in the middle!"
-    },
-    {
-      "id": 44,
-      "type": "spell-it-out",
-      "timer": "infinite",
-      "question": "Spell the word meaning facts, information, and skills acquired through learning.",
-      "category": "English Language",
-      "correctAnswer": "KNOWLEDGE",
-      "generalFeedback": "It starts with a silent 'K'."
-    },
-    {
-      "id": 45,
-      "type": "spell-it-out",
-      "timer": "infinite",
-      "question": "Spell the word for the process of receiving or giving systematic instruction.",
-      "category": "Social Studies",
-      "correctAnswer": "EDUCATION",
-      "generalFeedback": "Education is the key to success."
-    },
-    {
-      "id": 46,
-      "type": "spell-it-out",
-      "timer": "infinite",
-      "question": "Spell the word for a large natural elevation of the earth's surface.",
-      "category": "Geography",
-      "correctAnswer": "MOUNTAIN",
-      "generalFeedback": "The tallest mountain on Earth is Mount Everest."
-    },
-    {
-      "id": 47,
-      "type": "spell-it-out",
-      "timer": "infinite",
-      "question": "Spell the word for the application of scientific knowledge for practical purposes.",
-      "category": "Basic Science",
-      "correctAnswer": "TECHNOLOGY",
-      "generalFeedback": "Computers and smartphones are examples of technology."
-    },
-    {
-      "id": 48,
-      "type": "spell-it-out",
-      "timer": "infinite",
-      "question": "Spell the word for a unit of pronunciation having one vowel sound.",
-      "category": "English Language",
-      "correctAnswer": "SYLLABLE",
-      "generalFeedback": "The word 'Water' has two syllables (Wa-ter)."
-    },
-    {
-      "id": 49,
-      "type": "word-scramble",
-      "timer": "infinite",
-      "question": "Unscramble this electronic device: RMECTUPO",
-      "category": "ICT",
-      "correctAnswer": "COMPUTER",
-      "generalFeedback": "A computer is an electronic machine for processing data."
-    },
-    {
-      "id": 50,
-      "type": "word-scramble",
-      "timer": "infinite",
-      "question": "Unscramble this school subject: CIECESN",
-      "category": "Basic Science",
-      "correctAnswer": "SCIENCE",
-      "generalFeedback": "Science helps us understand the natural world."
-    },
-    {
-      "id": 51,
-      "type": "word-scramble",
-      "timer": "infinite",
-      "question": "Unscramble this global network: ETINNRTE",
-      "category": "ICT",
-      "correctAnswer": "INTERNET",
-      "generalFeedback": "The internet connects computers worldwide."
-    },
-    {
-      "id": 52,
-      "type": "word-scramble",
-      "timer": "infinite",
-      "question": "Unscramble the word for someone who instructs: RCETHEA",
-      "category": "English Language",
-      "correctAnswer": "TEACHER",
-      "generalFeedback": "A teacher helps students learn."
-    },
-    {
-      "id": 53,
-      "type": "word-scramble",
-      "timer": "infinite",
-      "question": "Unscramble the building where you live: EUSHO",
-      "category": "English Language",
-      "correctAnswer": "HOUSE",
-      "generalFeedback": "A house provides shelter."
-    },
-    {
-      "id": 54,
-      "type": "word-scramble",
-      "timer": "infinite",
-      "question": "Unscramble this part of a room that lets in light: WDNWIO",
-      "category": "English Language",
-      "correctAnswer": "WINDOW",
-      "generalFeedback": "Windows allow ventilation and light."
-    },
-    {
-      "id": 55,
-      "type": "word-scramble",
-      "timer": "infinite",
-      "question": "Unscramble this place full of books: RYBAILR",
-      "category": "English Language",
-      "correctAnswer": "LIBRARY",
-      "generalFeedback": "A library is a quiet place for reading."
-    },
-    {
-      "id": 56,
-      "type": "word-scramble",
-      "timer": "infinite",
-      "question": "Unscramble this word for a pupil: NDESTRU",
-      "category": "English Language",
-      "correctAnswer": "STUDENT",
-      "generalFeedback": "You are a student!"
-    },
-    {
-      "id": 57,
-      "type": "organize-tags",
-      "timer": "infinite",
-      "question": "Sort these letters into Vowels and Consonants.",
-      "category": "English Language",
-      "buckets": ["Vowel", "Consonant"],
-      "items": [
-        {"text": "A", "category": "Vowel"},
-        {"text": "E", "category": "Vowel"},
-        {"text": "B", "category": "Consonant"},
-        {"text": "C", "category": "Consonant"}
-      ],
-      "correctAnswer": {
-        "A": "Vowel",
-        "E": "Vowel",
-        "B": "Consonant",
-        "C": "Consonant"
-      }
-    },
-    {
-      "id": 58,
-      "type": "organize-tags",
-      "timer": "infinite",
-      "question": "Sort these numbers into Odd and Even.",
-      "category": "Mathematics",
-      "buckets": ["Odd", "Even"],
-      "items": [
-        {"text": "1", "category": "Odd"},
-        {"text": "2", "category": "Even"},
-        {"text": "3", "category": "Odd"},
-        {"text": "4", "category": "Even"}
-      ],
-      "correctAnswer": {
-        "1": "Odd",
-        "2": "Even",
-        "3": "Odd",
-        "4": "Even"
-      }
-    },
-    {
-      "id": 59,
-      "type": "organize-tags",
-      "timer": "infinite",
-      "question": "Sort these animals into Mammals and Birds.",
-      "category": "Basic Science",
-      "buckets": ["Mammal", "Bird"],
-      "items": [
-        {"text": "Dog", "category": "Mammal"},
-        {"text": "Eagle", "category": "Bird"},
-        {"text": "Cow", "category": "Mammal"},
-        {"text": "Owl", "category": "Bird"}
-      ],
-      "correctAnswer": {
-        "Dog": "Mammal",
-        "Eagle": "Bird",
-        "Cow": "Mammal",
-        "Owl": "Bird"
-      }
-    },
-    {
-      "id": 60,
-      "type": "organize-tags",
-      "timer": "infinite",
-      "question": "Sort into Living and Non-Living things.",
-      "category": "Basic Science",
-      "buckets": ["Living", "Non-Living"],
-      "items": [
-        {"text": "Tree", "category": "Living"},
-        {"text": "Boy", "category": "Living"},
-        {"text": "Rock", "category": "Non-Living"},
-        {"text": "Pen", "category": "Non-Living"}
-      ],
-      "correctAnswer": {
-        "Tree": "Living",
-        "Boy": "Living",
-        "Rock": "Non-Living",
-        "Pen": "Non-Living"
-      }
-    },
-    {
-      "id": 61,
-      "type": "organize-tags",
-      "timer": "infinite",
-      "question": "Sort into Fruits and Vegetables.",
-      "category": "Basic Science",
-      "buckets": ["Fruit", "Vegetable"],
-      "items": [
-        {"text": "Apple", "category": "Fruit"},
-        {"text": "Mango", "category": "Fruit"},
-        {"text": "Onion", "category": "Vegetable"},
-        {"text": "Yam", "category": "Vegetable"}
-      ],
-      "correctAnswer": {
-        "Apple": "Fruit",
-        "Mango": "Fruit",
-        "Onion": "Vegetable",
-        "Yam": "Vegetable"
-      }
-    },
-    {
-      "id": 62,
-      "type": "organize-tags",
-      "timer": "infinite",
-      "question": "Sort these words into Nouns and Adjectives.",
-      "category": "English Language",
-      "buckets": ["Noun", "Adjective"],
-      "items": [
-        {"text": "Table", "category": "Noun"},
-        {"text": "Tall", "category": "Adjective"},
-        {"text": "Car", "category": "Noun"},
-        {"text": "Blue", "category": "Adjective"}
-      ],
-      "correctAnswer": {
-        "Table": "Noun",
-        "Tall": "Adjective",
-        "Car": "Noun",
-        "Blue": "Adjective"
-      }
-    },
-    {
-      "id": 63,
-      "type": "organize-tags",
-      "timer": "infinite",
-      "question": "Sort into Continents and Oceans.",
-      "category": "Geography",
-      "buckets": ["Continent", "Ocean"],
-      "items": [
-        {"text": "Africa", "category": "Continent"},
-        {"text": "Atlantic", "category": "Ocean"},
-        {"text": "Asia", "category": "Continent"},
-        {"text": "Pacific", "category": "Ocean"}
-      ],
-      "correctAnswer": {
-        "Africa": "Continent",
-        "Atlantic": "Ocean",
-        "Asia": "Continent",
-        "Pacific": "Ocean"
-      }
-    },
-    {
-      "id": 64,
-      "type": "organize-tags",
-      "timer": "infinite",
-      "question": "Sort into Metals and Gases.",
-      "category": "Basic Science",
-      "buckets": ["Metal", "Gas"],
-      "items": [
-        {"text": "Iron", "category": "Metal"},
-        {"text": "Oxygen", "category": "Gas"},
-        {"text": "Gold", "category": "Metal"},
-        {"text": "Helium", "category": "Gas"}
-      ],
-      "correctAnswer": {
-        "Iron": "Metal",
-        "Oxygen": "Gas",
-        "Gold": "Metal",
-        "Helium": "Gas"
-      }
-    },
-    {
-      "id": 65,
-      "type": "categorize-items",
-      "timer": "infinite",
-      "question": "Categorize these Nigerian locations into States and Capitals.",
-      "category": "Social Studies",
-      "buckets": ["State", "Capital"],
-      "items": [
-        {"text": "Lagos", "category": "State"},
-        {"text": "Ikeja", "category": "Capital"},
-        {"text": "Kano", "category": "State"},
-        {"text": "Abuja", "category": "Capital"}
-      ],
-      "correctAnswer": {
-        "Lagos": "State",
-        "Ikeja": "Capital",
-        "Kano": "State",
-        "Abuja": "Capital"
-      }
-    },
-    {
-      "id": 66,
-      "type": "categorize-items",
-      "timer": "infinite",
-      "question": "Categorize into Shapes and Colors.",
-      "category": "General Knowledge",
-      "buckets": ["Shape", "Color"],
-      "items": [
-        {"text": "Square", "category": "Shape"},
-        {"text": "Red", "category": "Color"},
-        {"text": "Circle", "category": "Shape"},
-        {"text": "Green", "category": "Color"}
-      ],
-      "correctAnswer": {
-        "Square": "Shape",
-        "Red": "Color",
-        "Circle": "Shape",
-        "Green": "Color"
-      }
-    },
-    {
-      "id": 67,
-      "type": "categorize-items",
-      "timer": "infinite",
-      "question": "Categorize verbs into Past Tense and Present Tense.",
-      "category": "English Language",
-      "buckets": ["Past", "Present"],
-      "items": [
-        {"text": "Went", "category": "Past"},
-        {"text": "Go", "category": "Present"},
-        {"text": "Ate", "category": "Past"},
-        {"text": "Eat", "category": "Present"}
-      ],
-      "correctAnswer": {
-        "Went": "Past",
-        "Go": "Present",
-        "Ate": "Past",
-        "Eat": "Present"
-      }
-    },
-    {
-      "id": 68,
-      "type": "categorize-items",
-      "timer": "infinite",
-      "question": "Categorize matter into Solid and Liquid.",
-      "category": "Basic Science",
-      "buckets": ["Solid", "Liquid"],
-      "items": [
-        {"text": "Ice", "category": "Solid"},
-        {"text": "Water", "category": "Liquid"},
-        {"text": "Wood", "category": "Solid"},
-        {"text": "Milk", "category": "Liquid"}
-      ],
-      "correctAnswer": {
-        "Ice": "Solid",
-        "Water": "Liquid",
-        "Wood": "Solid",
-        "Milk": "Liquid"
-      }
-    },
-    {
-      "id": 69,
-      "type": "categorize-items",
-      "timer": "infinite",
-      "question": "Categorize animals by diet.",
-      "category": "Basic Science",
-      "buckets": ["Herbivore", "Carnivore"],
-      "items": [
-        {"text": "Cow", "category": "Herbivore"},
-        {"text": "Goat", "category": "Herbivore"},
-        {"text": "Lion", "category": "Carnivore"},
-        {"text": "Tiger", "category": "Carnivore"}
-      ],
-      "correctAnswer": {
-        "Cow": "Herbivore",
-        "Goat": "Herbivore",
-        "Lion": "Carnivore",
-        "Tiger": "Carnivore"
-      }
-    },
-    {
-      "id": 70,
-      "type": "categorize-items",
-      "timer": "infinite",
-      "question": "Categorize words as Synonyms of Happy or Sad.",
-      "category": "English Language",
-      "buckets": ["Happy", "Sad"],
-      "items": [
-        {"text": "Joyful", "category": "Happy"},
-        {"text": "Glad", "category": "Happy"},
-        {"text": "Unhappy", "category": "Sad"},
-        {"text": "Down", "category": "Sad"}
-      ],
-      "correctAnswer": {
-        "Joyful": "Happy",
-        "Glad": "Happy",
-        "Unhappy": "Sad",
-        "Down": "Sad"
-      }
-    },
-    {
-      "id": 71,
-      "type": "categorize-items",
-      "timer": "infinite",
-      "question": "Categorize animals into Domestic and Wild.",
-      "category": "Basic Science",
-      "buckets": ["Domestic", "Wild"],
-      "items": [
-        {"text": "Dog", "category": "Domestic"},
-        {"text": "Cat", "category": "Domestic"},
-        {"text": "Lion", "category": "Wild"},
-        {"text": "Bear", "category": "Wild"}
-      ],
-      "correctAnswer": {
-        "Dog": "Domestic",
-        "Cat": "Domestic",
-        "Lion": "Wild",
-        "Bear": "Wild"
-      }
-    },
-    {
-      "id": 72,
-      "type": "categorize-items",
-      "timer": "infinite",
-      "question": "Categorize the modes of transportation.",
-      "category": "Social Studies",
-      "buckets": ["Road", "Air"],
-      "items": [
-        {"text": "Car", "category": "Road"},
-        {"text": "Bus", "category": "Road"},
-        {"text": "Airplane", "category": "Air"},
-        {"text": "Helicopter", "category": "Air"}
-      ],
-      "correctAnswer": {
-        "Car": "Road",
-        "Bus": "Road",
-        "Airplane": "Air",
-        "Helicopter": "Air"
-      }
-    },
-    {
-      "id": 73,
-      "type": "sequence-order",
-      "timer": "infinite",
-      "question": "Put the times of day in chronological order.",
-      "category": "General Knowledge",
-      "items": ["Evening", "Morning", "Night", "Afternoon"],
-      "correctAnswer": ["Morning", "Afternoon", "Evening", "Night"]
-    },
-    {
-      "id": 74,
-      "type": "sequence-order",
-      "timer": "infinite",
-      "question": "Order these units of length from smallest to largest.",
-      "category": "Mathematics",
-      "items": ["Meter", "Millimeter", "Kilometer", "Centimeter"],
-      "correctAnswer": ["Millimeter", "Centimeter", "Meter", "Kilometer"]
-    },
-    {
-      "id": 75,
-      "type": "sequence-order",
-      "timer": "infinite",
-      "question": "Order these numbers from smallest to largest.",
-      "category": "Mathematics",
-      "items": ["100", "10", "1000", "50"],
-      "correctAnswer": ["10", "50", "100", "1000"]
-    },
-    {
-      "id": 76,
-      "type": "sequence-order",
-      "timer": "infinite",
-      "question": "Put the life cycle of a plant in order.",
-      "category": "Basic Science",
-      "items": ["Sapling", "Seed", "Tree", "Sprout"],
-      "correctAnswer": ["Seed", "Sprout", "Sapling", "Tree"]
-    },
-    {
-      "id": 77,
-      "type": "sequence-order",
-      "timer": "infinite",
-      "question": "Put these words in alphabetical order.",
-      "category": "English Language",
-      "items": ["Cherry", "Apple", "Date", "Banana"],
-      "correctAnswer": ["Apple", "Banana", "Cherry", "Date"]
-    },
-    {
-      "id": 78,
-      "type": "sequence-order",
-      "timer": "infinite",
-      "question": "Order the days of the school week.",
-      "category": "General Knowledge",
-      "items": ["Wednesday", "Monday", "Thursday", "Tuesday"],
-      "correctAnswer": ["Monday", "Tuesday", "Wednesday", "Thursday"]
-    },
-    {
-      "id": 79,
-      "type": "sequence-order",
-      "timer": "infinite",
-      "question": "Order this simple food chain (Producer to Apex).",
-      "category": "Basic Science",
-      "items": ["Frog", "Grass", "Bird", "Grasshopper"],
-      "correctAnswer": ["Grass", "Grasshopper", "Frog", "Bird"]
-    },
-    {
-      "id": 80,
-      "type": "sequence-order",
-      "timer": "infinite",
-      "question": "Order the educational levels in Nigeria from lowest to highest.",
-      "category": "Social Studies",
-      "items": ["SS 3", "Primary 1", "JSS 1", "Primary 6"],
-      "correctAnswer": ["Primary 1", "Primary 6", "JSS 1", "SS 3"]
-    },
-    {
-      "id": 81,
-      "type": "connect-terms",
-      "timer": "infinite",
-      "question": "Match the adult animals to their babies.",
-      "category": "Basic Science",
-      "leftColumn": ["Dog", "Cat", "Cow"],
-      "rightColumn": ["Kitten", "Puppy", "Calf"],
-      "correctAnswer": {
-        "Dog": "Puppy",
-        "Cat": "Kitten",
-        "Cow": "Calf"
-      }
-    },
-    {
-      "id": 82,
-      "type": "connect-terms",
-      "timer": "infinite",
-      "question": "Match these Nigerian States to their Capitals.",
-      "category": "Social Studies",
-      "leftColumn": ["Kano", "Oyo", "Rivers"],
-      "rightColumn": ["Ibadan", "Port Harcourt", "Kano"],
-      "correctAnswer": {
-        "Kano": "Kano",
-        "Oyo": "Ibadan",
-        "Rivers": "Port Harcourt"
-      }
-    },
-    {
-      "id": 83,
-      "type": "connect-terms",
-      "timer": "infinite",
-      "question": "Match the shapes to the number of sides they have.",
-      "category": "Mathematics",
-      "leftColumn": ["Triangle", "Square", "Pentagon"],
-      "rightColumn": ["5", "3", "4"],
-      "correctAnswer": {
-        "Triangle": "3",
-        "Square": "4",
-        "Pentagon": "5"
-      }
-    },
-    {
-      "id": 84,
-      "type": "connect-terms",
-      "timer": "infinite",
-      "question": "Match the words to their opposites.",
-      "category": "English Language",
-      "leftColumn": ["Hot", "Tall", "Fast"],
-      "rightColumn": ["Slow", "Cold", "Short"],
-      "correctAnswer": {
-        "Hot": "Cold",
-        "Tall": "Short",
-        "Fast": "Slow"
-      }
-    },
-    {
-      "id": 85,
-      "type": "connect-terms",
-      "timer": "infinite",
-      "question": "Match the instruments to what they measure.",
-      "category": "Basic Science",
-      "leftColumn": ["Thermometer", "Barometer", "Ruler"],
-      "rightColumn": ["Length", "Temperature", "Air Pressure"],
-      "correctAnswer": {
-        "Thermometer": "Temperature",
-        "Barometer": "Air Pressure",
-        "Ruler": "Length"
-      }
-    },
-    {
-      "id": 86,
-      "type": "connect-terms",
-      "timer": "infinite",
-      "question": "Match the school subject to its core topic.",
-      "category": "Education",
-      "leftColumn": ["Mathematics", "English", "Science"],
-      "rightColumn": ["Atoms", "Numbers", "Grammar"],
-      "correctAnswer": {
-        "Mathematics": "Numbers",
-        "English": "Grammar",
-        "Science": "Atoms"
-      }
-    },
-    {
-      "id": 87,
-      "type": "connect-terms",
-      "timer": "infinite",
-      "question": "Match the continent to a country found within it.",
-      "category": "Geography",
-      "leftColumn": ["Africa", "Europe", "Asia"],
-      "rightColumn": ["Japan", "Nigeria", "France"],
-      "correctAnswer": {
-        "Africa": "Nigeria",
-        "Europe": "France",
-        "Asia": "Japan"
-      }
-    },
-    {
-      "id": 88,
-      "type": "connect-terms",
-      "timer": "infinite",
-      "question": "Match the currency to the country.",
-      "category": "Social Studies",
-      "leftColumn": ["Naira", "Dollar", "Yen"],
-      "rightColumn": ["USA", "Japan", "Nigeria"],
-      "correctAnswer": {
-        "Naira": "Nigeria",
-        "Dollar": "USA",
-        "Yen": "Japan"
-      }
-    },
-    {
-      "id": 89,
-      "type": "ipa-transcriber",
-      "timer": "infinite",
-      "question": "Transcribe the word 'Teacher' into IPA symbols.",
-      "category": "IPA",
-      "correctAnswer": "ˈtiːtʃə",
-      "generalFeedback": "Focus on the long /iː/ and the 'ch' /tʃ/ sound."
-    },
-    {
-      "id": 90,
-      "type": "ipa-transcriber",
-      "timer": "infinite",
-      "question": "Transcribe the word 'Book' into IPA symbols.",
-      "category": "IPA",
-      "correctAnswer": "bʊk",
-      "generalFeedback": "It uses the short /ʊ/ vowel."
-    },
-    {
-      "id": 91,
-      "type": "ipa-transcriber",
-      "timer": "infinite",
-      "question": "Transcribe the word 'Cat' into IPA symbols.",
-      "category": "IPA",
-      "correctAnswer": "kæt",
-      "generalFeedback": "The 'a' sound is represented by the ash symbol /æ/."
-    },
-    {
-      "id": 92,
-      "type": "ipa-transcriber",
-      "timer": "infinite",
-      "question": "Transcribe the word 'Dog' into IPA symbols.",
-      "category": "IPA",
-      "correctAnswer": "dɒɡ",
-      "generalFeedback": "Uses the short /ɒ/ vowel sound."
-    },
-    {
-      "id": 93,
-      "type": "ipa-transcriber",
-      "timer": "infinite",
-      "question": "Transcribe the word 'Fish' into IPA symbols.",
-      "category": "IPA",
-      "correctAnswer": "fɪʃ",
-      "generalFeedback": "The 'sh' sound is represented by /ʃ/."
-    },
-    {
-      "id": 94,
-      "type": "ipa-transcriber",
-      "timer": "infinite",
-      "question": "Transcribe the word 'Bird' into IPA symbols (British RP).",
-      "category": "IPA",
-      "correctAnswer": "bɜːd",
-      "generalFeedback": "It uses the long central vowel /ɜː/."
-    },
-    {
-      "id": 95,
-      "type": "ipa-transcriber",
-      "timer": "infinite",
-      "question": "Transcribe the word 'Shoe' into IPA symbols.",
-      "category": "IPA",
-      "correctAnswer": "ʃuː",
-      "generalFeedback": "Contains the /ʃ/ consonant and the long /uː/ vowel."
-    },
-    {
-      "id": 96,
-      "type": "ipa-transcriber",
-      "timer": "infinite",
-      "question": "Transcribe the word 'Tree' into IPA symbols.",
-      "category": "IPA",
-      "correctAnswer": "triː",
-      "generalFeedback": "Uses the long /iː/ vowel at the end."
-    },
-    {
-      "id": 97,
-      "type": "ipa-transcriber",
-      "timer": "infinite",
-      "question": "Transcribe the word 'Sun' into IPA symbols.",
-      "category": "IPA",
-      "correctAnswer": "sʌn",
-      "generalFeedback": "The vowel is the short, wedge symbol /ʌ/."
-    },
-    {
-      "id": 98,
-      "type": "ipa-transcriber",
-      "timer": "infinite",
-      "question": "Transcribe the word 'Moon' into IPA symbols.",
-      "category": "IPA",
-      "correctAnswer": "muːn",
-      "generalFeedback": "Has the long /uː/ sound."
-    },
-    {
-      "id": 99,
-      "type": "ipa-transcriber",
-      "timer": "infinite",
-      "question": "Transcribe the word 'Star' into IPA symbols (British RP).",
-      "category": "IPA",
-      "correctAnswer": "stɑː",
-      "generalFeedback": "Uses the long back vowel /ɑː/."
-    },
-    {
-      "id": 100,
-      "type": "ipa-transcriber",
-      "timer": "infinite",
-      "question": "Transcribe the word 'Rain' into IPA symbols.",
-      "category": "IPA",
-      "correctAnswer": "reɪn",
-      "generalFeedback": "Contains the diphthong /eɪ/."
-    },
-    {
-      "id": 101,
-      "type": "multiple-choice",
-      "timer": "infinite",
-      "videoId": "6IdPpiW1hDs?start=182",
-      "question": "[Watch at 03:02] Based on the video, how many chambers does the human heart have?",
-      "category": "YouTube-Science",
-      "answers": [
-        {"text": "2", "feedback": "Incorrect. Check the video again."},
-        {"text": "4", "feedback": "Correct! The right atrium, left atrium, right ventricle, and left ventricle."},
-        {"text": "6", "feedback": "Incorrect."},
-        {"text": "8", "feedback": "Incorrect."}
-      ],
-      "correctAnswer": "4",
-      "generalFeedback": "The human heart has 4 chambers acting like 'rooms' for pumping blood."
-    },
-    {
-      "id": 102,
-      "type": "true-false",
-      "timer": "infinite",
-      "videoId": "6IdPpiW1hDs?start=287",
-      "question": "[Watch at 04:47] According to the video, the heart pumps blood through veins and arteries.",
-      "category": "YouTube-Science",
-      "answers": [
-        {"text": "True", "feedback": "Correct! This is part of the circulatory system."},
-        {"text": "False", "feedback": "Incorrect."}
-      ],
-      "correctAnswer": "True",
-      "generalFeedback": "The network of veins and arteries is called the circulatory system."
-    },
-    {
-      "id": 103,
-      "type": "short-answer",
-      "timer": "infinite",
-      "videoId": "6IdPpiW1hDs?start=671",
-      "question": "[Watch at 11:11] In the video, what is the outer shell of the Earth called?",
-      "category": "YouTube-Science",
-      "correctAnswer": "Crust",
-      "generalFeedback": "The crust is like the outer bread crust of the Earth."
-    },
-    {
-      "id": 104,
-      "type": "fill-in-the-blank",
-      "timer": "infinite",
-      "videoId": "6IdPpiW1hDs?start=514",
-      "question": "[Watch at 08:34] The video explains that reptiles are ___-blooded animals.",
-      "category": "YouTube-Science",
-      "correctAnswer": "cold",
-      "generalFeedback": "Cold-blooded animals rely on the sun to warm their bodies."
-    },
-    {
-      "id": 105,
-      "type": "odd-one-out",
-      "timer": "infinite",
-      "videoId": "6IdPpiW1hDs?start=2354",
-      "question": "[Watch at 39:14] Which of these is NOT a part of the nervous system mentioned in the video?",
-      "category": "YouTube-Science",
-      "answers": [
-        {"text": "Brain", "feedback": "This is the control center."},
-        {"text": "Spinal Cord", "feedback": "This works with the brain."},
-        {"text": "Nerves", "feedback": "These send signals to the body."},
-        {"text": "Stomach", "feedback": "Correct! The stomach is part of the digestive system."}
-      ],
-      "correctAnswer": "Stomach"
-    },
-    {
-      "id": 106,
-      "type": "spell-it-out",
-      "timer": "infinite",
-      "videoId": "6IdPpiW1hDs?start=876",
-      "question": "[Watch at 14:36] Spell the word for the underground starting point of an earthquake as shown in the video.",
-      "category": "YouTube-Science",
-      "correctAnswer": "FOCUS",
-      "generalFeedback": "The earthquake starts at the focus, and the spot right above it is the epicenter."
-    },
-    {
-      "id": 107,
-      "type": "word-scramble",
-      "timer": "infinite",
-      "videoId": "6IdPpiW1hDs?start=1254",
-      "question": "[Watch at 20:54] Unscramble this plant part that the video says makes most of the plant's food: SVELEA",
-      "category": "YouTube-Science",
-      "correctAnswer": "LEAVES",
-      "generalFeedback": "Leaves use air, water, and sunlight to make food."
-    },
-    {
-      "id": 108,
-      "type": "organize-tags",
-      "timer": "infinite",
-      "videoId": "6IdPpiW1hDs?start=2524",
-      "question": "[Watch at 42:04] Based on the video, sort these planets into Rocky vs Gas planets.",
-      "category": "YouTube-Science",
-      "buckets": ["Rocky", "Gas"],
-      "items": [
-        {"text": "Mars", "category": "Rocky"},
-        {"text": "Earth", "category": "Rocky"},
-        {"text": "Jupiter", "category": "Gas"},
-        {"text": "Saturn", "category": "Gas"}
-      ],
-      "correctAnswer": {
-        "Mars": "Rocky",
-        "Earth": "Rocky",
-        "Jupiter": "Gas",
-        "Saturn": "Gas"
-      }
-    },
-    {
-      "id": 109,
-      "type": "categorize-items",
-      "timer": "infinite",
-      "videoId": "6IdPpiW1hDs?start=1078",
-      "question": "[Watch at 17:58] Categorize these plant parts by their primary jobs as explained in the video.",
-      "category": "YouTube-Science",
-      "buckets": ["Get Water/Food", "Make New Plants"],
-      "items": [
-        {"text": "Roots", "category": "Get Water/Food"},
-        {"text": "Stems", "category": "Get Water/Food"},
-        {"text": "Flowers", "category": "Make New Plants"},
-        {"text": "Fruit", "category": "Make New Plants"}
-      ],
-      "correctAnswer": {
-        "Roots": "Get Water/Food",
-        "Stems": "Get Water/Food",
-        "Flowers": "Make New Plants",
-        "Fruit": "Make New Plants"
-      }
-    },
-    {
-      "id": 110,
-      "type": "sequence-order",
-      "timer": "infinite",
-      "videoId": "6IdPpiW1hDs?start=1833",
-      "question": "[Watch at 30:33] Put the first four planets in order from closest to the sun to farthest.",
-      "category": "YouTube-Science",
-      "items": ["Earth", "Mercury", "Mars", "Venus"],
-      "correctAnswer": ["Mercury", "Venus", "Earth", "Mars"]
-    },
-    {
-      "id": 111,
-      "type": "connect-terms",
-      "timer": "infinite",
-      "videoId": "6IdPpiW1hDs?start=1911",
-      "question": "[Watch at 31:51] Match the planet to its description from the video.",
-      "category": "YouTube-Science",
-      "leftColumn": ["Venus", "Mars", "Jupiter"],
-      "rightColumn": ["Largest planet", "Earth's twin", "Red Planet"],
-      "correctAnswer": {
-        "Venus": "Earth's twin",
-        "Mars": "Red Planet",
-        "Jupiter": "Largest planet"
-      }
-    },
-    {
-      "id": 112,
-      "type": "multiple-choice",
-      "timer": "infinite",
-      "videoId": "6IdPpiW1hDs?start=1797",
-      "question": "[Watch at 29:57] How many primary planets are in our solar system according to the video?",
-      "category": "YouTube-Science",
-      "answers": [
-        {"text": "5", "feedback": "Incorrect. That's the number of dwarf planets."},
-        {"text": "8", "feedback": "Correct!"},
-        {"text": "9", "feedback": "Incorrect. Pluto is now considered a dwarf planet."},
-        {"text": "12", "feedback": "Incorrect."}
-      ],
-      "correctAnswer": "8",
-      "generalFeedback": "There are 8 primary planets and 5 dwarf planets."
-    },
-    {
-      "id": 113,
-      "type": "true-false",
-      "timer": "infinite",
-      "videoId": "6IdPpiW1hDs?start=2396",
-      "question": "[Watch at 39:56] The video states that you can see Saturn without a telescope.",
-      "category": "YouTube-Science",
-      "answers": [
-        {"text": "True", "feedback": "Correct! It is the farthest planet you can see without one."},
-        {"text": "False", "feedback": "Incorrect. You can actually see it!"}
-      ],
-      "correctAnswer": "True",
-      "generalFeedback": "Uranus and Neptune are the only ones you cannot see without a telescope."
-    },
-    {
-      "id": 114,
-      "type": "fill-in-the-blank",
-      "timer": "infinite",
-      "videoId": "6IdPpiW1hDs?start=2237",
-      "question": "[Watch at 37:17] The video teaches that the ___ is the organ that controls most of the body's activities.",
-      "category": "YouTube-Science",
-      "correctAnswer": "brain",
-      "generalFeedback": "The brain sits inside the skull to stay protected while controlling your body."
-    },
-    {
-      "id": 115,
-      "type": "multiple-choice",
-      "timer": "infinite",
-      "videoId": "6IdPpiW1hDs?start=1833",
-      "question": "[Watch at 30:33] According to the video, which planet is the hottest and closest to the sun?",
-      "category": "YouTube-Science",
-      "answers": [
-        {"text": "Mars", "feedback": "Incorrect."},
-        {"text": "Venus", "feedback": "Incorrect. Though Venus is very hot, Mercury is closest."},
-        {"text": "Earth", "feedback": "Incorrect."},
-        {"text": "Mercury", "feedback": "Correct! It is 4 times hotter than boiling water."}
-      ],
-      "correctAnswer": "Mercury",
-      "generalFeedback": "Mercury is the smallest primary planet and sits right next to the Sun."
+  {
+    "id": 1,
+    "type": "multiple-choice",
+    "category": "Agricultural Technology",
+    "question": "This is Grace question: What is Agricultural Technology (Agritech)?",
+    "answers": [
+      { "text": "Using only manual labour", "feedback": "Incorrect." },
+      { "text": "The application of scientific knowledge and modern tools to solve farming problems", "feedback": "Correct!" },
+      { "text": "Growing crops without water", "feedback": "Incorrect." },
+      { "text": "Setting physical traps for pests", "feedback": "Incorrect." }
+    ],
+    "correctAnswer": "The application of scientific knowledge and modern tools to solve farming problems"
+  },
+  {
+    "id": 2,
+    "type": "categorize-items",
+    "category": "Agricultural Technology",
+    "question": "This is Grace question: Categorize these farming tools into their Agritech types.",
+    "buckets": ["Mechanization", "Irrigation"],
+    "items": [
+      {"text": "Tractors", "category": "Mechanization"},
+      {"text": "Harvesters", "category": "Mechanization"},
+      {"text": "Sprinklers", "category": "Irrigation"},
+      {"text": "Water pumps", "category": "Irrigation"}
+    ],
+    "correctAnswer": {
+      "Tractors": "Mechanization",
+      "Harvesters": "Mechanization",
+      "Sprinklers": "Irrigation",
+      "Water pumps": "Irrigation"
     }
-  ]
+  },
+  {
+    "id": 3,
+    "type": "short-answer",
+    "category": "Agricultural Technology",
+    "question": "This is Grace question: What type of Agritech uses heavy machinery to replace manual labour?",
+    "correctAnswer": "Mechanization"
+  },
+  {
+    "id": 4,
+    "type": "true-false",
+    "category": "Agricultural Technology",
+    "question": "This is Grace question: Irrigation systems rely only on rain to supply water to crops.",
+    "answers": [
+      { "text": "True", "feedback": "Incorrect. It supplies water INSTEAD of relying only on rain." },
+      { "text": "False", "feedback": "Correct!" }
+    ],
+    "correctAnswer": "False"
+  },
+  {
+    "id": 5,
+    "type": "fill-in-the-blank",
+    "category": "Agricultural Technology",
+    "question": "This is Grace question: Growing crops in a controlled environment to protect them from bad weather is called ___ house farming.",
+    "correctAnswer": "Green"
+  },
+  {
+    "id": 6,
+    "type": "odd-one-out",
+    "category": "Agricultural Technology",
+    "question": "This is Grace question: Which of these is NOT an importance of Agricultural Technology?",
+    "answers": [
+      { "text": "Increase production", "feedback": "Incorrect. This is an importance." },
+      { "text": "Saves time and effort", "feedback": "Incorrect. This is an importance." },
+      { "text": "Increases waste", "feedback": "Correct! Agritech reduces waste." },
+      { "text": "Reduce waste", "feedback": "Incorrect. This is an importance." }
+    ],
+    "correctAnswer": "Increases waste"
+  },
+  {
+    "id": 7,
+    "type": "spell-it-out",
+    "category": "Agricultural Technology",
+    "question": "This is Grace question: Spell the word for a heavy machine used in farming.",
+    "correctAnswer": "TRACTOR"
+  },
+  {
+    "id": 8,
+    "type": "word-scramble",
+    "category": "Agricultural Technology",
+    "question": "This is Grace question: Unscramble this chemical pest control method: CIIDEPEST",
+    "correctAnswer": "PESTICIDE"
+  },
+  {
+    "id": 9,
+    "type": "connect-terms",
+    "category": "Agricultural Technology",
+    "question": "This is Grace question: Match the pest control method to its example.",
+    "leftColumn": ["Biological control", "Chemical control", "Physical control"],
+    "rightColumn": ["Natural enemies like cats", "Pesticides and herbicides", "Setting traps or fences"],
+    "correctAnswer": {
+      "Biological control": "Natural enemies like cats",
+      "Chemical control": "Pesticides and herbicides",
+      "Physical control": "Setting traps or fences"
+    }
+  },
+  {
+    "id": 10,
+    "type": "sequence-order",
+    "category": "Agricultural Technology",
+    "question": "This is Grace question: Arrange these Agritech concepts alphabetically.",
+    "items": ["Biological control", "Chemical control", "Green house", "Irrigation"],
+    "correctAnswer": ["Biological control", "Chemical control", "Green house", "Irrigation"]
+  },
+  {
+    "id": 11,
+    "type": "fill-in-the-blank",
+    "category": "Division of Labour",
+    "question": "This is Grace question: Division of Labour means breaking down work into smaller ___.",
+    "correctAnswer": "parts"
+  },
+  {
+    "id": 12,
+    "type": "multiple-choice",
+    "category": "Division of Labour",
+    "question": "This is Grace question: In the bread making example, what does the miller do?",
+    "answers": [
+      { "text": "Grows wheat", "feedback": "Incorrect." },
+      { "text": "Grinds wheat into flour", "feedback": "Correct!" },
+      { "text": "Bakes bread", "feedback": "Incorrect." },
+      { "text": "Sells bread", "feedback": "Incorrect." }
+    ],
+    "correctAnswer": "Grinds wheat into flour"
+  },
+  {
+    "id": 13,
+    "type": "categorize-items",
+    "category": "Division of Labour",
+    "question": "This is Grace question: Categorize these jobs by where you see them.",
+    "buckets": ["School", "Hospital"],
+    "items": [
+      {"text": "Headteacher", "category": "School"},
+      {"text": "Pharmacist", "category": "Hospital"},
+      {"text": "Nurses", "category": "Hospital"},
+      {"text": "Cooks", "category": "School"}
+    ],
+    "correctAnswer": {
+      "Headteacher": "School",
+      "Pharmacist": "Hospital",
+      "Nurses": "Hospital",
+      "Cooks": "School"
+    }
+  },
+  {
+    "id": 14,
+    "type": "connect-terms",
+    "category": "Division of Labour",
+    "question": "This is Grace question: Match the family member to their task at home.",
+    "leftColumn": ["Mum", "Dad", "Children"],
+    "rightColumn": ["Cooks", "Fixes things", "Help to clean"],
+    "correctAnswer": {
+      "Mum": "Cooks",
+      "Dad": "Fixes things",
+      "Children": "Help to clean"
+    }
+  },
+  {
+    "id": 15,
+    "type": "true-false",
+    "category": "Division of Labour",
+    "question": "This is Grace question: Division of Labour makes work faster because more things get done in less time.",
+    "answers": [
+      { "text": "True", "feedback": "Correct!" },
+      { "text": "False", "feedback": "Incorrect." }
+    ],
+    "correctAnswer": "True"
+  },
+  {
+    "id": 16,
+    "type": "short-answer",
+    "category": "Division of Labour",
+    "question": "This is Grace question: What disadvantage of Division of Labour refers to doing the same job repeatedly, making it tiring?",
+    "correctAnswer": "Monotony"
+  },
+  {
+    "id": 17,
+    "type": "odd-one-out",
+    "category": "Division of Labour",
+    "question": "This is Grace question: Which of these is NOT a disadvantage of Division of Labour?",
+    "answers": [
+      { "text": "Reduce Creativity", "feedback": "Incorrect." },
+      { "text": "Improve skills", "feedback": "Correct! This is a benefit." },
+      { "text": "Dependence on others", "feedback": "Incorrect." },
+      { "text": "Unemployment Risk", "feedback": "Incorrect." }
+    ],
+    "correctAnswer": "Improve skills"
+  },
+  {
+    "id": 18,
+    "type": "spell-it-out",
+    "category": "Division of Labour",
+    "question": "This is Grace question: Spell the word that describes a lack of interest due to repeating the same task.",
+    "correctAnswer": "BOREDOM"
+  },
+  {
+    "id": 19,
+    "type": "word-scramble",
+    "category": "Division of Labour",
+    "question": "This is Grace question: Unscramble this Division of Labour benefit: ILKS S",
+    "correctAnswer": "SKILLS"
+  },
+  {
+    "id": 20,
+    "type": "sequence-order",
+    "category": "Division of Labour",
+    "question": "This is Grace question: Arrange the Division of Labour steps for making bread in order.",
+    "items": ["Farmer grows wheat", "Miller grinds wheat into flour", "Baker bakes bread", "Shopkeeper sells bread"],
+    "correctAnswer": ["Farmer grows wheat", "Miller grinds wheat into flour", "Baker bakes bread", "Shopkeeper sells bread"]
+  },
+  {
+    "id": 21,
+    "type": "fill-in-the-blank",
+    "category": "Soil Erosion",
+    "question": "This is Grace question: Soil erosion is the washing away of the ___ soil by water, wind, and other agents.",
+    "correctAnswer": "top"
+  },
+  {
+    "id": 22,
+    "type": "multiple-choice",
+    "category": "Soil Erosion",
+    "question": "This is Grace question: Which human activity exposes the soil to erosion?",
+    "answers": [
+      { "text": "Planting trees", "feedback": "Incorrect." },
+      { "text": "Bush burning", "feedback": "Correct!" },
+      { "text": "Terracing", "feedback": "Incorrect." },
+      { "text": "Crop rotation", "feedback": "Incorrect." }
+    ],
+    "correctAnswer": "Bush burning"
+  },
+  {
+    "id": 23,
+    "type": "categorize-items",
+    "category": "Soil Erosion",
+    "question": "This is Grace question: Sort these items into Agents or Types of Erosion.",
+    "buckets": ["Agents", "Types"],
+    "items": [
+      {"text": "Water", "category": "Agents"},
+      {"text": "Wind (Agent)", "category": "Agents"},
+      {"text": "Sheet Erosion", "category": "Types"},
+      {"text": "Gully Erosion", "category": "Types"}
+    ],
+    "correctAnswer": {
+      "Water": "Agents",
+      "Wind (Agent)": "Agents",
+      "Sheet Erosion": "Types",
+      "Gully Erosion": "Types"
+    }
+  },
+  {
+    "id": 24,
+    "type": "short-answer",
+    "category": "Soil Erosion",
+    "question": "This is Grace question: What type of erosion creates deep channels formed by running water?",
+    "correctAnswer": "Gully"
+  },
+  {
+    "id": 25,
+    "type": "true-false",
+    "category": "Soil Erosion",
+    "question": "This is Grace question: Soil erosion makes the land become poor for farming because nutrients are lost.",
+    "answers": [
+      { "text": "True", "feedback": "Correct!" },
+      { "text": "False", "feedback": "Incorrect." }
+    ],
+    "correctAnswer": "True"
+  },
+  {
+    "id": 26,
+    "type": "odd-one-out",
+    "category": "Soil Erosion",
+    "question": "This is Grace question: Which is NOT an effect of soil erosion?",
+    "answers": [
+      { "text": "Rivers filled with sand", "feedback": "Incorrect." },
+      { "text": "Loss of Fertility", "feedback": "Incorrect." },
+      { "text": "Better crop yield", "feedback": "Correct! It leads to poor crop yield." },
+      { "text": "Destruction of Property", "feedback": "Incorrect." }
+    ],
+    "correctAnswer": "Better crop yield"
+  },
+  {
+    "id": 27,
+    "type": "spell-it-out",
+    "category": "Soil Erosion",
+    "question": "This is Grace question: Spell the prevention method that involves planting trees and cover crops.",
+    "correctAnswer": "AFFORESTATION"
+  },
+  {
+    "id": 28,
+    "type": "word-scramble",
+    "category": "Soil Erosion",
+    "question": "This is Grace question: Unscramble this cause of erosion: AIFNR L L",
+    "correctAnswer": "RAINFALL"
+  },
+  {
+    "id": 29,
+    "type": "organize-tags",
+    "category": "Soil Erosion",
+    "question": "This is Grace question: Organize these actions into Causes and Prevention.",
+    "buckets": ["Causes", "Prevention"],
+    "items": [
+      {"text": "Deforestation", "category": "Causes"},
+      {"text": "Overgrazing", "category": "Causes"},
+      {"text": "Terracing", "category": "Prevention"},
+      {"text": "Windbreaks", "category": "Prevention"}
+    ],
+    "correctAnswer": {
+      "Deforestation": "Causes",
+      "Overgrazing": "Causes",
+      "Terracing": "Prevention",
+      "Windbreaks": "Prevention"
+    }
+  },
+  {
+    "id": 30,
+    "type": "sequence-order",
+    "category": "Soil Erosion",
+    "question": "This is Grace question: Arrange these types of erosion alphabetically.",
+    "items": ["Gully Erosion", "Sheet Erosion", "Water Erosion", "Wind Erosion"],
+    "correctAnswer": ["Gully Erosion", "Sheet Erosion", "Water Erosion", "Wind Erosion"]
+  },
+  {
+    "id": 31,
+    "type": "short-answer",
+    "category": "Continents",
+    "question": "This is Grace question: How many continents are there in the world?",
+    "correctAnswer": "7"
+  },
+  {
+    "id": 32,
+    "type": "multiple-choice",
+    "category": "Continents",
+    "question": "This is Grace question: What was the name of the giant supercontinent millions of years ago?",
+    "answers": [
+      { "text": "Eurasia", "feedback": "Incorrect." },
+      { "text": "Pangea", "feedback": "Correct!" },
+      { "text": "Atlantis", "feedback": "Incorrect." },
+      { "text": "Oceania", "feedback": "Incorrect." }
+    ],
+    "correctAnswer": "Pangea"
+  },
+  {
+    "id": 33,
+    "type": "fill-in-the-blank",
+    "category": "Continents",
+    "question": "This is Grace question: ___ is the largest continent by land area and population.",
+    "correctAnswer": "Asia"
+  },
+  {
+    "id": 34,
+    "type": "true-false",
+    "category": "Continents",
+    "question": "This is Grace question: Africa is nicknamed the 'Mother Continent'.",
+    "answers": [
+      { "text": "True", "feedback": "Correct!" },
+      { "text": "False", "feedback": "Incorrect." }
+    ],
+    "correctAnswer": "True"
+  },
+  {
+    "id": 35,
+    "type": "sequence-order",
+    "category": "Continents",
+    "question": "This is Grace question: Arrange these continents from largest to smallest.",
+    "items": ["Asia", "Africa", "North America", "South America"],
+    "correctAnswer": ["Asia", "Africa", "North America", "South America"]
+  },
+  {
+    "id": 36,
+    "type": "connect-terms",
+    "category": "Continents",
+    "question": "This is Grace question: Match the continent to its famous landmark or feature.",
+    "leftColumn": ["Africa", "Asia", "South America", "Europe"],
+    "rightColumn": ["Sahara Desert", "Great Wall of China", "Amazon Rainforest", "Eiffel Tower"],
+    "correctAnswer": {
+      "Africa": "Sahara Desert",
+      "Asia": "Great Wall of China",
+      "South America": "Amazon Rainforest",
+      "Europe": "Eiffel Tower"
+    }
+  },
+  {
+    "id": 37,
+    "type": "odd-one-out",
+    "category": "Continents",
+    "question": "This is Grace question: Which of these is NOT a country in Africa?",
+    "answers": [
+      { "text": "Nigeria", "feedback": "Incorrect." },
+      { "text": "Ghana", "feedback": "Incorrect." },
+      { "text": "Japan", "feedback": "Correct! Japan is in Asia." },
+      { "text": "Kenya", "feedback": "Incorrect." }
+    ],
+    "correctAnswer": "Japan"
+  },
+  {
+    "id": 38,
+    "type": "spell-it-out",
+    "category": "Continents",
+    "question": "This is Grace question: Spell the name of the coldest, windiest continent.",
+    "correctAnswer": "ANTARCTICA"
+  },
+  {
+    "id": 39,
+    "type": "word-scramble",
+    "category": "Continents",
+    "question": "This is Grace question: Unscramble the smallest continent: USRATALIA",
+    "correctAnswer": "AUSTRALIA"
+  },
+  {
+    "id": 40,
+    "type": "categorize-items",
+    "category": "Continents",
+    "question": "This is Grace question: Sort these animals by their continent.",
+    "buckets": ["Africa", "Australia", "Antarctica"],
+    "items": [
+      {"text": "Giraffe", "category": "Africa"},
+      {"text": "Kangaroo", "category": "Australia"},
+      {"text": "Koala", "category": "Australia"},
+      {"text": "Penguin", "category": "Antarctica"}
+    ],
+    "correctAnswer": {
+      "Giraffe": "Africa",
+      "Kangaroo": "Australia",
+      "Koala": "Australia",
+      "Penguin": "Antarctica"
+    }
+  },
+  {
+    "id": 41,
+    "type": "multiple-choice",
+    "category": "Spelling",
+    "question": "This is Grace question: What does the Rabbit Rule determine?",
+    "answers": [
+      { "text": "If a word needs a silent letter", "feedback": "Incorrect." },
+      { "text": "If a two-syllable word needs a double consonant in the middle", "feedback": "Correct!" },
+      { "text": "How to pronounce a vowel", "feedback": "Incorrect." },
+      { "text": "When to use a capital letter", "feedback": "Incorrect." }
+    ],
+    "correctAnswer": "If a two-syllable word needs a double consonant in the middle"
+  },
+  {
+    "id": 42,
+    "type": "fill-in-the-blank",
+    "category": "Spelling",
+    "question": "This is Grace question: A double consonant occurs when a consonant is used ___ times consecutively.",
+    "correctAnswer": "two"
+  },
+  {
+    "id": 43,
+    "type": "true-false",
+    "category": "Spelling",
+    "question": "This is Grace question: Although there are two letters in a double consonant, they usually make only one sound.",
+    "answers": [
+      { "text": "True", "feedback": "Correct!" },
+      { "text": "False", "feedback": "Incorrect." }
+    ],
+    "correctAnswer": "True"
+  },
+  {
+    "id": 44,
+    "type": "short-answer",
+    "category": "Spelling",
+    "question": "This is Grace question: Which spelling is correct: 'hoping' or 'hopping' when referring to jumping on one foot?",
+    "correctAnswer": "hopping"
+  },
+  {
+    "id": 45,
+    "type": "spell-it-out",
+    "category": "Spelling",
+    "question": "This is Grace question: Spell the word for the hot season with a double 'm'.",
+    "correctAnswer": "SUMMER"
+  },
+  {
+    "id": 46,
+    "type": "word-scramble",
+    "category": "Spelling",
+    "question": "This is Grace question: Unscramble this double consonant word: UPPYP",
+    "correctAnswer": "PUPPY"
+  },
+  {
+    "id": 47,
+    "type": "categorize-items",
+    "category": "Spelling",
+    "question": "This is Grace question: Categorize these words as spelled Correctly or Incorrectly based on your spelling list.",
+    "buckets": ["Correct", "Incorrect"],
+    "items": [
+      {"text": "Hiccup", "category": "Correct"},
+      {"text": "Hicup", "category": "Incorrect"},
+      {"text": "Brilliantly", "category": "Correct"},
+      {"text": "Parot", "category": "Incorrect"}
+    ],
+    "correctAnswer": {
+      "Hiccup": "Correct",
+      "Hicup": "Incorrect",
+      "Brilliantly": "Correct",
+      "Parot": "Incorrect"
+    }
+  },
+  {
+    "id": 48,
+    "type": "connect-terms",
+    "category": "Spelling",
+    "question": "This is Grace question: Match the correct spelling of the double consonant words.",
+    "leftColumn": ["Screeching", "Bullet proof", "Accomplishment", "Rebellion"],
+    "rightColumn": ["Correct Screeching", "Correct Bullet proof", "Correct Accomplishment", "Correct Rebellion"],
+    "correctAnswer": {
+      "Screeching": "Correct Screeching",
+      "Bullet proof": "Correct Bullet proof",
+      "Accomplishment": "Correct Accomplishment",
+      "Rebellion": "Correct Rebellion"
+    }
+  },
+  {
+    "id": 49,
+    "type": "sequence-order",
+    "category": "Spelling",
+    "question": "This is Grace question: Arrange these 'cc' words alphabetically.",
+    "items": ["Access", "Accuse", "Occasion", "Occur"],
+    "correctAnswer": ["Access", "Accuse", "Occasion", "Occur"]
+  },
+  {
+    "id": 50,
+    "type": "odd-one-out",
+    "category": "Spelling",
+    "question": "This is Grace question: Which word does NOT have double 'cc' consonants?",
+    "answers": [
+      { "text": "Occupy", "feedback": "Incorrect." },
+      { "text": "Success", "feedback": "Incorrect." },
+      { "text": "Across", "feedback": "Correct!" },
+      { "text": "Accordance", "feedback": "Incorrect." }
+    ],
+    "correctAnswer": "Across"
+  },
+  {
+    "id": 51,
+    "type": "fill-in-the-blank",
+    "category": "Spelling",
+    "question": "This is Grace question: The 'mm' consonant is often doubled when it immediately follows a ___ vowel sound.",
+    "correctAnswer": "short"
+  },
+  {
+    "id": 52,
+    "type": "multiple-choice",
+    "category": "Spelling",
+    "question": "This is Grace question: Which suffix requires doubling the 'm' in 'Swim'?",
+    "answers": [
+      { "text": "-ing", "feedback": "Correct! Swim + ing = Swimming" },
+      { "text": "-ly", "feedback": "Incorrect." },
+      { "text": "-ness", "feedback": "Incorrect." },
+      { "text": "-ful", "feedback": "Incorrect." }
+    ],
+    "correctAnswer": "-ing"
+  },
+  {
+    "id": 53,
+    "type": "true-false",
+    "category": "Spelling",
+    "question": "This is Grace question: 'Drum' + 'er' becomes 'Drummer'.",
+    "answers": [
+      { "text": "True", "feedback": "Correct!" },
+      { "text": "False", "feedback": "Incorrect." }
+    ],
+    "correctAnswer": "True"
+  },
+  {
+    "id": 54,
+    "type": "short-answer",
+    "category": "Spelling",
+    "question": "This is Grace question: What green vegetable from your spelling list has double 'c'?",
+    "correctAnswer": "broccoli"
+  },
+  {
+    "id": 55,
+    "type": "spell-it-out",
+    "category": "Spelling",
+    "question": "This is Grace question: Spell the word that means a pirate, with double 'c' and double 'e'.",
+    "correctAnswer": "BUCCANEER"
+  },
+  {
+    "id": 56,
+    "type": "word-scramble",
+    "category": "Spelling",
+    "question": "This is Grace question: Unscramble this double 'cc' word: SCUCESS",
+    "correctAnswer": "SUCCESS"
+  },
+  {
+    "id": 57,
+    "type": "odd-one-out",
+    "category": "Spelling",
+    "question": "This is Grace question: Which of these words does NOT have a double 'm'?",
+    "answers": [
+      { "text": "Hammer", "feedback": "Incorrect." },
+      { "text": "Mammal", "feedback": "Incorrect." },
+      { "text": "Family", "feedback": "Correct!" },
+      { "text": "Summary", "feedback": "Incorrect." }
+    ],
+    "correctAnswer": "Family"
+  },
+  {
+    "id": 58,
+    "type": "categorize-items",
+    "category": "Spelling",
+    "question": "This is Grace question: Sort the words by their double consonants.",
+    "buckets": ["Double C", "Double M"],
+    "items": [
+      {"text": "Occupy", "category": "Double C"},
+      {"text": "Accuse", "category": "Double C"},
+      {"text": "Commit", "category": "Double M"},
+      {"text": "Ammunition", "category": "Double M"}
+    ],
+    "correctAnswer": {
+      "Occupy": "Double C",
+      "Accuse": "Double C",
+      "Commit": "Double M",
+      "Ammunition": "Double M"
+    }
+  },
+  {
+    "id": 59,
+    "type": "connect-terms",
+    "category": "Spelling",
+    "question": "This is Grace question: Match the root word to its suffixed form.",
+    "leftColumn": ["Hum", "Slim", "Swim", "Drum"],
+    "rightColumn": ["Humming", "Slimmer", "Swimming", "Drummer"],
+    "correctAnswer": {
+      "Hum": "Humming",
+      "Slim": "Slimmer",
+      "Swim": "Swimming",
+      "Drum": "Drummer"
+    }
+  },
+  {
+    "id": 60,
+    "type": "sequence-order",
+    "category": "Spelling",
+    "question": "This is Grace question: Alphabetize these homework words.",
+    "items": ["Accommodating", "Ammeter", "Ammunition", "Commemorate"],
+    "correctAnswer": ["Accommodating", "Ammeter", "Ammunition", "Commemorate"]
+  },
+  {
+    "id": 61,
+    "type": "multiple-choice",
+    "category": "Phonics",
+    "question": "This is Grace question: When does the 'mb' rule say 'b' is silent?",
+    "answers": [
+      { "text": "When it comes before 't'", "feedback": "Incorrect. That's the 'bt' rule." },
+      { "text": "When it comes after 'm' at the end of a word", "feedback": "Correct!" },
+      { "text": "When it starts a word", "feedback": "Incorrect." },
+      { "text": "When it follows 'l'", "feedback": "Incorrect." }
+    ],
+    "correctAnswer": "When it comes after 'm' at the end of a word"
+  },
+  {
+    "id": 62,
+    "type": "true-false",
+    "category": "Phonics",
+    "question": "This is Grace question: The 'b' is silent in the word 'plumber'.",
+    "answers": [
+      { "text": "True", "feedback": "Correct!" },
+      { "text": "False", "feedback": "Incorrect." }
+    ],
+    "correctAnswer": "True"
+  },
+  {
+    "id": 63,
+    "type": "fill-in-the-blank",
+    "category": "Phonics",
+    "question": "This is Grace question: The 'bt' rule applies to words like ___, doubt, and subtle.",
+    "correctAnswer": "debt"
+  },
+  {
+    "id": 64,
+    "type": "odd-one-out",
+    "category": "Phonics",
+    "question": "This is Grace question: Which word does NOT have a silent 'b'?",
+    "answers": [
+      { "text": "Thumb", "feedback": "Incorrect." },
+      { "text": "Bomb", "feedback": "Incorrect." },
+      { "text": "Obtain", "feedback": "Correct!" },
+      { "text": "Crumb", "feedback": "Incorrect." }
+    ],
+    "correctAnswer": "Obtain"
+  },
+  {
+    "id": 65,
+    "type": "spell-it-out",
+    "category": "Phonics",
+    "question": "This is Grace question: Spell the word for a young sheep, containing a silent 'b'.",
+    "correctAnswer": "LAMB"
+  },
+  {
+    "id": 66,
+    "type": "word-scramble",
+    "category": "Phonics",
+    "question": "This is Grace question: Unscramble this silent 'b' word: BMOC",
+    "correctAnswer": "COMB"
+  },
+  {
+    "id": 67,
+    "type": "short-answer",
+    "category": "Phonics",
+    "question": "This is Grace question: Which letter is silent in the word 'Chalk'?",
+    "correctAnswer": "l"
+  },
+  {
+    "id": 68,
+    "type": "categorize-items",
+    "category": "Phonics",
+    "question": "This is Grace question: Sort these words by their silent letter.",
+    "buckets": ["Silent B", "Silent L"],
+    "items": [
+      {"text": "Doubt", "category": "Silent B"},
+      {"text": "Tomb", "category": "Silent B"},
+      {"text": "Calm", "category": "Silent L"},
+      {"text": "Half", "category": "Silent L"}
+    ],
+    "correctAnswer": {
+      "Doubt": "Silent B",
+      "Tomb": "Silent B",
+      "Calm": "Silent L",
+      "Half": "Silent L"
+    }
+  },
+  {
+    "id": 69,
+    "type": "organize-tags",
+    "category": "Phonics",
+    "question": "This is Grace question: Group these words with silent 'l' into their patterns.",
+    "buckets": ["-alk", "-alm", "Modal Verbs"],
+    "items": [
+      {"text": "Talk", "category": "-alk"},
+      {"text": "Walk", "category": "-alk"},
+      {"text": "Balm", "category": "-alm"},
+      {"text": "Should", "category": "Modal Verbs"}
+    ],
+    "correctAnswer": {
+      "Talk": "-alk",
+      "Walk": "-alk",
+      "Balm": "-alm",
+      "Should": "Modal Verbs"
+    }
+  },
+  {
+    "id": 70,
+    "type": "sequence-order",
+    "category": "Phonics",
+    "question": "This is Grace question: Alphabetize these exceptions where 'l' is PRONOUNCED.",
+    "items": ["Bulk", "Fold", "Halo", "Hold"],
+    "correctAnswer": ["Bulk", "Fold", "Halo", "Hold"]
+  },
+  {
+    "id": 71,
+    "type": "multiple-choice",
+    "category": "Phonics",
+    "question": "This is Grace question: Which pattern often has a silent 't'?",
+    "answers": [
+      { "text": "-ing", "feedback": "Incorrect." },
+      { "text": "-stle", "feedback": "Correct! (e.g., castle, whistle)" },
+      { "text": "-tion", "feedback": "Incorrect." },
+      { "text": "-ment", "feedback": "Incorrect." }
+    ],
+    "correctAnswer": "-stle"
+  },
+  {
+    "id": 72,
+    "type": "fill-in-the-blank",
+    "category": "Phonics",
+    "question": "This is Grace question: The 't' is often silent before '___' or in specific vocabulary like 'often'.",
+    "correctAnswer": "en"
+  },
+  {
+    "id": 73,
+    "type": "true-false",
+    "category": "Phonics",
+    "question": "This is Grace question: French loan words like 'ballet' and 'gourmet' have a silent 't' at the end.",
+    "answers": [
+      { "text": "True", "feedback": "Correct!" },
+      { "text": "False", "feedback": "Incorrect." }
+    ],
+    "correctAnswer": "True"
+  },
+  {
+    "id": 74,
+    "type": "odd-one-out",
+    "category": "Phonics",
+    "question": "This is Grace question: Which word does NOT have a silent 'd'?",
+    "answers": [
+      { "text": "Badge", "feedback": "Incorrect." },
+      { "text": "Wednesday", "feedback": "Incorrect." },
+      { "text": "Doctor", "feedback": "Correct!" },
+      { "text": "Handsome", "feedback": "Incorrect." }
+    ],
+    "correctAnswer": "Doctor"
+  },
+  {
+    "id": 75,
+    "type": "spell-it-out",
+    "category": "Phonics",
+    "question": "This is Grace question: Spell the word containing a silent 'd' that means information or understanding.",
+    "correctAnswer": "KNOWLEDGE"
+  },
+  {
+    "id": 76,
+    "type": "word-scramble",
+    "category": "Phonics",
+    "question": "This is Grace question: Unscramble this silent 't' word: TIWSLEH",
+    "correctAnswer": "WHISTLE"
+  },
+  {
+    "id": 77,
+    "type": "categorize-items",
+    "category": "Phonics",
+    "question": "This is Grace question: Sort the words by their silent letter pattern.",
+    "buckets": ["-stle (silent t)", "-dge (silent d)"],
+    "items": [
+      {"text": "Bustle", "category": "-stle (silent t)"},
+      {"text": "Rustle", "category": "-stle (silent t)"},
+      {"text": "Bridge", "category": "-dge (silent d)"},
+      {"text": "Pledge", "category": "-dge (silent d)"}
+    ],
+    "correctAnswer": {
+      "Bustle": "-stle (silent t)",
+      "Rustle": "-stle (silent t)",
+      "Bridge": "-dge (silent d)",
+      "Pledge": "-dge (silent d)"
+    }
+  },
+  {
+    "id": 78,
+    "type": "connect-terms",
+    "category": "Phonics",
+    "question": "This is Grace question: Match the word to its silent letter.",
+    "leftColumn": ["Mortgage", "Sandwich", "Salmon", "Doubt"],
+    "rightColumn": ["Silent t", "Silent d", "Silent l", "Silent b"],
+    "correctAnswer": {
+      "Mortgage": "Silent t",
+      "Sandwich": "Silent d",
+      "Salmon": "Silent l",
+      "Doubt": "Silent b"
+    }
+  },
+  {
+    "id": 79,
+    "type": "short-answer",
+    "category": "Phonics",
+    "question": "This is Grace question: What day of the week has a silent 'd'?",
+    "correctAnswer": "Wednesday"
+  },
+  {
+    "id": 80,
+    "type": "sequence-order",
+    "category": "Phonics",
+    "question": "This is Grace question: Alphabetize these 'dge' words.",
+    "items": ["Badge", "Edge", "Judge", "Knowledge"],
+    "correctAnswer": ["Badge", "Edge", "Judge", "Knowledge"]
+  },
+  {
+    "id": 81,
+    "type": "multiple-choice",
+    "category": "Phonics",
+    "question": "This is Grace question: The digraph 'oo' has two main sounds. What are they?",
+    "answers": [
+      { "text": "Long /u:/ and Short /ʊ/", "feedback": "Correct! (e.g., Moon and Book)" },
+      { "text": "Long /o/ and Short /o/", "feedback": "Incorrect." },
+      { "text": "Silent and pronounced", "feedback": "Incorrect." },
+      { "text": "Only one sound", "feedback": "Incorrect." }
+    ],
+    "correctAnswer": "Long /u:/ and Short /ʊ/"
+  },
+  {
+    "id": 82,
+    "type": "categorize-items",
+    "category": "Phonics",
+    "question": "This is Grace question: Sort these words into Long 'oo' or Short 'oo' sounds.",
+    "buckets": ["Long 'oo'", "Short 'oo'"],
+    "items": [
+      {"text": "Moon", "category": "Long 'oo'"},
+      {"text": "Food", "category": "Long 'oo'"},
+      {"text": "Book", "category": "Short 'oo'"},
+      {"text": "Wood", "category": "Short 'oo'"}
+    ],
+    "correctAnswer": {
+      "Moon": "Long 'oo'",
+      "Food": "Long 'oo'",
+      "Book": "Short 'oo'",
+      "Wood": "Short 'oo'"
+    }
+  },
+  {
+    "id": 83,
+    "type": "true-false",
+    "category": "Phonics",
+    "question": "This is Grace question: The word 'Hook' uses the Long 'oo' sound.",
+    "answers": [
+      { "text": "True", "feedback": "Incorrect. It uses the Short sound." },
+      { "text": "False", "feedback": "Correct!" }
+    ],
+    "correctAnswer": "False"
+  },
+  {
+    "id": 84,
+    "type": "fill-in-the-blank",
+    "category": "Phonics",
+    "question": "This is Grace question: The digraph 'ou' commonly creates an '___/ow/' sound.",
+    "correctAnswer": "ow"
+  },
+  {
+    "id": 85,
+    "type": "spell-it-out",
+    "category": "Phonics",
+    "question": "This is Grace question: Spell the 'ou' word that means a dwelling place.",
+    "correctAnswer": "HOUSE"
+  },
+  {
+    "id": 86,
+    "type": "word-scramble",
+    "category": "Phonics",
+    "question": "This is Grace question: Unscramble this 'ou' word: ODMUH",
+    "correctAnswer": "MOUTH"
+  },
+  {
+    "id": 87,
+    "type": "odd-one-out",
+    "category": "Phonics",
+    "question": "This is Grace question: Which word does NOT contain the 'ou' digraph?",
+    "answers": [
+      { "text": "Shout", "feedback": "Incorrect." },
+      { "text": "Loud", "feedback": "Incorrect." },
+      { "text": "Snow", "feedback": "Correct!" },
+      { "text": "Proud", "feedback": "Incorrect." }
+    ],
+    "correctAnswer": "Snow"
+  },
+  {
+    "id": 88,
+    "type": "short-answer",
+    "category": "Phonics",
+    "question": "This is Grace question: Name an 'ou' word from your notes that means a small rodent.",
+    "correctAnswer": "mouse"
+  },
+  {
+    "id": 89,
+    "type": "connect-terms",
+    "category": "Phonics",
+    "question": "This is Grace question: Match the 'ou' word to its position in the word.",
+    "leftColumn": ["Out", "House", "Outside", "Ground"],
+    "rightColumn": ["Beginning", "Middle", "Beginning", "Middle"],
+    "correctAnswer": {
+      "Out": "Beginning",
+      "House": "Middle",
+      "Outside": "Beginning",
+      "Ground": "Middle"
+    }
+  },
+  {
+    "id": 90,
+    "type": "sequence-order",
+    "category": "Phonics",
+    "question": "This is Grace question: Alphabetize these 'ou' words.",
+    "items": ["Couch", "Count", "Round", "Sound"],
+    "correctAnswer": ["Couch", "Count", "Round", "Sound"]
+  },
+  {
+    "id": 91,
+    "type": "fill-in-the-blank",
+    "category": "Spelling",
+    "question": "This is Grace question: Only one word in the English language ends in 'sede', and it is ___.",
+    "correctAnswer": "supersede"
+  },
+  {
+    "id": 92,
+    "type": "multiple-choice",
+    "category": "Spelling",
+    "question": "This is Grace question: How many English words end with 'ceed'?",
+    "answers": [
+      { "text": "One", "feedback": "Incorrect." },
+      { "text": "Three", "feedback": "Correct! (exceed, proceed, succeed)" },
+      { "text": "Seven", "feedback": "Incorrect." },
+      { "text": "Ten", "feedback": "Incorrect." }
+    ],
+    "correctAnswer": "Three"
+  },
+  {
+    "id": 93,
+    "type": "categorize-items",
+    "category": "Spelling",
+    "question": "This is Grace question: Sort these words by their ending.",
+    "buckets": ["-ceed", "-cede"],
+    "items": [
+      {"text": "Exceed", "category": "-ceed"},
+      {"text": "Proceed", "category": "-ceed"},
+      {"text": "Accede", "category": "-cede"},
+      {"text": "Concede", "category": "-cede"}
+    ],
+    "correctAnswer": {
+      "Exceed": "-ceed",
+      "Proceed": "-ceed",
+      "Accede": "-cede",
+      "Concede": "-cede"
+    }
+  },
+  {
+    "id": 94,
+    "type": "true-false",
+    "category": "Spelling",
+    "question": "This is Grace question: 'Secede' means 'to withdraw'.",
+    "answers": [
+      { "text": "True", "feedback": "Correct!" },
+      { "text": "False", "feedback": "Incorrect." }
+    ],
+    "correctAnswer": "True"
+  },
+  {
+    "id": 95,
+    "type": "short-answer",
+    "category": "Spelling",
+    "question": "This is Grace question: Which '-ceed' word means 'do well'?",
+    "correctAnswer": "succeed"
+  },
+  {
+    "id": 96,
+    "type": "spell-it-out",
+    "category": "Spelling",
+    "question": "This is Grace question: Spell the word ending in '-cede' that means 'go before'.",
+    "correctAnswer": "PRECEDE"
+  },
+  {
+    "id": 97,
+    "type": "word-scramble",
+    "category": "Spelling",
+    "question": "This is Grace question: Unscramble this '-cede' word that means 'mediate': DENTRECIE",
+    "correctAnswer": "INTERCEDE"
+  },
+  {
+    "id": 98,
+    "type": "connect-terms",
+    "category": "Spelling",
+    "question": "This is Grace question: Match the word to its definition.",
+    "leftColumn": ["Accede", "Concede", "Antecede", "Recede"],
+    "rightColumn": ["Give consent", "Agree; give up", "Go before", "Move back"],
+    "correctAnswer": {
+      "Accede": "Give consent",
+      "Concede": "Agree; give up",
+      "Antecede": "Go before",
+      "Recede": "Move back"
+    }
+  },
+  {
+    "id": 99,
+    "type": "odd-one-out",
+    "category": "Spelling",
+    "question": "This is Grace question: Which word does NOT end in '-cede'?",
+    "answers": [
+      { "text": "Accede", "feedback": "Incorrect." },
+      { "text": "Exceed", "feedback": "Correct! It ends in -ceed." },
+      { "text": "Concede", "feedback": "Incorrect." },
+      { "text": "Recede", "feedback": "Incorrect." }
+    ],
+    "correctAnswer": "Exceed"
+  },
+  {
+    "id": 100,
+    "type": "multiple-choice",
+    "category": "Vocabulary",
+    "question": "This is Grace question: According to your notes, what is a 'Bulletin'?",
+    "answers": [
+      { "text": "A long story", "feedback": "Incorrect." },
+      { "text": "A short, official report providing news", "feedback": "Correct!" },
+      { "text": "A type of bird", "feedback": "Incorrect." },
+      { "text": "A burial ceremony", "feedback": "Incorrect." }
+    ],
+    "correctAnswer": "A short, official report providing news"
+  },
+  {
+    "id": 101,
+    "type": "fill-in-the-blank",
+    "category": "Vocabulary",
+    "question": "This is Grace question: A ___ is a building where objects of historical, cultural, or scientific interest are kept.",
+    "correctAnswer": "museum"
+  }
+]
 }
