@@ -11,6 +11,7 @@
   {
     "id": 1,
     "type": "multiple-choice",
+"timer": "infinite",
     "category": "Agricultural Technology",
     "question": "This is Grace question: What is Agricultural Technology (Agritech)?",
     "answers": [
@@ -24,6 +25,7 @@
   {
     "id": 2,
     "type": "categorize-items",
+"timer": "infinite",
     "category": "Agricultural Technology",
     "question": "This is Grace question: Categorize these farming tools into their Agritech types.",
     "buckets": ["Mechanization", "Irrigation"],
@@ -43,6 +45,7 @@
   {
     "id": 3,
     "type": "short-answer",
+"timer": "infinite",
     "category": "Agricultural Technology",
     "question": "This is Grace question: What type of Agritech uses heavy machinery to replace manual labour?",
     "correctAnswer": "Mechanization"
@@ -50,6 +53,7 @@
   {
     "id": 4,
     "type": "true-false",
+"timer": "infinite",
     "category": "Agricultural Technology",
     "question": "This is Grace question: Irrigation systems rely only on rain to supply water to crops.",
     "answers": [
@@ -61,6 +65,7 @@
   {
     "id": 5,
     "type": "fill-in-the-blank",
+"timer": "infinite",
     "category": "Agricultural Technology",
     "question": "This is Grace question: Growing crops in a controlled environment to protect them from bad weather is called ___ house farming.",
     "correctAnswer": "Green"
@@ -68,6 +73,7 @@
   {
     "id": 6,
     "type": "odd-one-out",
+"timer": "infinite",
     "category": "Agricultural Technology",
     "question": "This is Grace question: Which of these is NOT an importance of Agricultural Technology?",
     "answers": [
@@ -81,6 +87,7 @@
   {
     "id": 7,
     "type": "spell-it-out",
+"timer": "infinite",
     "category": "Agricultural Technology",
     "question": "This is Grace question: Spell the word for a heavy machine used in farming.",
     "correctAnswer": "TRACTOR"
@@ -88,6 +95,7 @@
   {
     "id": 8,
     "type": "word-scramble",
+"timer": "infinite",
     "category": "Agricultural Technology",
     "question": "This is Grace question: Unscramble this chemical pest control method: CIIDEPEST",
     "correctAnswer": "PESTICIDE"
@@ -95,6 +103,7 @@
   {
     "id": 9,
     "type": "connect-terms",
+"timer": "infinite",
     "category": "Agricultural Technology",
     "question": "This is Grace question: Match the pest control method to its example.",
     "leftColumn": ["Biological control", "Chemical control", "Physical control"],
@@ -108,6 +117,7 @@
   {
     "id": 10,
     "type": "sequence-order",
+"timer": "infinite",
     "category": "Agricultural Technology",
     "question": "This is Grace question: Arrange these Agritech concepts alphabetically.",
     "items": ["Biological control", "Chemical control", "Green house", "Irrigation"],
@@ -116,6 +126,7 @@
   {
     "id": 11,
     "type": "fill-in-the-blank",
+"timer": "infinite",
     "category": "Division of Labour",
     "question": "This is Grace question: Division of Labour means breaking down work into smaller ___.",
     "correctAnswer": "parts"
@@ -123,6 +134,7 @@
   {
     "id": 12,
     "type": "multiple-choice",
+"timer": "infinite",
     "category": "Division of Labour",
     "question": "This is Grace question: In the bread making example, what does the miller do?",
     "answers": [
@@ -136,6 +148,7 @@
   {
     "id": 13,
     "type": "categorize-items",
+"timer": "infinite",
     "category": "Division of Labour",
     "question": "This is Grace question: Categorize these jobs by where you see them.",
     "buckets": ["School", "Hospital"],
@@ -155,6 +168,7 @@
   {
     "id": 14,
     "type": "connect-terms",
+"timer": "infinite",
     "category": "Division of Labour",
     "question": "This is Grace question: Match the family member to their task at home.",
     "leftColumn": ["Mum", "Dad", "Children"],
@@ -168,6 +182,7 @@
   {
     "id": 15,
     "type": "true-false",
+"timer": "infinite",
     "category": "Division of Labour",
     "question": "This is Grace question: Division of Labour makes work faster because more things get done in less time.",
     "answers": [
@@ -179,6 +194,7 @@
   {
     "id": 16,
     "type": "short-answer",
+"timer": "infinite",
     "category": "Division of Labour",
     "question": "This is Grace question: What disadvantage of Division of Labour refers to doing the same job repeatedly, making it tiring?",
     "correctAnswer": "Monotony"
@@ -186,6 +202,7 @@
   {
     "id": 17,
     "type": "odd-one-out",
+"timer": "infinite",
     "category": "Division of Labour",
     "question": "This is Grace question: Which of these is NOT a disadvantage of Division of Labour?",
     "answers": [
@@ -199,6 +216,7 @@
   {
     "id": 18,
     "type": "spell-it-out",
+"timer": "infinite",
     "category": "Division of Labour",
     "question": "This is Grace question: Spell the word that describes a lack of interest due to repeating the same task.",
     "correctAnswer": "BOREDOM"
@@ -206,6 +224,7 @@
   {
     "id": 19,
     "type": "word-scramble",
+"timer": "infinite",
     "category": "Division of Labour",
     "question": "This is Grace question: Unscramble this Division of Labour benefit: ILKS S",
     "correctAnswer": "SKILLS"
@@ -213,6 +232,7 @@
   {
     "id": 20,
     "type": "sequence-order",
+"timer": "infinite",
     "category": "Division of Labour",
     "question": "This is Grace question: Arrange the Division of Labour steps for making bread in order.",
     "items": ["Farmer grows wheat", "Miller grinds wheat into flour", "Baker bakes bread", "Shopkeeper sells bread"],
@@ -221,6 +241,7 @@
   {
     "id": 21,
     "type": "fill-in-the-blank",
+"timer": "infinite",
     "category": "Soil Erosion",
     "question": "This is Grace question: Soil erosion is the washing away of the ___ soil by water, wind, and other agents.",
     "correctAnswer": "top"
@@ -228,6 +249,7 @@
   {
     "id": 22,
     "type": "multiple-choice",
+"timer": "infinite",
     "category": "Soil Erosion",
     "question": "This is Grace question: Which human activity exposes the soil to erosion?",
     "answers": [
@@ -241,6 +263,7 @@
   {
     "id": 23,
     "type": "categorize-items",
+"timer": "infinite",
     "category": "Soil Erosion",
     "question": "This is Grace question: Sort these items into Agents or Types of Erosion.",
     "buckets": ["Agents", "Types"],
@@ -260,6 +283,7 @@
   {
     "id": 24,
     "type": "short-answer",
+"timer": "infinite",
     "category": "Soil Erosion",
     "question": "This is Grace question: What type of erosion creates deep channels formed by running water?",
     "correctAnswer": "Gully"
@@ -267,6 +291,7 @@
   {
     "id": 25,
     "type": "true-false",
+"timer": "infinite",
     "category": "Soil Erosion",
     "question": "This is Grace question: Soil erosion makes the land become poor for farming because nutrients are lost.",
     "answers": [
@@ -278,6 +303,7 @@
   {
     "id": 26,
     "type": "odd-one-out",
+"timer": "infinite",
     "category": "Soil Erosion",
     "question": "This is Grace question: Which is NOT an effect of soil erosion?",
     "answers": [
@@ -291,6 +317,7 @@
   {
     "id": 27,
     "type": "spell-it-out",
+"timer": "infinite",
     "category": "Soil Erosion",
     "question": "This is Grace question: Spell the prevention method that involves planting trees and cover crops.",
     "correctAnswer": "AFFORESTATION"
@@ -298,6 +325,7 @@
   {
     "id": 28,
     "type": "word-scramble",
+"timer": "infinite",
     "category": "Soil Erosion",
     "question": "This is Grace question: Unscramble this cause of erosion: AIFNR L L",
     "correctAnswer": "RAINFALL"
@@ -324,6 +352,7 @@
   {
     "id": 30,
     "type": "sequence-order",
+"timer": "infinite",
     "category": "Soil Erosion",
     "question": "This is Grace question: Arrange these types of erosion alphabetically.",
     "items": ["Gully Erosion", "Sheet Erosion", "Water Erosion", "Wind Erosion"],
@@ -332,6 +361,7 @@
   {
     "id": 31,
     "type": "short-answer",
+"timer": "infinite",
     "category": "Continents",
     "question": "This is Grace question: How many continents are there in the world?",
     "correctAnswer": "7"
@@ -339,6 +369,7 @@
   {
     "id": 32,
     "type": "multiple-choice",
+"timer": "infinite",
     "category": "Continents",
     "question": "This is Grace question: What was the name of the giant supercontinent millions of years ago?",
     "answers": [
@@ -352,6 +383,7 @@
   {
     "id": 33,
     "type": "fill-in-the-blank",
+"timer": "infinite",
     "category": "Continents",
     "question": "This is Grace question: ___ is the largest continent by land area and population.",
     "correctAnswer": "Asia"
@@ -359,6 +391,7 @@
   {
     "id": 34,
     "type": "true-false",
+"timer": "infinite",
     "category": "Continents",
     "question": "This is Grace question: Africa is nicknamed the 'Mother Continent'.",
     "answers": [
@@ -370,6 +403,7 @@
   {
     "id": 35,
     "type": "sequence-order",
+"timer": "infinite",
     "category": "Continents",
     "question": "This is Grace question: Arrange these continents from largest to smallest.",
     "items": ["Asia", "Africa", "North America", "South America"],
@@ -378,6 +412,7 @@
   {
     "id": 36,
     "type": "connect-terms",
+"timer": "infinite",
     "category": "Continents",
     "question": "This is Grace question: Match the continent to its famous landmark or feature.",
     "leftColumn": ["Africa", "Asia", "South America", "Europe"],
@@ -392,6 +427,7 @@
   {
     "id": 37,
     "type": "odd-one-out",
+"timer": "infinite",
     "category": "Continents",
     "question": "This is Grace question: Which of these is NOT a country in Africa?",
     "answers": [
@@ -405,6 +441,7 @@
   {
     "id": 38,
     "type": "spell-it-out",
+"timer": "infinite",
     "category": "Continents",
     "question": "This is Grace question: Spell the name of the coldest, windiest continent.",
     "correctAnswer": "ANTARCTICA"
@@ -412,6 +449,7 @@
   {
     "id": 39,
     "type": "word-scramble",
+"timer": "infinite",
     "category": "Continents",
     "question": "This is Grace question: Unscramble the smallest continent: USRATALIA",
     "correctAnswer": "AUSTRALIA"
@@ -419,6 +457,7 @@
   {
     "id": 40,
     "type": "categorize-items",
+"timer": "infinite",
     "category": "Continents",
     "question": "This is Grace question: Sort these animals by their continent.",
     "buckets": ["Africa", "Australia", "Antarctica"],
@@ -438,6 +477,7 @@
   {
     "id": 41,
     "type": "multiple-choice",
+"timer": "infinite",
     "category": "Spelling",
     "question": "This is Grace question: What does the Rabbit Rule determine?",
     "answers": [
@@ -451,6 +491,7 @@
   {
     "id": 42,
     "type": "fill-in-the-blank",
+"timer": "infinite",
     "category": "Spelling",
     "question": "This is Grace question: A double consonant occurs when a consonant is used ___ times consecutively.",
     "correctAnswer": "two"
@@ -458,6 +499,7 @@
   {
     "id": 43,
     "type": "true-false",
+"timer": "infinite",
     "category": "Spelling",
     "question": "This is Grace question: Although there are two letters in a double consonant, they usually make only one sound.",
     "answers": [
@@ -469,6 +511,7 @@
   {
     "id": 44,
     "type": "short-answer",
+"timer": "infinite",
     "category": "Spelling",
     "question": "This is Grace question: Which spelling is correct: 'hoping' or 'hopping' when referring to jumping on one foot?",
     "correctAnswer": "hopping"
@@ -476,6 +519,7 @@
   {
     "id": 45,
     "type": "spell-it-out",
+"timer": "infinite",
     "category": "Spelling",
     "question": "This is Grace question: Spell the word for the hot season with a double 'm'.",
     "correctAnswer": "SUMMER"
@@ -483,6 +527,7 @@
   {
     "id": 46,
     "type": "word-scramble",
+"timer": "infinite",
     "category": "Spelling",
     "question": "This is Grace question: Unscramble this double consonant word: UPPYP",
     "correctAnswer": "PUPPY"
@@ -490,6 +535,7 @@
   {
     "id": 47,
     "type": "categorize-items",
+"timer": "infinite",
     "category": "Spelling",
     "question": "This is Grace question: Categorize these words as spelled Correctly or Incorrectly based on your spelling list.",
     "buckets": ["Correct", "Incorrect"],
@@ -509,6 +555,7 @@
   {
     "id": 48,
     "type": "connect-terms",
+"timer": "infinite",
     "category": "Spelling",
     "question": "This is Grace question: Match the correct spelling of the double consonant words.",
     "leftColumn": ["Screeching", "Bullet proof", "Accomplishment", "Rebellion"],
@@ -523,6 +570,7 @@
   {
     "id": 49,
     "type": "sequence-order",
+"timer": "infinite",
     "category": "Spelling",
     "question": "This is Grace question: Arrange these 'cc' words alphabetically.",
     "items": ["Access", "Accuse", "Occasion", "Occur"],
@@ -531,6 +579,7 @@
   {
     "id": 50,
     "type": "odd-one-out",
+"timer": "infinite",
     "category": "Spelling",
     "question": "This is Grace question: Which word does NOT have double 'cc' consonants?",
     "answers": [
@@ -544,6 +593,7 @@
   {
     "id": 51,
     "type": "fill-in-the-blank",
+"timer": "infinite",
     "category": "Spelling",
     "question": "This is Grace question: The 'mm' consonant is often doubled when it immediately follows a ___ vowel sound.",
     "correctAnswer": "short"
@@ -551,6 +601,7 @@
   {
     "id": 52,
     "type": "multiple-choice",
+"timer": "infinite",
     "category": "Spelling",
     "question": "This is Grace question: Which suffix requires doubling the 'm' in 'Swim'?",
     "answers": [
@@ -564,6 +615,7 @@
   {
     "id": 53,
     "type": "true-false",
+"timer": "infinite",
     "category": "Spelling",
     "question": "This is Grace question: 'Drum' + 'er' becomes 'Drummer'.",
     "answers": [
@@ -575,6 +627,7 @@
   {
     "id": 54,
     "type": "short-answer",
+"timer": "infinite",
     "category": "Spelling",
     "question": "This is Grace question: What green vegetable from your spelling list has double 'c'?",
     "correctAnswer": "broccoli"
@@ -582,6 +635,7 @@
   {
     "id": 55,
     "type": "spell-it-out",
+"timer": "infinite",
     "category": "Spelling",
     "question": "This is Grace question: Spell the word that means a pirate, with double 'c' and double 'e'.",
     "correctAnswer": "BUCCANEER"
@@ -589,6 +643,7 @@
   {
     "id": 56,
     "type": "word-scramble",
+"timer": "infinite",
     "category": "Spelling",
     "question": "This is Grace question: Unscramble this double 'cc' word: SCUCESS",
     "correctAnswer": "SUCCESS"
@@ -596,6 +651,7 @@
   {
     "id": 57,
     "type": "odd-one-out",
+"timer": "infinite",
     "category": "Spelling",
     "question": "This is Grace question: Which of these words does NOT have a double 'm'?",
     "answers": [
@@ -609,6 +665,7 @@
   {
     "id": 58,
     "type": "categorize-items",
+"timer": "infinite",
     "category": "Spelling",
     "question": "This is Grace question: Sort the words by their double consonants.",
     "buckets": ["Double C", "Double M"],
@@ -628,6 +685,7 @@
   {
     "id": 59,
     "type": "connect-terms",
+"timer": "infinite",
     "category": "Spelling",
     "question": "This is Grace question: Match the root word to its suffixed form.",
     "leftColumn": ["Hum", "Slim", "Swim", "Drum"],
@@ -642,6 +700,7 @@
   {
     "id": 60,
     "type": "sequence-order",
+"timer": "infinite",
     "category": "Spelling",
     "question": "This is Grace question: Alphabetize these homework words.",
     "items": ["Accommodating", "Ammeter", "Ammunition", "Commemorate"],
@@ -650,6 +709,7 @@
   {
     "id": 61,
     "type": "multiple-choice",
+"timer": "infinite",
     "category": "Phonics",
     "question": "This is Grace question: When does the 'mb' rule say 'b' is silent?",
     "answers": [
@@ -663,6 +723,7 @@
   {
     "id": 62,
     "type": "true-false",
+"timer": "infinite",
     "category": "Phonics",
     "question": "This is Grace question: The 'b' is silent in the word 'plumber'.",
     "answers": [
@@ -674,6 +735,7 @@
   {
     "id": 63,
     "type": "fill-in-the-blank",
+"timer": "infinite",
     "category": "Phonics",
     "question": "This is Grace question: The 'bt' rule applies to words like ___, doubt, and subtle.",
     "correctAnswer": "debt"
@@ -681,6 +743,7 @@
   {
     "id": 64,
     "type": "odd-one-out",
+"timer": "infinite",
     "category": "Phonics",
     "question": "This is Grace question: Which word does NOT have a silent 'b'?",
     "answers": [
@@ -694,6 +757,7 @@
   {
     "id": 65,
     "type": "spell-it-out",
+"timer": "infinite",
     "category": "Phonics",
     "question": "This is Grace question: Spell the word for a young sheep, containing a silent 'b'.",
     "correctAnswer": "LAMB"
@@ -701,6 +765,7 @@
   {
     "id": 66,
     "type": "word-scramble",
+"timer": "infinite",
     "category": "Phonics",
     "question": "This is Grace question: Unscramble this silent 'b' word: BMOC",
     "correctAnswer": "COMB"
@@ -708,6 +773,7 @@
   {
     "id": 67,
     "type": "short-answer",
+"timer": "infinite",
     "category": "Phonics",
     "question": "This is Grace question: Which letter is silent in the word 'Chalk'?",
     "correctAnswer": "l"
@@ -715,6 +781,7 @@
   {
     "id": 68,
     "type": "categorize-items",
+"timer": "infinite",
     "category": "Phonics",
     "question": "This is Grace question: Sort these words by their silent letter.",
     "buckets": ["Silent B", "Silent L"],
@@ -753,6 +820,7 @@
   {
     "id": 70,
     "type": "sequence-order",
+"timer": "infinite",
     "category": "Phonics",
     "question": "This is Grace question: Alphabetize these exceptions where 'l' is PRONOUNCED.",
     "items": ["Bulk", "Fold", "Halo", "Hold"],
@@ -761,6 +829,7 @@
   {
     "id": 71,
     "type": "multiple-choice",
+"timer": "infinite",
     "category": "Phonics",
     "question": "This is Grace question: Which pattern often has a silent 't'?",
     "answers": [
@@ -774,6 +843,7 @@
   {
     "id": 72,
     "type": "fill-in-the-blank",
+"timer": "infinite",
     "category": "Phonics",
     "question": "This is Grace question: The 't' is often silent before '___' or in specific vocabulary like 'often'.",
     "correctAnswer": "en"
@@ -781,6 +851,7 @@
   {
     "id": 73,
     "type": "true-false",
+"timer": "infinite",
     "category": "Phonics",
     "question": "This is Grace question: French loan words like 'ballet' and 'gourmet' have a silent 't' at the end.",
     "answers": [
@@ -792,6 +863,7 @@
   {
     "id": 74,
     "type": "odd-one-out",
+"timer": "infinite",
     "category": "Phonics",
     "question": "This is Grace question: Which word does NOT have a silent 'd'?",
     "answers": [
@@ -805,6 +877,7 @@
   {
     "id": 75,
     "type": "spell-it-out",
+"timer": "infinite",
     "category": "Phonics",
     "question": "This is Grace question: Spell the word containing a silent 'd' that means information or understanding.",
     "correctAnswer": "KNOWLEDGE"
@@ -812,6 +885,7 @@
   {
     "id": 76,
     "type": "word-scramble",
+"timer": "infinite",
     "category": "Phonics",
     "question": "This is Grace question: Unscramble this silent 't' word: TIWSLEH",
     "correctAnswer": "WHISTLE"
@@ -819,6 +893,7 @@
   {
     "id": 77,
     "type": "categorize-items",
+"timer": "infinite",
     "category": "Phonics",
     "question": "This is Grace question: Sort the words by their silent letter pattern.",
     "buckets": ["-stle (silent t)", "-dge (silent d)"],
@@ -838,6 +913,7 @@
   {
     "id": 78,
     "type": "connect-terms",
+"timer": "infinite",
     "category": "Phonics",
     "question": "This is Grace question: Match the word to its silent letter.",
     "leftColumn": ["Mortgage", "Sandwich", "Salmon", "Doubt"],
@@ -852,6 +928,7 @@
   {
     "id": 79,
     "type": "short-answer",
+"timer": "infinite",
     "category": "Phonics",
     "question": "This is Grace question: What day of the week has a silent 'd'?",
     "correctAnswer": "Wednesday"
@@ -859,6 +936,7 @@
   {
     "id": 80,
     "type": "sequence-order",
+"timer": "infinite",
     "category": "Phonics",
     "question": "This is Grace question: Alphabetize these 'dge' words.",
     "items": ["Badge", "Edge", "Judge", "Knowledge"],
@@ -867,6 +945,7 @@
   {
     "id": 81,
     "type": "multiple-choice",
+"timer": "infinite",
     "category": "Phonics",
     "question": "This is Grace question: The digraph 'oo' has two main sounds. What are they?",
     "answers": [
@@ -880,6 +959,7 @@
   {
     "id": 82,
     "type": "categorize-items",
+"timer": "infinite",
     "category": "Phonics",
     "question": "This is Grace question: Sort these words into Long 'oo' or Short 'oo' sounds.",
     "buckets": ["Long 'oo'", "Short 'oo'"],
@@ -899,6 +979,7 @@
   {
     "id": 83,
     "type": "true-false",
+"timer": "infinite",
     "category": "Phonics",
     "question": "This is Grace question: The word 'Hook' uses the Long 'oo' sound.",
     "answers": [
@@ -910,6 +991,7 @@
   {
     "id": 84,
     "type": "fill-in-the-blank",
+"timer": "infinite",
     "category": "Phonics",
     "question": "This is Grace question: The digraph 'ou' commonly creates an '___/ow/' sound.",
     "correctAnswer": "ow"
@@ -917,6 +999,7 @@
   {
     "id": 85,
     "type": "spell-it-out",
+"timer": "infinite",
     "category": "Phonics",
     "question": "This is Grace question: Spell the 'ou' word that means a dwelling place.",
     "correctAnswer": "HOUSE"
@@ -924,6 +1007,7 @@
   {
     "id": 86,
     "type": "word-scramble",
+"timer": "infinite",
     "category": "Phonics",
     "question": "This is Grace question: Unscramble this 'ou' word: ODMUH",
     "correctAnswer": "MOUTH"
@@ -931,6 +1015,7 @@
   {
     "id": 87,
     "type": "odd-one-out",
+"timer": "infinite",
     "category": "Phonics",
     "question": "This is Grace question: Which word does NOT contain the 'ou' digraph?",
     "answers": [
@@ -944,6 +1029,7 @@
   {
     "id": 88,
     "type": "short-answer",
+"timer": "infinite",
     "category": "Phonics",
     "question": "This is Grace question: Name an 'ou' word from your notes that means a small rodent.",
     "correctAnswer": "mouse"
@@ -951,6 +1037,7 @@
   {
     "id": 89,
     "type": "connect-terms",
+"timer": "infinite",
     "category": "Phonics",
     "question": "This is Grace question: Match the 'ou' word to its position in the word.",
     "leftColumn": ["Out", "House", "Outside", "Ground"],
@@ -965,6 +1052,7 @@
   {
     "id": 90,
     "type": "sequence-order",
+"timer": "infinite",
     "category": "Phonics",
     "question": "This is Grace question: Alphabetize these 'ou' words.",
     "items": ["Couch", "Count", "Round", "Sound"],
@@ -973,6 +1061,7 @@
   {
     "id": 91,
     "type": "fill-in-the-blank",
+"timer": "infinite",
     "category": "Spelling",
     "question": "This is Grace question: Only one word in the English language ends in 'sede', and it is ___.",
     "correctAnswer": "supersede"
@@ -980,6 +1069,7 @@
   {
     "id": 92,
     "type": "multiple-choice",
+"timer": "infinite",
     "category": "Spelling",
     "question": "This is Grace question: How many English words end with 'ceed'?",
     "answers": [
@@ -993,6 +1083,7 @@
   {
     "id": 93,
     "type": "categorize-items",
+"timer": "infinite",
     "category": "Spelling",
     "question": "This is Grace question: Sort these words by their ending.",
     "buckets": ["-ceed", "-cede"],
@@ -1012,6 +1103,7 @@
   {
     "id": 94,
     "type": "true-false",
+"timer": "infinite",
     "category": "Spelling",
     "question": "This is Grace question: 'Secede' means 'to withdraw'.",
     "answers": [
@@ -1023,6 +1115,7 @@
   {
     "id": 95,
     "type": "short-answer",
+"timer": "infinite",
     "category": "Spelling",
     "question": "This is Grace question: Which '-ceed' word means 'do well'?",
     "correctAnswer": "succeed"
@@ -1030,6 +1123,7 @@
   {
     "id": 96,
     "type": "spell-it-out",
+"timer": "infinite",
     "category": "Spelling",
     "question": "This is Grace question: Spell the word ending in '-cede' that means 'go before'.",
     "correctAnswer": "PRECEDE"
@@ -1037,6 +1131,7 @@
   {
     "id": 97,
     "type": "word-scramble",
+"timer": "infinite",
     "category": "Spelling",
     "question": "This is Grace question: Unscramble this '-cede' word that means 'mediate': DENTRECIE",
     "correctAnswer": "INTERCEDE"
@@ -1044,6 +1139,7 @@
   {
     "id": 98,
     "type": "connect-terms",
+"timer": "infinite",
     "category": "Spelling",
     "question": "This is Grace question: Match the word to its definition.",
     "leftColumn": ["Accede", "Concede", "Antecede", "Recede"],
@@ -1058,6 +1154,7 @@
   {
     "id": 99,
     "type": "odd-one-out",
+"timer": "infinite",
     "category": "Spelling",
     "question": "This is Grace question: Which word does NOT end in '-cede'?",
     "answers": [
@@ -1071,6 +1168,7 @@
   {
     "id": 100,
     "type": "multiple-choice",
+"timer": "infinite",
     "category": "Vocabulary",
     "question": "This is Grace question: According to your notes, what is a 'Bulletin'?",
     "answers": [
@@ -1084,6 +1182,7 @@
   {
     "id": 101,
     "type": "fill-in-the-blank",
+"timer": "infinite",
     "category": "Vocabulary",
     "question": "This is Grace question: A ___ is a building where objects of historical, cultural, or scientific interest are kept.",
     "correctAnswer": "museum"
