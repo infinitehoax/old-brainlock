@@ -1186,6 +1186,1303 @@
     "category": "Vocabulary",
     "question": "This is Grace question: A ___ is a building where objects of historical, cultural, or scientific interest are kept.",
     "correctAnswer": "museum"
+  },
+  {
+    "id": 102,
+    "type": "multiple-choice",
+    "timer": "infinite",
+    "category": "Grammar & Rules",
+    "question": "This is Amala question: What is Rule 1 for adding the suffix '-ly' to words ending in 'y'?",
+    "answers": [
+      {"text": "Just add 'ly'", "feedback": "Incorrect. That's Rule 3."},
+      {"text": "Change 'y' to 'i' then add 'ly'", "feedback": "Correct!"},
+      {"text": "Change 'y' to 'e' then add 'ly'", "feedback": "Incorrect."},
+      {"text": "Drop the 'y' and add 'ly'", "feedback": "Incorrect."}
+    ],
+    "correctAnswer": "Change 'y' to 'i' then add 'ly'",
+    "generalFeedback": "Example: angry + ly = angrily."
+  },
+  {
+    "id": 103,
+    "type": "true-false",
+    "timer": "infinite",
+    "category": "Grammar & Rules",
+    "question": "This is Amala question: True or False: If a word ends in 'le', you change the 'le' to 'ty' to add the suffix.",
+    "answers": [
+      {"text": "True", "feedback": "Incorrect. You change 'le' to 'ly'."},
+      {"text": "False", "feedback": "Correct! You change 'le' to 'ly'."}
+    ],
+    "correctAnswer": "False",
+    "generalFeedback": "Rule 2 states: For words that end in 'le', change the 'le' to 'ly'. Example: simple -> simply."
+  },
+  {
+    "id": 104,
+    "type": "short-answer",
+    "timer": "infinite",
+    "category": "Phonics & Spelling",
+    "question": "This is Amala question: Complete the word: easy + ly = ?",
+    "correctAnswer": "easily",
+    "generalFeedback": "Change the 'y' to 'i' and add 'ly'."
+  },
+  {
+    "id": 105,
+    "type": "fill-in-the-blank",
+    "timer": "infinite",
+    "category": "Grammar & Rules",
+    "question": "This is Amala question: Rule 3 states: For most other words, just add ___.",
+    "correctAnswer": "ly",
+    "generalFeedback": "Examples: near + ly = nearly, brave + ly = bravely."
+  },
+  {
+    "id": 106,
+    "type": "categorize-items",
+    "timer": "infinite",
+    "category": "Grammar & Rules",
+    "question": "This is Amala question: Sort these base words by the rule they follow when adding '-ly'.",
+    "buckets": ["Change 'y' to 'i'", "Change 'le' to 'ly'"],
+    "items": [
+      {"text": "angry", "category": "Change 'y' to 'i'"},
+      {"text": "simple", "category": "Change 'le' to 'ly'"},
+      {"text": "clumsy", "category": "Change 'y' to 'i'"},
+      {"text": "gentle", "category": "Change 'le' to 'ly'"}
+    ],
+    "correctAnswer": {
+      "angry": "Change 'y' to 'i'",
+      "simple": "Change 'le' to 'ly'",
+      "clumsy": "Change 'y' to 'i'",
+      "gentle": "Change 'le' to 'ly'"
+    }
+  },
+  {
+    "id": 107,
+    "type": "spell-it-out",
+    "timer": "infinite",
+    "category": "Phonics & Spelling",
+    "question": "This is Amala question: Spell the word formed by combining 'safe' and 'ly'.",
+    "correctAnswer": "SAFELY"
+  },
+  {
+    "id": 108,
+    "type": "word-scramble",
+    "timer": "infinite",
+    "category": "Phonics & Spelling",
+    "question": "This is Amala question: Unscramble the adverb: PPYIHAL",
+    "correctAnswer": "HAPPILY",
+    "generalFeedback": "This comes from the base word 'happy'."
+  },
+  {
+    "id": 109,
+    "type": "odd-one-out",
+    "timer": "infinite",
+    "category": "Grammar & Rules",
+    "question": "This is Amala question: Which of these words does NOT follow the 'y to i' rule when adding '-ly'?",
+    "answers": [
+      {"text": "angrily", "feedback": "angry -> angrily (follows rule)"},
+      {"text": "greedily", "feedback": "greedy -> greedily (follows rule)"},
+      {"text": "safely", "feedback": "Correct! safe + ly just adds ly."},
+      {"text": "clumsily", "feedback": "clumsy -> clumsily (follows rule)"}
+    ],
+    "correctAnswer": "safely"
+  },
+  {
+    "id": 110,
+    "type": "connect-terms",
+    "timer": "infinite",
+    "category": "Phonics & Spelling",
+    "question": "This is Amala question: Match the base word to its correct '-ly' adverb.",
+    "leftColumn": ["weary", "fierce", "merry", "heavy"],
+    "rightColumn": ["wearily", "fiercely", "merrily", "heavily"],
+    "correctAnswer": {
+      "weary": "wearily",
+      "fierce": "fiercely",
+      "merry": "merrily",
+      "heavy": "heavily"
+    }
+  },
+  {
+    "id": 111,
+    "type": "short-answer",
+    "timer": "infinite",
+    "category": "Phonics & Spelling",
+    "question": "This is Amala question: Complete the word: proud + ly = ?",
+    "correctAnswer": "proudly"
+  },
+  {
+    "id": 112,
+    "type": "short-answer",
+    "timer": "infinite",
+    "category": "Phonics & Spelling",
+    "question": "This is Amala question: Complete the word: quiet + ly = ?",
+    "correctAnswer": "quietly"
+  },
+  {
+    "id": 113,
+    "type": "short-answer",
+    "timer": "infinite",
+    "category": "Phonics & Spelling",
+    "question": "This is Amala question: Complete the word: wise + ly = ?",
+    "correctAnswer": "wisely"
+  },
+  {
+    "id": 114,
+    "type": "short-answer",
+    "timer": "infinite",
+    "category": "Phonics & Spelling",
+    "question": "This is Amala question: Complete the word: quick + ly = ?",
+    "correctAnswer": "quickly"
+  },
+  {
+    "id": 115,
+    "type": "short-answer",
+    "timer": "infinite",
+    "category": "Phonics & Spelling",
+    "question": "This is Amala question: Complete the word: fierce + ly = ?",
+    "correctAnswer": "fiercely"
+  },
+  {
+    "id": 116,
+    "type": "true-false",
+    "timer": "infinite",
+    "category": "Phonics & Spelling",
+    "question": "This is Amala question: True or False: 'safetly' is the correct spelling of safe + ly.",
+    "answers": [
+      {"text": "True", "feedback": "Incorrect."},
+      {"text": "False", "feedback": "Correct! It is safely."}
+    ],
+    "correctAnswer": "False"
+  },
+  {
+    "id": 117,
+    "type": "true-false",
+    "timer": "infinite",
+    "category": "Phonics & Spelling",
+    "question": "This is Amala question: True or False: 'simplely' is the correct spelling of simple + ly.",
+    "answers": [
+      {"text": "True", "feedback": "Incorrect."},
+      {"text": "False", "feedback": "Correct! It is simply."}
+    ],
+    "correctAnswer": "False",
+    "generalFeedback": "You must drop the 'le' and add 'ly'."
+  },
+  {
+    "id": 118,
+    "type": "multiple-choice",
+    "timer": "infinite",
+    "category": "Phonics & Spelling",
+    "question": "This is Amala question: How do you spell the word formed by adding 'ly' to 'merry'?",
+    "answers": [
+      {"text": "merryly", "feedback": "Incorrect."},
+      {"text": "merrily", "feedback": "Correct!"},
+      {"text": "merily", "feedback": "Incorrect."},
+      {"text": "merryily", "feedback": "Incorrect."}
+    ],
+    "correctAnswer": "merrily"
+  },
+  {
+    "id": 119,
+    "type": "multiple-choice",
+    "timer": "infinite",
+    "category": "Phonics & Spelling",
+    "question": "This is Amala question: What is the correct spelling when you combine clumsy + ly?",
+    "answers": [
+      {"text": "clumsly", "feedback": "Incorrect."},
+      {"text": "clumsyly", "feedback": "Incorrect."},
+      {"text": "clumsily", "feedback": "Correct!"},
+      {"text": "clumzily", "feedback": "Incorrect."}
+    ],
+    "correctAnswer": "clumsily"
+  },
+  {
+    "id": 120,
+    "type": "fill-in-the-blank",
+    "timer": "infinite",
+    "category": "Phonics & Spelling",
+    "question": "This is Amala question: The word 'greedily' comes from the base word ___.",
+    "correctAnswer": "greedy"
+  },
+  {
+    "id": 121,
+    "type": "fill-in-the-blank",
+    "timer": "infinite",
+    "category": "Phonics & Spelling",
+    "question": "This is Amala question: The word 'heavily' comes from the base word ___.",
+    "correctAnswer": "heavy"
+  },
+  {
+    "id": 122,
+    "type": "fill-in-the-blank",
+    "timer": "infinite",
+    "category": "Phonics & Spelling",
+    "question": "This is Amala question: Complete the math: brave + ly = ___.",
+    "correctAnswer": "bravely"
+  },
+  {
+    "id": 123,
+    "type": "fill-in-the-blank",
+    "timer": "infinite",
+    "category": "Phonics & Spelling",
+    "question": "This is Amala question: Complete the math: near + ly = ___.",
+    "correctAnswer": "nearly"
+  },
+  {
+    "id": 124,
+    "type": "fill-in-the-blank",
+    "timer": "infinite",
+    "category": "Phonics & Spelling",
+    "question": "This is Amala question: Complete the math: sudden + ly = ___.",
+    "correctAnswer": "suddenly"
+  },
+  {
+    "id": 125,
+    "type": "word-scramble",
+    "timer": "infinite",
+    "category": "Phonics & Spelling",
+    "question": "This is Amala question: Unscramble the adverb: LYLARE",
+    "correctAnswer": "REALLY"
+  },
+  {
+    "id": 126,
+    "type": "spell-it-out",
+    "timer": "infinite",
+    "category": "Phonics & Spelling",
+    "question": "This is Amala question: Spell the adverb form of 'weary'.",
+    "correctAnswer": "WEARILY"
+  },
+  {
+    "id": 127,
+    "type": "odd-one-out",
+    "timer": "infinite",
+    "category": "Phonics & Spelling",
+    "question": "This is Amala question: Which of these is NOT spelled correctly?",
+    "answers": [
+      {"text": "wisely", "feedback": "Spelled correctly."},
+      {"text": "fiercely", "feedback": "Spelled correctly."},
+      {"text": "gentletly", "feedback": "Correct! It should be 'gently'."},
+      {"text": "safely", "feedback": "Spelled correctly."}
+    ],
+    "correctAnswer": "gentletly"
+  },
+  {
+    "id": 128,
+    "type": "organize-tags",
+    "timer": "infinite",
+    "category": "Phonics & Spelling",
+    "question": "This is Amala question: Put the correctly spelled and incorrectly spelled words in the right buckets.",
+    "buckets": ["Correct", "Incorrect"],
+    "items": [
+      {"text": "happily", "category": "Correct"},
+      {"text": "easyly", "category": "Incorrect"},
+      {"text": "gently", "category": "Correct"},
+      {"text": "simplely", "category": "Incorrect"}
+    ],
+    "correctAnswer": {
+      "happily": "Correct",
+      "easyly": "Incorrect",
+      "gently": "Correct",
+      "simplely": "Incorrect"
+    }
+  },
+  {
+    "id": 129,
+    "type": "sequence-order",
+    "timer": "infinite",
+    "category": "Phonics & Spelling",
+    "question": "This is Amala question: Arrange these '-ly' words in alphabetical order.",
+    "items": ["angrily", "bravely", "clumsily", "safely"],
+    "correctAnswer": ["angrily", "bravely", "clumsily", "safely"]
+  },
+  {
+    "id": 130,
+    "type": "multiple-choice",
+    "timer": "infinite",
+    "category": "Vocabulary",
+    "question": "This is Amala question: What does the prefix 'aqua' mean?",
+    "answers": [
+      {"text": "Hear", "feedback": "Incorrect."},
+      {"text": "Water", "feedback": "Correct!"},
+      {"text": "Air", "feedback": "Incorrect."},
+      {"text": "Far", "feedback": "Incorrect."}
+    ],
+    "correctAnswer": "Water"
+  },
+  {
+    "id": 131,
+    "type": "multiple-choice",
+    "timer": "infinite",
+    "category": "Vocabulary",
+    "question": "This is Amala question: What does the prefix 'audi' mean?",
+    "answers": [
+      {"text": "Small", "feedback": "Incorrect."},
+      {"text": "Above/Greater", "feedback": "Incorrect."},
+      {"text": "Hear", "feedback": "Correct!"},
+      {"text": "Across/Through", "feedback": "Incorrect."}
+    ],
+    "correctAnswer": "Hear"
+  },
+  {
+    "id": 132,
+    "type": "multiple-choice",
+    "timer": "infinite",
+    "category": "Vocabulary",
+    "question": "This is Amala question: What does the prefix 'super' mean?",
+    "answers": [
+      {"text": "Small", "feedback": "Incorrect."},
+      {"text": "Water", "feedback": "Incorrect."},
+      {"text": "Above/Greater", "feedback": "Correct!"},
+      {"text": "Air", "feedback": "Incorrect."}
+    ],
+    "correctAnswer": "Above/Greater"
+  },
+  {
+    "id": 133,
+    "type": "multiple-choice",
+    "timer": "infinite",
+    "category": "Vocabulary",
+    "question": "This is Amala question: What does the prefix 'trans' mean?",
+    "answers": [
+      {"text": "Across/Through", "feedback": "Correct!"},
+      {"text": "Far", "feedback": "Incorrect."},
+      {"text": "Water", "feedback": "Incorrect."},
+      {"text": "Small", "feedback": "Incorrect."}
+    ],
+    "correctAnswer": "Across/Through"
+  },
+  {
+    "id": 134,
+    "type": "multiple-choice",
+    "timer": "infinite",
+    "category": "Vocabulary",
+    "question": "This is Amala question: What does the prefix 'aero' mean?",
+    "answers": [
+      {"text": "Hear", "feedback": "Incorrect."},
+      {"text": "Far", "feedback": "Incorrect."},
+      {"text": "Air", "feedback": "Correct!"},
+      {"text": "Water", "feedback": "Incorrect."}
+    ],
+    "correctAnswer": "Air"
+  },
+  {
+    "id": 135,
+    "type": "multiple-choice",
+    "timer": "infinite",
+    "category": "Vocabulary",
+    "question": "This is Amala question: What does the prefix 'micro' mean?",
+    "answers": [
+      {"text": "Small", "feedback": "Correct!"},
+      {"text": "Above/Greater", "feedback": "Incorrect."},
+      {"text": "Far", "feedback": "Incorrect."},
+      {"text": "Hear", "feedback": "Incorrect."}
+    ],
+    "correctAnswer": "Small"
+  },
+  {
+    "id": 136,
+    "type": "multiple-choice",
+    "timer": "infinite",
+    "category": "Vocabulary",
+    "question": "This is Amala question: What does the prefix 'tele' mean?",
+    "answers": [
+      {"text": "Across/Through", "feedback": "Incorrect."},
+      {"text": "Far", "feedback": "Correct!"},
+      {"text": "Small", "feedback": "Incorrect."},
+      {"text": "Air", "feedback": "Incorrect."}
+    ],
+    "correctAnswer": "Far"
+  },
+  {
+    "id": 137,
+    "type": "connect-terms",
+    "timer": "infinite",
+    "category": "Vocabulary",
+    "question": "This is Amala question: Match the prefix to its correct meaning.",
+    "leftColumn": ["aqua", "audi", "aero", "micro"],
+    "rightColumn": ["water", "hear", "air", "small"],
+    "correctAnswer": {
+      "aqua": "water",
+      "audi": "hear",
+      "aero": "air",
+      "micro": "small"
+    }
+  },
+  {
+    "id": 138,
+    "type": "true-false",
+    "timer": "infinite",
+    "category": "Vocabulary",
+    "question": "This is Amala question: True or False: The prefix 'aero' means water.",
+    "answers": [
+      {"text": "True", "feedback": "Incorrect."},
+      {"text": "False", "feedback": "Correct! Aero means air."}
+    ],
+    "correctAnswer": "False"
+  },
+  {
+    "id": 139,
+    "type": "true-false",
+    "timer": "infinite",
+    "category": "Vocabulary",
+    "question": "This is Amala question: True or False: The prefix 'tele' means far.",
+    "answers": [
+      {"text": "True", "feedback": "Correct! Think of telephone or telescope."},
+      {"text": "False", "feedback": "Incorrect."}
+    ],
+    "correctAnswer": "True"
+  },
+  {
+    "id": 140,
+    "type": "short-answer",
+    "timer": "infinite",
+    "category": "Vocabulary",
+    "question": "This is Amala question: What prefix means 'small'?",
+    "correctAnswer": "micro"
+  },
+  {
+    "id": 141,
+    "type": "short-answer",
+    "timer": "infinite",
+    "category": "Vocabulary",
+    "question": "This is Amala question: What prefix means 'across or through'?",
+    "correctAnswer": "trans"
+  },
+  {
+    "id": 142,
+    "type": "fill-in-the-blank",
+    "timer": "infinite",
+    "category": "Vocabulary",
+    "question": "This is Amala question: An example of a word with the prefix 'aqua' is ___.",
+    "correctAnswer": ["aquarium", "aquatic"]
+  },
+  {
+    "id": 143,
+    "type": "fill-in-the-blank",
+    "timer": "infinite",
+    "category": "Vocabulary",
+    "question": "This is Amala question: An example of a word with the prefix 'tele' is ___.",
+    "correctAnswer": ["telephone", "telegraph"]
+  },
+  {
+    "id": 144,
+    "type": "categorize-items",
+    "timer": "infinite",
+    "category": "Vocabulary",
+    "question": "This is Amala question: Sort these words by their prefix meaning.",
+    "buckets": ["Water (aqua)", "Air (aero)"],
+    "items": [
+      {"text": "Aquatic", "category": "Water (aqua)"},
+      {"text": "Aeroplane", "category": "Air (aero)"},
+      {"text": "Aquarium", "category": "Water (aqua)"},
+      {"text": "Aerobic", "category": "Air (aero)"}
+    ],
+    "correctAnswer": {
+      "Aquatic": "Water (aqua)",
+      "Aeroplane": "Air (aero)",
+      "Aquarium": "Water (aqua)",
+      "Aerobic": "Air (aero)"
+    }
+  },
+  {
+    "id": 145,
+    "type": "organize-tags",
+    "timer": "infinite",
+    "category": "Vocabulary",
+    "question": "This is Amala question: Put these words into buckets by their prefix.",
+    "buckets": ["audi (hear)", "micro (small)"],
+    "items": [
+      {"text": "Auditorium", "category": "audi (hear)"},
+      {"text": "Microphone", "category": "micro (small)"},
+      {"text": "Auditory", "category": "audi (hear)"},
+      {"text": "Microscope", "category": "micro (small)"}
+    ],
+    "correctAnswer": {
+      "Auditorium": "audi (hear)",
+      "Microphone": "micro (small)",
+      "Auditory": "audi (hear)",
+      "Microscope": "micro (small)"
+    }
+  },
+  {
+    "id": 146,
+    "type": "odd-one-out",
+    "timer": "infinite",
+    "category": "Vocabulary",
+    "question": "This is Amala question: Which word does NOT use the prefix 'super' as meaning 'above/greater'?",
+    "answers": [
+      {"text": "Supersonic", "feedback": "Uses the prefix."},
+      {"text": "Supernatural", "feedback": "Uses the prefix."},
+      {"text": "Supper", "feedback": "Correct! Supper is a meal, not a 'super' word."}
+    ],
+    "correctAnswer": "Supper"
+  },
+  {
+    "id": 147,
+    "type": "word-scramble",
+    "timer": "infinite",
+    "category": "Vocabulary",
+    "question": "This is Amala question: Unscramble this 'aero' word: LAAORENEP",
+    "correctAnswer": "AEROPLANE"
+  },
+  {
+    "id": 148,
+    "type": "spell-it-out",
+    "timer": "infinite",
+    "category": "Vocabulary",
+    "question": "This is Amala question: Spell the word that means communicating far away via wire (tele-).",
+    "correctAnswer": "TELEGRAPH"
+  },
+  {
+    "id": 149,
+    "type": "word-scramble",
+    "timer": "infinite",
+    "category": "Vocabulary",
+    "question": "This is Amala question: Unscramble this 'micro' word: CMIORCSEPO",
+    "correctAnswer": "MICROSCOPE"
+  },
+  {
+    "id": 150,
+    "type": "connect-terms",
+    "timer": "infinite",
+    "category": "Vocabulary",
+    "question": "This is Amala question: Match the word to its prefix.",
+    "leftColumn": ["transport", "auditory", "aquarium", "supersonic"],
+    "rightColumn": ["trans", "audi", "aqua", "super"],
+    "correctAnswer": {
+      "transport": "trans",
+      "auditory": "audi",
+      "aquarium": "aqua",
+      "supersonic": "super"
+    }
+  },
+  {
+    "id": 151,
+    "type": "multiple-choice",
+    "timer": "infinite",
+    "category": "Phonics & Spelling",
+    "question": "This is Amala question: What is the correct spelling?",
+    "answers": [
+      {"text": "Auxilary", "feedback": "Incorrect."},
+      {"text": "Orgzilary", "feedback": "Incorrect."},
+      {"text": "Auxiliary", "feedback": "Correct!"},
+      {"text": "Auxillari", "feedback": "Incorrect."}
+    ],
+    "correctAnswer": "Auxiliary"
+  },
+  {
+    "id": 152,
+    "type": "multiple-choice",
+    "timer": "infinite",
+    "category": "Phonics & Spelling",
+    "question": "This is Amala question: What is the correct spelling of the word meaning a signature?",
+    "answers": [
+      {"text": "Autography", "feedback": "Incorrect."},
+      {"text": "Autograph", "feedback": "Correct!"},
+      {"text": "Otograph", "feedback": "Incorrect."},
+      {"text": "Ortograph", "feedback": "Incorrect."}
+    ],
+    "correctAnswer": "Autograph"
+  },
+  {
+    "id": 153,
+    "type": "multiple-choice",
+    "timer": "infinite",
+    "category": "Phonics & Spelling",
+    "question": "This is Amala question: What is the correct spelling for glasses with two optical powers?",
+    "answers": [
+      {"text": "Biforcal", "feedback": "Incorrect."},
+      {"text": "Bifocal", "feedback": "Correct!"},
+      {"text": "Byfocal", "feedback": "Incorrect."},
+      {"text": "Byforcal", "feedback": "Incorrect."}
+    ],
+    "correctAnswer": "Bifocal"
+  },
+  {
+    "id": 154,
+    "type": "multiple-choice",
+    "timer": "infinite",
+    "category": "Phonics & Spelling",
+    "question": "This is Amala question: What is the correct spelling for moving an organ to a new body?",
+    "answers": [
+      {"text": "Trasplant", "feedback": "Incorrect."},
+      {"text": "Transplant", "feedback": "Correct!"},
+      {"text": "Tranzplant", "feedback": "Incorrect."},
+      {"text": "Transplante", "feedback": "Incorrect."}
+    ],
+    "correctAnswer": "Transplant"
+  },
+  {
+    "id": 155,
+    "type": "multiple-choice",
+    "timer": "infinite",
+    "category": "Phonics & Spelling",
+    "question": "This is Amala question: What is the correct spelling for speaking two languages?",
+    "answers": [
+      {"text": "Biliqual", "feedback": "Incorrect."},
+      {"text": "Bilingual", "feedback": "Correct!"},
+      {"text": "Bilingal", "feedback": "Incorrect."},
+      {"text": "Bilinguel", "feedback": "Incorrect."}
+    ],
+    "correctAnswer": "Bilingual"
+  },
+  {
+    "id": 156,
+    "type": "multiple-choice",
+    "timer": "infinite",
+    "category": "Phonics & Spelling",
+    "question": "This is Amala question: What is the correct spelling for dividing into two parts?",
+    "answers": [
+      {"text": "Biset", "feedback": "Incorrect."},
+      {"text": "Bisect", "feedback": "Correct!"},
+      {"text": "Bysect", "feedback": "Incorrect."},
+      {"text": "Bysit", "feedback": "Incorrect."}
+    ],
+    "correctAnswer": "Bisect"
+  },
+  {
+    "id": 157,
+    "type": "multiple-choice",
+    "timer": "infinite",
+    "category": "Phonics & Spelling",
+    "question": "This is Amala question: What is the correct spelling?",
+    "answers": [
+      {"text": "Intermedicate", "feedback": "Incorrect."},
+      {"text": "Intermediate", "feedback": "Correct!"},
+      {"text": "Intermidiate", "feedback": "Incorrect."},
+      {"text": "Inturmediate", "feedback": "Incorrect."}
+    ],
+    "correctAnswer": "Intermediate"
+  },
+  {
+    "id": 158,
+    "type": "multiple-choice",
+    "timer": "infinite",
+    "category": "Phonics & Spelling",
+    "question": "This is Amala question: What is the correct spelling for one of three children born at the same time?",
+    "answers": [
+      {"text": "Threeplat", "feedback": "Incorrect."},
+      {"text": "Triplet", "feedback": "Correct!"},
+      {"text": "Tripplet", "feedback": "Incorrect."},
+      {"text": "Triplat", "feedback": "Incorrect."}
+    ],
+    "correctAnswer": "Triplet"
+  },
+  {
+    "id": 159,
+    "type": "multiple-choice",
+    "timer": "infinite",
+    "category": "Phonics & Spelling",
+    "question": "This is Amala question: What is the correct spelling?",
+    "answers": [
+      {"text": "Trasatlantic", "feedback": "Incorrect."},
+      {"text": "Transatlantic", "feedback": "Correct!"},
+      {"text": "Tranzatlantic", "feedback": "Incorrect."},
+      {"text": "Transatlantik", "feedback": "Incorrect."}
+    ],
+    "correctAnswer": "Transatlantic"
+  },
+  {
+    "id": 160,
+    "type": "multiple-choice",
+    "timer": "infinite",
+    "category": "Phonics & Spelling",
+    "question": "This is Amala question: What is the correct spelling meaning to fill to overflowing?",
+    "answers": [
+      {"text": "Overfew", "feedback": "Incorrect."},
+      {"text": "Overfill", "feedback": "Correct!"},
+      {"text": "Overfil", "feedback": "Incorrect."},
+      {"text": "Overfeel", "feedback": "Incorrect."}
+    ],
+    "correctAnswer": "Overfill"
+  },
+  {
+    "id": 161,
+    "type": "true-false",
+    "timer": "infinite",
+    "category": "Phonics & Spelling",
+    "question": "This is Amala question: True or False: 'Overcrowd' is spelled correctly.",
+    "answers": [
+      {"text": "True", "feedback": "Correct!"},
+      {"text": "False", "feedback": "Incorrect."}
+    ],
+    "correctAnswer": "True"
+  },
+  {
+    "id": 162,
+    "type": "true-false",
+    "timer": "infinite",
+    "category": "Phonics & Spelling",
+    "question": "This is Amala question: True or False: 'Minibus' is spelled correctly.",
+    "answers": [
+      {"text": "True", "feedback": "Correct!"},
+      {"text": "False", "feedback": "Incorrect."}
+    ],
+    "correctAnswer": "True"
+  },
+  {
+    "id": 163,
+    "type": "true-false",
+    "timer": "infinite",
+    "category": "Phonics & Spelling",
+    "question": "This is Amala question: True or False: 'Forehead' is spelled correctly.",
+    "answers": [
+      {"text": "True", "feedback": "Correct!"},
+      {"text": "False", "feedback": "Incorrect."}
+    ],
+    "correctAnswer": "True"
+  },
+  {
+    "id": 164,
+    "type": "true-false",
+    "timer": "infinite",
+    "category": "Phonics & Spelling",
+    "question": "This is Amala question: True or False: 'Interactive' is spelled correctly.",
+    "answers": [
+      {"text": "True", "feedback": "Correct!"},
+      {"text": "False", "feedback": "Incorrect."}
+    ],
+    "correctAnswer": "True"
+  },
+  {
+    "id": 165,
+    "type": "true-false",
+    "timer": "infinite",
+    "category": "Phonics & Spelling",
+    "question": "This is Amala question: True or False: 'Miniskirt' is spelled correctly.",
+    "answers": [
+      {"text": "True", "feedback": "Correct!"},
+      {"text": "False", "feedback": "Incorrect."}
+    ],
+    "correctAnswer": "True"
+  },
+  {
+    "id": 166,
+    "type": "true-false",
+    "timer": "infinite",
+    "category": "Phonics & Spelling",
+    "question": "This is Amala question: True or False: 'Newton' is spelled correctly.",
+    "answers": [
+      {"text": "True", "feedback": "Correct!"},
+      {"text": "False", "feedback": "Incorrect."}
+    ],
+    "correctAnswer": "True"
+  },
+  {
+    "id": 167,
+    "type": "true-false",
+    "timer": "infinite",
+    "category": "Phonics & Spelling",
+    "question": "This is Amala question: True or False: 'Telescope' is spelled correctly.",
+    "answers": [
+      {"text": "True", "feedback": "Correct!"},
+      {"text": "False", "feedback": "Incorrect."}
+    ],
+    "correctAnswer": "True"
+  },
+  {
+    "id": 168,
+    "type": "true-false",
+    "timer": "infinite",
+    "category": "Phonics & Spelling",
+    "question": "This is Amala question: True or False: 'Subway' is spelled correctly.",
+    "answers": [
+      {"text": "True", "feedback": "Correct!"},
+      {"text": "False", "feedback": "Incorrect."}
+    ],
+    "correctAnswer": "True"
+  },
+  {
+    "id": 169,
+    "type": "spell-it-out",
+    "timer": "infinite",
+    "category": "Phonics & Spelling",
+    "question": "This is Amala question: Spell the word for a person who speaks two languages fluently.",
+    "correctAnswer": "BILINGUAL"
+  },
+  {
+    "id": 170,
+    "type": "word-scramble",
+    "timer": "infinite",
+    "category": "Phonics & Spelling",
+    "question": "This is Amala question: Unscramble this word: WAYBUS",
+    "correctAnswer": "SUBWAY"
+  },
+  {
+    "id": 171,
+    "type": "word-scramble",
+    "timer": "infinite",
+    "category": "Phonics & Spelling",
+    "question": "This is Amala question: Unscramble this famous scientist's name: ONWTEN",
+    "correctAnswer": "NEWTON"
+  },
+  {
+    "id": 172,
+    "type": "short-answer",
+    "timer": "infinite",
+    "category": "Phonics & Spelling",
+    "question": "This is Amala question: What is the correct spelling of the word meaning to cut in half? (Starts with B)",
+    "correctAnswer": "Bisect"
+  },
+  {
+    "id": 173,
+    "type": "fill-in-the-blank",
+    "timer": "infinite",
+    "category": "Phonics & Spelling",
+    "question": "This is Amala question: The word is ___skirt.",
+    "correctAnswer": "mini"
+  },
+  {
+    "id": 174,
+    "type": "fill-in-the-blank",
+    "timer": "infinite",
+    "category": "Phonics & Spelling",
+    "question": "This is Amala question: The word is ___scope.",
+    "correctAnswer": "tele"
+  },
+  {
+    "id": 175,
+    "type": "odd-one-out",
+    "timer": "infinite",
+    "category": "Phonics & Spelling",
+    "question": "This is Amala question: Which word is misspelled?",
+    "answers": [
+      {"text": "Subway", "feedback": "Spelled correctly."},
+      {"text": "Newton", "feedback": "Spelled correctly."},
+      {"text": "Minibus", "feedback": "Spelled correctly."},
+      {"text": "trasplant", "feedback": "Correct! It should be transplant."}
+    ],
+    "correctAnswer": "trasplant"
+  },
+  {
+    "id": 176,
+    "type": "connect-terms",
+    "timer": "infinite",
+    "category": "Phonics & Spelling",
+    "question": "This is Amala question: Match the first half of the word to the second half.",
+    "leftColumn": ["Mini", "Over", "Fore", "Sub"],
+    "rightColumn": ["bus", "fill", "head", "way"],
+    "correctAnswer": {
+      "Mini": "bus",
+      "Over": "fill",
+      "Fore": "head",
+      "Sub": "way"
+    }
+  },
+  {
+    "id": 177,
+    "type": "connect-terms",
+    "timer": "infinite",
+    "category": "Phonics & Spelling",
+    "question": "This is Amala question: Match the correct spellings to the incorrect spellings.",
+    "leftColumn": ["Bifocal", "Intermediate", "Triplet", "Auxiliary"],
+    "rightColumn": ["Biforcal", "Intermedicate", "threeplat", "Orgzilary"],
+    "correctAnswer": {
+      "Bifocal": "Biforcal",
+      "Intermediate": "Intermedicate",
+      "Triplet": "threeplat",
+      "Auxiliary": "Orgzilary"
+    }
+  },
+  {
+    "id": 178,
+    "type": "sequence-order",
+    "timer": "infinite",
+    "category": "Phonics & Spelling",
+    "question": "This is Amala question: Order these words alphabetically.",
+    "items": ["Autograph", "Auxiliary", "Bifocal", "Bisect"],
+    "correctAnswer": ["Autograph", "Auxiliary", "Bifocal", "Bisect"]
+  },
+  {
+    "id": 179,
+    "type": "multiple-choice",
+    "timer": "infinite",
+    "category": "Phonics & Spelling",
+    "question": "This is Amala question: How do you spell the word for a passageway between seats?",
+    "answers": [
+      {"text": "isle", "feedback": "That means island."},
+      {"text": "aisle", "feedback": "Correct!"},
+      {"text": "ayle", "feedback": "Incorrect."},
+      {"text": "aiyle", "feedback": "Incorrect."}
+    ],
+    "correctAnswer": "aisle"
+  },
+  {
+    "id": 180,
+    "type": "spell-it-out",
+    "timer": "infinite",
+    "category": "Phonics & Spelling",
+    "question": "This is Amala question: Spell the word for a prickly plant with purple flowers.",
+    "correctAnswer": "THISTLE"
+  },
+  {
+    "id": 181,
+    "type": "word-scramble",
+    "timer": "infinite",
+    "category": "Phonics & Spelling",
+    "question": "This is Amala question: Unscramble this finance word: GTAROMEG",
+    "correctAnswer": "MORTGAGE"
+  },
+  {
+    "id": 182,
+    "type": "fill-in-the-blank",
+    "timer": "infinite",
+    "category": "Phonics & Spelling",
+    "question": "This is Amala question: The word meaning to make slightly wet is ___.",
+    "correctAnswer": "moisten"
+  },
+  {
+    "id": 183,
+    "type": "multiple-choice",
+    "timer": "infinite",
+    "category": "Phonics & Spelling",
+    "question": "This is Amala question: Which of these is spelled correctly?",
+    "answers": [
+      {"text": "parliamentary", "feedback": "Correct!"},
+      {"text": "parlimentry", "feedback": "Incorrect."},
+      {"text": "parleamentary", "feedback": "Incorrect."},
+      {"text": "parlymentary", "feedback": "Incorrect."}
+    ],
+    "correctAnswer": "parliamentary"
+  },
+  {
+    "id": 184,
+    "type": "short-answer",
+    "timer": "infinite",
+    "category": "Phonics & Spelling",
+    "question": "This is Amala question: Spell the sound a fast-moving object makes (Starts with W).",
+    "correctAnswer": "whoosh"
+  },
+  {
+    "id": 185,
+    "type": "true-false",
+    "timer": "infinite",
+    "category": "Phonics & Spelling",
+    "question": "This is Amala question: True or False: 'Chime' is spelled with a C-H.",
+    "answers": [
+      {"text": "True", "feedback": "Correct!"},
+      {"text": "False", "feedback": "Incorrect."}
+    ],
+    "correctAnswer": "True"
+  },
+  {
+    "id": 186,
+    "type": "word-scramble",
+    "timer": "infinite",
+    "category": "Phonics & Spelling",
+    "question": "This is Amala question: Unscramble this loud sound: RIESHK",
+    "correctAnswer": "SHRIEK"
+  },
+  {
+    "id": 187,
+    "type": "spell-it-out",
+    "timer": "infinite",
+    "category": "Phonics & Spelling",
+    "question": "This is Amala question: Spell the word for a low, continuous sound, like a fan.",
+    "correctAnswer": "WHIRRING"
+  },
+  {
+    "id": 188,
+    "type": "multiple-choice",
+    "timer": "infinite",
+    "category": "Phonics & Spelling",
+    "question": "This is Amala question: What is the correct spelling?",
+    "answers": [
+      {"text": "babble", "feedback": "Correct!"},
+      {"text": "bable", "feedback": "Incorrect."},
+      {"text": "babbel", "feedback": "Incorrect."},
+      {"text": "babal", "feedback": "Incorrect."}
+    ],
+    "correctAnswer": "babble"
+  },
+  {
+    "id": 189,
+    "type": "true-false",
+    "timer": "infinite",
+    "category": "Phonics & Spelling",
+    "question": "This is Amala question: True or False: A 'bugle' is a type of instrument.",
+    "answers": [
+      {"text": "True", "feedback": "Correct!"},
+      {"text": "False", "feedback": "Incorrect."}
+    ],
+    "correctAnswer": "True"
+  },
+  {
+    "id": 190,
+    "type": "word-scramble",
+    "timer": "infinite",
+    "category": "Phonics & Spelling",
+    "question": "This is Amala question: Unscramble this word for soft speaking: MURSRMU",
+    "correctAnswer": "MURMURS"
+  },
+  {
+    "id": 191,
+    "type": "short-answer",
+    "timer": "infinite",
+    "category": "Phonics & Spelling",
+    "question": "This is Amala question: Spell the word for a slight, sharp sound, like paper folding.",
+    "correctAnswer": "crinkle"
+  },
+  {
+    "id": 192,
+    "type": "fill-in-the-blank",
+    "timer": "infinite",
+    "category": "Phonics & Spelling",
+    "question": "This is Amala question: The word is cr___ple.",
+    "correctAnswer": "ip"
+  },
+  {
+    "id": 193,
+    "type": "multiple-choice",
+    "timer": "infinite",
+    "category": "Phonics & Spelling",
+    "question": "This is Amala question: Which word is spelled correctly?",
+    "answers": [
+      {"text": "distributer", "feedback": "Incorrect."},
+      {"text": "distributor", "feedback": "Correct!"},
+      {"text": "distrubutor", "feedback": "Incorrect."},
+      {"text": "distribotor", "feedback": "Incorrect."}
+    ],
+    "correctAnswer": "distributor"
+  },
+  {
+    "id": 194,
+    "type": "spell-it-out",
+    "timer": "infinite",
+    "category": "Phonics & Spelling",
+    "question": "This is Amala question: Spell the word for someone who starts a business.",
+    "correctAnswer": "ENTREPRENEUR"
+  },
+  {
+    "id": 195,
+    "type": "word-scramble",
+    "timer": "infinite",
+    "category": "Phonics & Spelling",
+    "question": "This is Amala question: Unscramble this business word: ARWLHEOELSS",
+    "correctAnswer": "WHOLESALERS"
+  },
+  {
+    "id": 196,
+    "type": "true-false",
+    "timer": "infinite",
+    "category": "Phonics & Spelling",
+    "question": "This is Amala question: True or False: 'Saxophone' is spelled with an 'x' and 'ph'.",
+    "answers": [
+      {"text": "True", "feedback": "Correct!"},
+      {"text": "False", "feedback": "Incorrect."}
+    ],
+    "correctAnswer": "True"
+  },
+  {
+    "id": 197,
+    "type": "short-answer",
+    "timer": "infinite",
+    "category": "Phonics & Spelling",
+    "question": "This is Amala question: Spell the subject that studies the earth and its features.",
+    "correctAnswer": "geography"
+  },
+  {
+    "id": 198,
+    "type": "fill-in-the-blank",
+    "timer": "infinite",
+    "category": "Phonics & Spelling",
+    "question": "This is Amala question: The punctuation mark (-) is called a ___.",
+    "correctAnswer": "hyphen"
+  },
+  {
+    "id": 199,
+    "type": "multiple-choice",
+    "timer": "infinite",
+    "category": "Vocabulary",
+    "question": "This is Amala question: What is the correct spelling of the opposite of an advantage?",
+    "answers": [
+      {"text": "disadvantege", "feedback": "Incorrect."},
+      {"text": "disadvantage", "feedback": "Correct!"},
+      {"text": "dissadvantage", "feedback": "Incorrect."},
+      {"text": "disadvanteg", "feedback": "Incorrect."}
+    ],
+    "correctAnswer": "disadvantage"
+  },
+  {
+    "id": 200,
+    "type": "spell-it-out",
+    "timer": "infinite",
+    "category": "Vocabulary",
+    "question": "This is Amala question: Spell the word 'inattentive'.",
+    "correctAnswer": "INATTENTIVE"
+  },
+  {
+    "id": 201,
+    "type": "word-scramble",
+    "timer": "infinite",
+    "category": "Vocabulary",
+    "question": "This is Amala question: Unscramble this science word: CNOALRFITI",
+    "correctAnswer": "FRICTIONAL"
+  },
+  {
+    "id": 202,
+    "type": "multiple-choice",
+    "timer": "infinite",
+    "category": "Vocabulary",
+    "question": "This is Amala question: Which is the correct spelling?",
+    "answers": [
+      {"text": "Magnetism", "feedback": "Correct!"},
+      {"text": "Magnitism", "feedback": "Incorrect."},
+      {"text": "Magnetizm", "feedback": "Incorrect."},
+      {"text": "Magnotism", "feedback": "Incorrect."}
+    ],
+    "correctAnswer": "Magnetism"
+  },
+  {
+    "id": 203,
+    "type": "true-false",
+    "timer": "infinite",
+    "category": "Vocabulary",
+    "question": "This is Amala question: True or False: 'gravitational' is spelled correctly.",
+    "answers": [
+      {"text": "True", "feedback": "Correct!"},
+      {"text": "False", "feedback": "Incorrect."}
+    ],
+    "correctAnswer": "True"
+  },
+  {
+    "id": 204,
+    "type": "multiple-choice",
+    "timer": "infinite",
+    "category": "Vocabulary",
+    "question": "This is Amala question: What is the correct spelling of the eye condition meaning farsightedness?",
+    "answers": [
+      {"text": "Presbyopre", "feedback": "Incorrect."},
+      {"text": "Presbyopia", "feedback": "Correct!"},
+      {"text": "Presbiopia", "feedback": "Incorrect."},
+      {"text": "Prezbyopia", "feedback": "Incorrect."}
+    ],
+    "correctAnswer": "Presbyopia"
+  },
+  {
+    "id": 205,
+    "type": "word-scramble",
+    "timer": "infinite",
+    "category": "Vocabulary",
+    "question": "This is Amala question: Unscramble this eye anatomy word: VIETSROU",
+    "correctAnswer": "VITREOUS"
+  },
+  {
+    "id": 206,
+    "type": "multiple-choice",
+    "timer": "infinite",
+    "category": "Vocabulary",
+    "question": "This is Amala question: What is the correct spelling of the membrane in the eye?",
+    "answers": [
+      {"text": "conjuctiva", "feedback": "Incorrect."},
+      {"text": "conjunctiva", "feedback": "Correct!"},
+      {"text": "conjuntiva", "feedback": "Incorrect."},
+      {"text": "cunjunctiva", "feedback": "Incorrect."}
+    ],
+    "correctAnswer": "conjunctiva"
+  },
+  {
+    "id": 207,
+    "type": "spell-it-out",
+    "timer": "infinite",
+    "category": "Vocabulary",
+    "question": "This is Amala question: Spell the medical term for nearsightedness.",
+    "correctAnswer": "MYOPIA"
+  },
+  {
+    "id": 208,
+    "type": "multiple-choice",
+    "timer": "infinite",
+    "category": "Vocabulary",
+    "question": "This is Amala question: What is the correct spelling?",
+    "answers": [
+      {"text": "Unnygenic", "feedback": "Incorrect."},
+      {"text": "unhygienic", "feedback": "Correct!"},
+      {"text": "unhygenic", "feedback": "Incorrect."},
+      {"text": "unhygeinic", "feedback": "Incorrect."}
+    ],
+    "correctAnswer": "unhygienic"
+  },
+  {
+    "id": 209,
+    "type": "categorize-items",
+    "timer": "infinite",
+    "category": "Vocabulary",
+    "question": "This is Amala question: Sort these sound words vs science words.",
+    "buckets": ["Sound Words", "Science Words"],
+    "items": [
+      {"text": "Whoosh", "category": "Sound Words"},
+      {"text": "Magnetism", "category": "Science Words"},
+      {"text": "Chime", "category": "Sound Words"},
+      {"text": "Myopia", "category": "Science Words"}
+    ],
+    "correctAnswer": {
+      "Whoosh": "Sound Words",
+      "Magnetism": "Science Words",
+      "Chime": "Sound Words",
+      "Myopia": "Science Words"
+    }
+  },
+  {
+    "id": 210,
+    "type": "odd-one-out",
+    "timer": "infinite",
+    "category": "Vocabulary",
+    "question": "This is Amala question: Which is NOT a sound word?",
+    "answers": [
+      {"text": "Shriek", "feedback": "Shriek is a sound."},
+      {"text": "Murmurs", "feedback": "Murmur is a sound."},
+      {"text": "Whirring", "feedback": "Whirring is a sound."},
+      {"text": "Hyphen", "feedback": "Correct! Hyphen is a punctuation mark."}
+    ],
+    "correctAnswer": "Hyphen"
+  },
+  {
+    "id": 211,
+    "type": "sequence-order",
+    "timer": "infinite",
+    "category": "Vocabulary",
+    "question": "This is Amala question: Order these words alphabetically.",
+    "items": ["Magnetism", "Moisten", "Mortgage", "Myopia"],
+    "correctAnswer": ["Magnetism", "Moisten", "Mortgage", "Myopia"]
+  },
+  {
+    "id": 212,
+    "type": "organize-tags",
+    "timer": "infinite",
+    "category": "Vocabulary",
+    "question": "This is Amala question: Sort these words by their starting letter type.",
+    "buckets": ["Vowel Starters", "Consonant Starters"],
+    "items": [
+      {"text": "aisle", "category": "Vowel Starters"},
+      {"text": "entrepreneur", "category": "Vowel Starters"},
+      {"text": "bugle", "category": "Consonant Starters"},
+      {"text": "chime", "category": "Consonant Starters"}
+    ],
+    "correctAnswer": {
+      "aisle": "Vowel Starters",
+      "entrepreneur": "Vowel Starters",
+      "bugle": "Consonant Starters",
+      "chime": "Consonant Starters"
+    }
+  },
+  {
+    "id": 213,
+    "type": "fill-in-the-blank",
+    "timer": "infinite",
+    "category": "General Knowledge",
+    "question": "This is Amala question: According to the fun fact on your book, the opposite sides of a dice always add up to ___.",
+    "correctAnswer": "seven"
+  },
+  {
+    "id": 214,
+    "type": "multiple-choice",
+    "timer": "infinite",
+    "category": "General Knowledge",
+    "question": "This is Amala question: Based on the notebook cover fun fact, what do the opposite sides of a dice add up to?",
+    "answers": [
+      {"text": "Six", "feedback": "Incorrect."},
+      {"text": "Seven", "feedback": "Correct! The opposite sides always equal 7."},
+      {"text": "Eight", "feedback": "Incorrect."},
+      {"text": "Ten", "feedback": "Incorrect."}
+    ],
+    "correctAnswer": "Seven"
   }
 ]
 }
