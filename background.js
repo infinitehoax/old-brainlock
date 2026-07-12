@@ -497,13 +497,31 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
  * Helper to check if current time is within active hours window
  */
 function isWithinActiveHours(activeHours) {
-  if (!activeHours || !activeHours.start || !activeHours.end) return true;
+  if (!activeHours) return true;
 
   const now = new Date();
   const currentTime = now.getHours() * 60 + now.getMinutes();
 
-  const [startH, startM] = activeHours.start.split(':').map(Number);
-  const [endH, endM] = activeHours.end.split(':').map(Number);
+  // Determine which activeHours config to use:
+  // If there's a day-specific config, use that.
+  // Otherwise, if there is a 'start' and 'end', use the direct config.
+  // Otherwise, default to true (no restrictions).
+  let hours = null;
+
+  if (activeHours.start && activeHours.end) {
+    hours = activeHours;
+  } else {
+    const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    const todayDayName = daysOfWeek[now.getDay()];
+    if (activeHours[todayDayName]) {
+      hours = activeHours[todayDayName];
+    }
+  }
+
+  if (!hours || !hours.start || !hours.end) return true;
+
+  const [startH, startM] = hours.start.split(':').map(Number);
+  const [endH, endM] = hours.end.split(':').map(Number);
 
   const startTime = startH * 60 + startM;
   const endTime = endH * 60 + endM;
